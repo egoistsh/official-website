@@ -94,6 +94,14 @@ export default new Router({
           meta: {
             title: '相关服务'
           }
+        },
+        {
+          path: '/productShow',
+          name: 'productShow',
+          component: resolve => require(['@/view/ServiceDetail'],resolve),
+          meta: {
+            title: '产品展示'
+          }
         }
       ]
     }

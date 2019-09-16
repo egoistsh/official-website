@@ -6,11 +6,11 @@
       <div class="container">
         <div class="server pull-left">
           <span class="glyphicon glyphicon-earphone"></span>888-888-888
-          <span class="glyphicon glyphicon-envelope"></span>liyunkun_11@163.com
+          <span class="glyphicon glyphicon-envelope"></span>g_billy@163.com
           <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
         </div>
         <div class="shejiao pull-right">
-          <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！
+          <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！{{$t('nav.home')}}<botton v-on:click="changeLanguage('en')">change</botton>
           <span class="glyphicon glyphicon-hand-left"></span>
         </div>
       </div>
@@ -86,13 +86,13 @@ export default {
       navIndex: sessionStorage.getItem('navIndex') ? sessionStorage.getItem('navIndex') : 0,
       menuName: "首页",
       menuClass: "glyphicon glyphicon-menu-down",
-      navList: [
+      /*navList: [
         {
-          name: "首页",
+          name: this.$t('nav.home'),
           path: "/",
           children: []
         },
-        {
+        /!*{
           name: "软件产品",
           path: "/software",
           children: [
@@ -130,10 +130,111 @@ export default {
           name: "联系我们",
           path: "/contactus",
           children: []
-        }
-      ]
+        },*!/
+        {
+          name: "关于我们",
+          path: "/companyintroduction",
+          children: []
+        },
+        {
+          name: "产品展示",
+          path: "/productShow",
+          children: []
+        },
+        {
+          name: "品牌形象",
+          path: "/brandImage",
+          children: []
+        },
+        {
+          name: "MYD咨询",
+          path: "/informationMyd",
+          children: []
+        },
+        {
+          name: "联系我们",
+          path: "/contactus",
+          children: []
+        },
+      ],*/
     };
   },
+  computed:{
+    navList(){
+      return [
+        {
+          name: this.$t('nav.home'),
+          path: "/",
+          children: []
+        },
+        /*{
+          name: "软件产品",
+          path: "/software",
+          children: [
+            {
+              name: "智能小镇管理系统",
+              path: "/software/smartTown"
+            },
+            {
+              name: "大数据管理系统",
+              path: "/software/bigData"
+            }
+          ]
+        },
+        {
+          name: "相关服务",
+          path: "/service",
+          children: []
+        },
+        {
+          name: "新闻动态",
+          path: "/newsinformation",
+          children: []
+        },
+        {
+          name: "公司介绍",
+          path: "/companyintroduction",
+          children: []
+        },
+        {
+          name: "工作机会",
+          path: "/jobchance",
+          children: []
+        },
+        {
+          name: "联系我们",
+          path: "/contactus",
+          children: []
+        },*/
+        {
+          name: this.$t('nav.companyintroduction'),
+          path: "/companyintroduction",
+          children: []
+        },
+        {
+          name: "产品展示",
+          path: "/productShow",
+          children: []
+        },
+        {
+          name: "品牌形象",
+          path: "/brandImage",
+          children: []
+        },
+        {
+          name: "MYD咨询",
+          path: "/informationMyd",
+          children: []
+        },
+        {
+          name: "联系我们",
+          path: "/contactus",
+          children: []
+        },
+      ]
+    },
+
+    },
   methods: {
     navClick(index, name) {
       this.navIndex = index;
@@ -146,6 +247,9 @@ export default {
       } else {
         this.menuClass = "glyphicon glyphicon-menu-down";
       }
+    },
+    changeLanguage(language){
+      this.$i18n.locale = language
     }
   }
 };
