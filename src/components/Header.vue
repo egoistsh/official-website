@@ -19,7 +19,7 @@
     <div class="header-nav container hidden-xs">
       <!-- 导航logo -->
       <div class="header-nav-logo">
-        <img src="@/assets/img/logo_black.png">
+        <img src="@/assets/img/logo.gif">
       </div>
       <!-- 导航内容 -->
       <ul class="header-nav-wrapper">
@@ -257,7 +257,7 @@ export default {
 <style scoped>
 /* 顶部 */
 #header {
-  background: #f4f4f4;
+  background: #FFFFFF;
   transition: all ease 0.6s;
 }
 #header .header-top {
@@ -265,7 +265,7 @@ export default {
   color: #fff;
   font-size: 12px;
   line-height: 50px;
-  background: #474747;
+  background: #007dbb;
 }
 /* 顶部的图标 */
 #header .header-top span {

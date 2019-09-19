@@ -29,7 +29,7 @@ export default {
   width: 100%;
   height: 100%;
   color: #fff;
-  background: #474747;
+  background: #007dbb;
   overflow: hidden;
   text-align: center;
 }
