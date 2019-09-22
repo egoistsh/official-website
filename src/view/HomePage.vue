@@ -5,12 +5,12 @@
       <div class="swiper-container banner-swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
-            <img class="swiper-lazy" :data-src="item.img" alt="轮播图">
+            <a href="#"><img class="swiper-lazy" :data-src="item.img" alt="轮播图"></a>
             <div class="swiper-lazy-preloader"></div>
-            <div class="swiper-slide-title">
+            <!--<div class="swiper-slide-title">
                 <h1>{{item.title}}</h1>
                 <p>{{item.content}}</p>
-            </div>
+            </div>-->
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -25,17 +25,20 @@
     <div id="bigData" class="container-fuild">
       <div class="row bigData-container">
         <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
-          <img class="img-responsive" src="@/assets/img/img1.png" alt="大数据管理系统">
+          <a href="#"><img class="img-responsive" src="@/assets/img/sch-banner.jpg" alt="banner"></a>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6">
-          <h2 class="bigData-title">
+          <!--<h2 class="bigData-title">
             大数据管理系统
             <small>/ Big Data Management System</small>
           </h2>
           <p>当今最领先的响应式自助建站平台。无论您是普通互联网用户，还是专业网站制作人员，都能使用起飞页设计出最具专业水准的网站。想创建一个简单的单页式站点，还是一个专业的公司网站，亦或是一个别具一格的博客？起飞页可以满足您的所有需求。</p>
           <p>我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护成为一件轻松惬意的事。无论您是普通互联网用户，还是专业网站制作人员。</p>
           <h2 class="bigData-device">PC/PAD/Phone &nbsp; 全设备支持</h2>
-          <a href="#" class="btn btn-lg btn-block btn-info">联系我们</a>
+          <a href="#" class="btn btn-lg btn-block btn-info">联系我们</a>-->
+          <video width="100%" height="auto" controls>
+            <source src="movie.mp4"  type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -50,9 +53,9 @@
           onmouseenter="this.style.backgroundColor='transparent'; this.style.borderColor='#ffffff'; this.style.color='#ffffff';"
         >联系我们</button>
         <div class="contactUs-contactWay">
-          <span></span>
-          <span></span>
-          <span></span>
+          <a href="http://weixin.com"><span></span></a>
+          <a href="http://weibo.com"><span></span></a>
+          <a href="http://taobao.com"><span></span></a>
         </div>
       </div>
     </div>
@@ -143,7 +146,7 @@ export default {
     return {
       swiperList: [
         {
-          img: require("@/assets/img/banner1.png"),
+          img: require("@/assets/img/banner1.jpg"),
           path: "",
           title: '您身边的IT专家1',
           content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
@@ -155,15 +158,9 @@ export default {
           content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
         },
         {
-          img: require("@/assets/img/banner1.png"),
+          img: require("@/assets/img/banner3.jpg"),
           path: "",
           title: '您身边的IT专家3',
-          content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
-        },
-        {
-          img: require("@/assets/img/banner2.jpg"),
-          path: "",
-          title: '您身边的IT专家4',
           content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
         }
       ],
@@ -418,15 +415,15 @@ export default {
   height: 48px;
   margin: 30px;
 }
-#contactUs .contactUs-container .contactUs-contactWay span:nth-of-type(1) {
+#contactUs .contactUs-container .contactUs-contactWay a:nth-of-type(1) span {
   background: url("../assets/img/weixin.png") 0 0 no-repeat;
   background-size: 100% 100%;
 }
-#contactUs .contactUs-container .contactUs-contactWay span:nth-of-type(2) {
+#contactUs .contactUs-container .contactUs-contactWay a:nth-of-type(2) span {
   background: url("../assets/img/weibo.png") 0 0 no-repeat;
   background-size: 100% 100%;
 }
-#contactUs .contactUs-container .contactUs-contactWay span:nth-of-type(3) {
+#contactUs .contactUs-container .contactUs-contactWay a:nth-of-type(3) span {
   background: url("../assets/img/twitter.png") 0 0 no-repeat;
   background-size: 100% 100%;
 }
@@ -623,6 +620,10 @@ export default {
   }
   #whyChooseUs {
     padding: 20px 0;
+  }
+
+  video {
+    /*object-fit: fill;*/
   }
 }
 </style>

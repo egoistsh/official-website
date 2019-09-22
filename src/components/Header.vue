@@ -19,7 +19,8 @@
     <div class="header-nav container hidden-xs">
       <!-- 导航logo -->
       <div class="header-nav-logo">
-        <img src="@/assets/img/logo.gif">
+<!--        <img src="@/assets/img/logo.gif">-->
+        <img src="@/assets/img/unilever-logo.svg">
       </div>
       <!-- 导航内容 -->
       <ul class="header-nav-wrapper">
@@ -285,7 +286,8 @@ export default {
 /* 导航栏logo图片 */
 #header .header-nav .header-nav-logo img {
   width: 95px;
-  height: 45px;
+  /*height: 45px;*/
+  height: 80px;
   position: absolute;
   top: 0;
   left: 0;
