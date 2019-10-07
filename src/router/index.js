@@ -102,6 +102,47 @@ export default new Router({
           meta: {
             title: '产品展示'
           }
+        },
+        {
+          path: '/live',
+          name: 'live',
+          component: resolve => require(['@/view/News'], resolve),
+          meta: {
+            title: '动态'
+          },
+          children: [
+            {
+              path: '/live',
+              redirect: '/live/news'
+            },
+            {
+              path: '/live/latest',
+              name: 'latest',
+              component: resolve => require(['@/view/Software_smartTown'], resolve),
+              meta: {
+                title: '最新活动'
+              }
+            },
+            {
+              path: '/live/news',
+              name: 'news',
+              component: resolve => require(['@/view/Software_bigData'], resolve),
+              meta: {
+                title: '新闻事件'
+              }
+            }
+          ]
+        },
+        {
+          path: '/articleDetail/:id',
+          name: 'articleDetail',
+          component: resolve => require(['@/view/ArticleDetail'], resolve),
+          meta: {
+            title: '文章详情'
+          },
+          props:(route) => ({
+            articleId:route.params.id
+          })
         }
       ]
     }

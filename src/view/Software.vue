@@ -11,7 +11,7 @@
             </div>
             <div id="right" class="col-md-8 col-xs-12  wow bounceInRight">
                 <router-view></router-view>
-            </div>
+            </div>tt
         </div>
     </div>
 </template>

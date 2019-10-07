@@ -5,7 +5,10 @@ module.exports = {
     productShow:'Product Show',
     brandImage:'Brand Image',
     informationMyd:'MYD Information',
-    contactus:'Contact Us'
+    contactus:'Contact Us',
+    live:'Live',
+    latest:'Latest Activity',
+    news:'News',
   },
   confirm: {
     ok: '确认',
