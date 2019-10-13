@@ -143,6 +143,14 @@ export default new Router({
           props:(route) => ({
             articleId:route.params.id
           })
+        },
+        {
+          path: '/dessertStation',
+          name: 'dessertStation',
+          component: resolve => require(['@/view/DessertStation'], resolve),
+          meta: {
+            title: '甜品站'
+          }
         }
       ]
     }

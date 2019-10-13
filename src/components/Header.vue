@@ -232,23 +232,23 @@
             children: []
           },*/
           {
+            name: this.$t('nav.dessertStation'),
+            path: '/dessertStation',
+            children: [],
+          },
+          /*{
             name: this.$t('nav.companyintroduction'),
             path: '/companyintroduction',
             children: [],
-          },
-          {
+          },*/
+          /*{
             name: '产品展示',
             path: '/productShow',
             children: [],
-          },
+          },*/
           {
-            name: '品牌形象',
-            path: '/brandImage',
-            children: [],
-          },
-          {
-            name: 'MYD咨询',
-            path: '/informationMyd',
+            name: this.$t('nav.brandStory'),
+            path: '/service',
             children: [],
           },
           {
@@ -266,7 +266,7 @@
             ],
           },
           {
-            name: '联系我们',
+            name: this.$t('nav.contactus'),
             path: '/contactus',
             children: [],
           },
