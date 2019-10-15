@@ -1,11 +1,11 @@
 <template>
   <div id="ServiceDetail">
-    <div class="banner container-fuild text-center">相关服务</div>
+    <div class="banner container-fuild text-center">品牌故事</div>
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3" id="myScrollspy">
           <ul class="nav nav-tabs nav-stacked center-block" id="myNav">
-            <p>特色服务</p>
+            <p>品牌服务</p>
             <li
               :class="item.id==id?'active':''"
               v-for="(item,index) in serviceNavList"
@@ -38,19 +38,19 @@ export default {
       serviceNavList: [
         {
           id: "section-1",
-          title: "软件定制开发"
+          title: "品牌含义"
         },
         {
           id: "section-2",
-          title: "IT外包服务"
+          title: "MYD理念"
         },
         {
           id: "section-3",
-          title: "网上商城建设"
+          title: "品牌历程"
         },
         {
           id: "section-4",
-          title: "iOS应用定制开发"
+          title: "XXX"
         }
       ],
       serviceContentList: [

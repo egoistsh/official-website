@@ -45,8 +45,8 @@
     <!-- 您身边的IT专家 -->
     <div id="contactUs" class="container-fuild text-center">
       <div class="container contactUs-container wow slideInUp">
-        <h1>您身边的IT专家</h1>
-        <h3>7x24小时提供出色的IT服务</h3>
+        <h1>Title</h1>
+        <h3>SubTitle</h3>
         <button
           class="btn btn-default btn-sm"
           onmouseleave="this.style.borderColor='#ffffff'; this.style.backgroundColor='#ffffff'; this.style.color='#3f3f3f';"
@@ -63,7 +63,7 @@
     <!-- 客户评价 -->
     <div id="customer" class="container-fuild">
       <div class="container customer-container">
-        <p class="customer-title text-center">客户评价</p>
+        <p class="customer-title text-center">Title</p>
         <div class="swiper-container customer-swiper hidden-xs">
           <div class="swiper-wrapper">
             <div
@@ -109,7 +109,7 @@
     <div id="whyChooseUs" class="conatiner-fuild">
       <div class="container">
         <div class="whyChooseUs-title text-center">
-          <p>为什么选择我们的服务</p>
+          <p>为什么选择我们</p>
           <p>THE REASON TO CHOOSING US</p>
         </div>
         <div class="row">
@@ -224,7 +224,7 @@
             content:
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
           },
-          {
+          /*{
             logo: require('@/assets/img/logo_toyota.png'),
             title:
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
@@ -251,28 +251,28 @@
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
             content:
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
+          },*/
         ],
         serverList: [
           {
             logo: require('@/assets/img/tel.png'),
-            title: '核心优势1',
-            content: '<p>由专业客服提供人工服务</p>负责疑难问题和故障受理',
+            title: 'XXX',
+            content: '<p>XXX</p>XXX',
           },
           {
             logo: require('@/assets/img/computer.png'),
-            title: '核心优势2',
-            content: '<p>利用远程视频工具，提供协助</p>帮助客户进行调试、解决故障',
+            title: 'XXX',
+            content: '<p>XXX</p>XXX',
           },
           {
             logo: require('@/assets/img/qq.png'),
-            title: '核心优势3',
-            content: '<p>利用企业QQ提供在线解答</p>帮助企业快速准确解决问题和故障',
+            title: 'XXX',
+            content: '<p>XXX</p>XXX',
           },
           {
             logo: require('@/assets/img/skill.png'),
-            title: '核心优势4',
-            content: '<p>由技术支持工程师，负责问题解答</p>需求受理及故障受理',
+            title: 'XXX4',
+            content: '<p>XXX</p>XXX',
           },
         ],
       }

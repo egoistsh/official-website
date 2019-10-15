@@ -1,12 +1,12 @@
 <template>
     <div id="Service">
         <div class="container text-center">
-            <h3>我们的服务</h3>
-            <p style="color:#b2b2b2">The Best Service You Never See</p>
+            <h3>品牌故事</h3>
+            <p style="color:#b2b2b2">The Brand Story</p>
         </div>
         <div class="container">
             <div class="Service-container row">
-                <div class="Service-item col-xs-12 col-sm-6 col-md-3 wow slideInUp" 
+                <div class="Service-item col-xs-12 col-sm-6 col-md-3 wow slideInUp"
                 v-for="(item,index) in serviceList" :key="index" @click="ServiceClick(item.id)">
                     <div class="Service-item-wrapper">
                         <div class="Service-item-top">
@@ -33,23 +33,23 @@ export default {
             serviceList: [
                 {
                     id: 'section-1',
-                    title: '软件定制开发',
-                    eng_title: 'Customize App',
+                    title: '品牌含义',
+                    eng_title: 'Brand Xxx',
                     img: require('@/assets/img/service1.jpg')
                 },{
                     id: 'section-2',
-                    title: 'IT外包服务',
-                    eng_title: 'Outsourcing',
+                    title: 'MYD理念',
+                    eng_title: 'MYD Mind',
                     img: require('@/assets/img/service2.jpg')
                 },{
                     id: 'section-3',
-                    title: '网上商城建设',
-                    eng_title: 'eCommerce Site',
+                    title: '品牌历程',
+                    eng_title: 'Brand Road',
                     img: require('@/assets/img/service3.jpg')
                 },{
                     id: 'section-4',
-                    title: 'iOS应用定制开发',
-                    eng_title: 'iOS App Dev',
+                    title: 'XXX',
+                    eng_title: 'XXX',
                     img: require('@/assets/img/service4.jpg')
                 }
             ]
