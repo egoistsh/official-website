@@ -12,18 +12,15 @@
         <div class="shejiao pull-right">
           <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！<!--{{$t('nav.home')}}-->
           <!--          <el-button v-on:click="changeLanguage('en')">change</el-button>-->
-          <el-select v-model="value"
-                     size="mini"
-                     placeholder='中文'
-                     @change="changeLanguage(value)">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
           <span class="glyphicon glyphicon-hand-left"></span>
+          <el-dropdown style="color: #fff;font-size: 12px" @command="changeLanguage">
+          <span class="el-dropdown-link ">
+          下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item v-for="item in options" :key="item.value" :command="item.value">{{item.label}}</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
         </div>
       </div>
     </div>
@@ -290,6 +287,9 @@
       changeLanguage (language) {
         this.$i18n.locale = language
       },
+      handleCommand(command) {
+        this.$message('click on item ' + command);
+      },
     },
   }
 </script>
@@ -520,6 +520,14 @@
     /* 导航栏 每个导航下面的 a 链接的右侧小三角 */
     #header .header-nav .header-nav-wrapper > li > a > span {
       font-size: 10px;
+    }
+
+    .el-dropdown-link {
+      cursor: pointer;
+      color: #fffdfd;
+    }
+    .el-icon-arrow-down {
+      font-size: 12px;
     }
   }
 </style>
