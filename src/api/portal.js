@@ -21,9 +21,15 @@ function updateArticle (data) {
   return axios.put(url,data)
 }
 
+function listPictureConfigs (data) {
+  const url = '/api/portal/pictureConfig'
+  return axios.get(url,data)
+}
+
 export {
   listArticle,
   findArticleById,
   viewArticle,
-  updateArticle
+  updateArticle,
+  listPictureConfigs
 }

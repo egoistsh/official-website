@@ -5,7 +5,7 @@
       <div class="swiper-container banner-swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
-            <a href="#"><img class="swiper-lazy" :data-src="item.img" alt="轮播图"></a>
+            <a :href="item.url" target="_blank"><img class="swiper-lazy" :data-src="item.imageUrl"></a>
             <div class="swiper-lazy-preloader"></div>
             <!--<div class="swiper-slide-title">
                 <h1>{{item.title}}</h1>
@@ -25,19 +25,12 @@
     <div id="bigData" class="container-fuild">
       <div class="row bigData-container">
         <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
-          <a href="#"><img class="img-responsive" src="@/assets/img/sch-banner.jpg" alt="banner"></a>
+<!--          <a href="#"><img class="img-responsive" src="@/assets/img/sch-banner.jpg" alt="banner"></a>-->
+          <a :href="left.url" v-if="left"><img class="img-responsive" :src="left.imageUrl"></a>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6">
-          <!--<h2 class="bigData-title">
-            大数据管理系统
-            <small>/ Big Data Management System</small>
-          </h2>
-          <p>当今最领先的响应式自助建站平台。无论您是普通互联网用户，还是专业网站制作人员，都能使用起飞页设计出最具专业水准的网站。想创建一个简单的单页式站点，还是一个专业的公司网站，亦或是一个别具一格的博客？起飞页可以满足您的所有需求。</p>
-          <p>我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护成为一件轻松惬意的事。无论您是普通互联网用户，还是专业网站制作人员。</p>
-          <h2 class="bigData-device">PC/PAD/Phone &nbsp; 全设备支持</h2>
-          <a href="#" class="btn btn-lg btn-block btn-info">联系我们</a>-->
           <video width="100%" height="auto" controls>
-            <source src="movie.mp4" type="video/mp4">
+            <source src="@/assets/img/homeVideo.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -141,32 +134,13 @@
 <script>
   import Swiper from 'swiper'
   import { WOW } from 'wowjs'
-  import {listArticle} from '@/api/portal.js'
+  import {listArticle,listPictureConfigs} from '@/api/portal.js'
 
   export default {
     name: 'HomePage',
     data () {
       return {
-        swiperList: [
-          {
-            img: require('@/assets/img/banner1.jpg'),
-            path: '',
-            title: '您身边的IT专家1',
-            content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
-          },
-          {
-            img: require('@/assets/img/banner2.jpg'),
-            path: '',
-            title: '您身边的IT专家2',
-            content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
-          },
-          {
-            img: require('@/assets/img/banner3.jpg'),
-            path: '',
-            title: '您身边的IT专家3',
-            content: '宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介宣传简介',
-          },
-        ],
+        swiperList: [],
         customerList: [
           {
             logo: require('@/assets/img/logo_hp.png'),
@@ -223,35 +197,7 @@
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
             content:
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          /*{
-            logo: require('@/assets/img/logo_toyota.png'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          {
-            logo: require('@/assets/img/logo_hp.png'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          {
-            logo: require('@/assets/img/logo_kk.png'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          {
-            logo: require('@/assets/img/logo_hp.png'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },*/
+          }
         ],
         serverList: [
           {
@@ -275,36 +221,12 @@
             content: '<p>XXX</p>XXX',
           },
         ],
+        swiper:undefined,
+        left:undefined
       }
     },
     mounted () {
-      /* banner-swiper */
-      new Swiper('.banner-swiper', {
-        loop: true, // 循环模式选项
-        effect: 'fade',
-        //自动播放
-        autoplay: {
-          delay: 3000,
-          stopOnLastSlide: false,
-          disableOnInteraction: false,
-        },
-        // 如果需要分页器
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        // 如果需要前进后退按钮
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        // 延迟加载
-        lazy: {
-          loadPrevNext: true,
-        },
-        observer: true, //修改swiper自己或子元素时，自动初始化swiper
-        observeParents: true, //修改swiper的父元素时，自动初始化swiper
-      })
+
       /* customer-swiper */
       new Swiper('.customer-swiper', {
         loop: true, // 循环模式选项
@@ -333,6 +255,71 @@
       })
       wow.init()
 
+      this.listBannerConfigs()
+      this.listLeftConfigs()
+    },
+    methods: {
+      listBannerConfigs () {
+        const data = {
+          params:{
+            typeName:'首页banner',
+            sort:'showOrder,asc'
+          }
+        }
+        listPictureConfigs(data).then((response) => {
+          this.swiperList = response.data.content
+          this.$nextTick(()=>{//下一个UI帧再初始化swiper
+            this.initSwiper()
+          })
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
+      listLeftConfigs () {
+        const data = {
+          params:{
+            typeName:'首页左图片',
+            sort:'showOrder,asc'
+          }
+        }
+        listPictureConfigs(data).then((response) => {
+          console.log(response.data.content[0])
+          this.left = response.data.content[0]
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
+      initSwiper(){
+        /* banner-swiper */
+        if (this.swiper != null) return;
+        this.swiper = new Swiper('.banner-swiper', {
+          loop: true, // 循环模式选项
+          effect: 'fade',
+          //自动播放
+          autoplay: {
+            delay: 3000,
+            stopOnLastSlide: false,
+            disableOnInteraction: false,
+          },
+          // 如果需要分页器
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          // 如果需要前进后退按钮
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          // 延迟加载
+          lazy: {
+            loadPrevNext: true,
+            // preloaderClass:'swiper-lazy-preloader',
+          },
+          observer: true, //修改swiper自己或子元素时，自动初始化swiper
+          observeParents: true, //修改swiper的父元素时，自动初始化swiper
+        })
+      }
     }
   }
 </script>
@@ -691,6 +678,10 @@
 
     video {
       /*object-fit: fill;*/
+    }
+
+    .loading {
+      color: #1b6d85;
     }
   }
 </style>

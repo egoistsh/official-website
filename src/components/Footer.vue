@@ -1,9 +1,9 @@
 <template>
   <div id="footer" class="container-fluid">
     <div class="logo">
-      <img src="@/assets/img/logo_white.png" alt="logo图">
+      <img src="@/assets/img/unilever-logo.svg" width="50px">
     </div>
-    <p class="title">MYD公司</p>
+<!--    <p class="title">MYD公司</p>-->
     <p class="address_tel_fax">
       <span>地址：公司地址公司地址公司地址公司地址</span>
       <span>Tel：888-888-888</span>

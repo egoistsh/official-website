@@ -15,7 +15,7 @@
           <span class="glyphicon glyphicon-hand-left"></span>
           <el-dropdown style="color: #fff;font-size: 12px" @command="changeLanguage">
           <span class="el-dropdown-link ">
-          下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+          切换语言<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item v-for="item in options" :key="item.value" :command="item.value">{{item.label}}</el-dropdown-item>
@@ -55,7 +55,8 @@
     <!-- 手机导航 -->
     <div class="header-nav-m container-fuild visible-xs">
       <div class="header-nav-m-logo">
-        <img class="center-block" src="@/assets/img/logo_black.png" alt="logo">
+<!--        <img class="center-block" src="@/assets/img/logo_black.png" alt="logo">-->
+        <img src="@/assets/img/unilever-logo.svg">
       </div>
       <!-- 导航栏 -->
       <div class="header-nav-m-menu text-center">
@@ -474,7 +475,7 @@
       height: 50px;
       font-size: 20px;
       line-height: 50px;
-      background: #474747;
+      background: #1197d6;
       position: relative;
     }
 

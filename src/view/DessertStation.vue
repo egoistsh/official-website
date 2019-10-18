@@ -1,220 +1,236 @@
-
 <template>
-    <div>
-        <section class="floor-nav" id="floorNavList">
-            <ul class="nav-list">
-                <li class="nav-list-item" v-for="(item, index) in floorNav" :key="item.id" @click="setFloorNavMountClick(index)">
-                    <!-- {{ item.name }} -->
-                        <img class="nav-img" src="../assets/img/nav_point.png">
-                        <!-- <img class="nav-imgS" src="../assets/img/nav_point_on.png"> -->
-                        <div class="nav-img"></div>
-                    <div class="line"></div> 
-                </li>
-            </ul>
-        </section>
-        <section class="floor-item" v-for="item in floorList" :key="item.id">
-            <div class="floor-item-box">
-                <!-- <h2>{{ item.name }}</h2> -->
-                <img src="../assets/img/bg_sec1_1.jpg">
-            </div>
-        </section>
+  <div id="ServiceDetail">
+<!--    <div class="banner container-fuild text-center">品牌故事</div>-->
+    <div class="container">
+      <div class="row">
+        <div class="floor-nav" id="myScrollspy">
+          <ul class="nav nav-tabs nav-stacked center-block hidden-xs" id="myNav">
+<!--            <p>品牌服务</p>-->
+            <li
+              :class="item.id==id?'active':''"
+              v-for="(item,index) in serviceNavList"
+              :key="index"
+            >
+              <!--              <a :href="'#'+item.id">{{item.title}}</a>-->
+              <a :href="'#'+item.id">
+                <span class="point"><!--<img class="nav-img" src="../assets/img/nav_point.png">--></span>
+                <div class="line"></div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="content  wow zoomIn">
+          <div :id=item.id class="content-block" v-for="(item,index) in serviceContentList" :key="index">
+            <!-- <h2 :id="item.id">
+             {{item.title}}
+             <small>/ {{item.eng_title}}</small>
+           </h2>
+             <div v-html="item.content"></div>-->
+            <img src="../assets/img/bg_sec1_1.jpg">
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
- 
 <script>
-    var TIMER = null;
-    export default {
-        name: 'home',
-        data () {
-            return {
-                floorNav: [
-                    { id: 1, name: 'F1' },
-                    { id: 2, name: 'F2' },
-                    { id: 3, name: 'F3' },
-                    { id: 4, name: 'F4' },
-                    { id: 5, name: 'F5' },
-                    { id: 6, name: 'F6' },
-                ],
-                floorList: [
-                    { id: 1, name: 'F1' },
-                    { id: 2, name: 'F2' },
-                    { id: 3, name: 'F3' },
-                    { id: 4, name: 'F4' },
-                    { id: 5, name: 'F5' },
-                    { id: 6, name: 'F6' },
-                ],
-                floorIndex: 1,
-            }
+  import { WOW } from 'wowjs'
+
+  export default {
+    name: 'ServiceDetail',
+    data () {
+      return {
+        id: 'section-1',
+        serviceNavList: [
+          {
+            id: 'section-1',
+            title: '品牌含义',
+          },
+          {
+            id: 'section-2',
+            title: 'MYD理念',
+          },
+          {
+            id: 'section-3',
+            title: '品牌历程',
+          },
+          {
+            id: 'section-4',
+            title: 'XXX',
+          },
+        ],
+        serviceContentList: [
+          {
+            id: 'section-1',
+            title: '品牌含义',
+            eng_title: 'Brand meaning',
+            content:
+              '<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>',
+          },
+          {
+            id: 'section-2',
+            title: 'MYD理念',
+            eng_title: 'MYD Mind',
+            content:
+              '<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>',
+          },
+          {
+            id: 'section-3',
+            title: '品牌历程',
+            eng_title: 'Brand Road',
+            content:
+              '<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>',
+          },
+          {
+            id: 'section-4',
+            title: 'XXX',
+            eng_title: 'XXX',
+            content:
+              '<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>',
+          },
+        ],
+      }
+    },
+    mounted () {
+      this.id = this.$route.params.id
+      var top = document.getElementById(this.id).offsetTop
+      $(window).scrollTop(top + 300)
+      $('#myNav').affix({
+        offset: {
+          top: 300,
         },
-        methods: {
-            /**
-             * 设置楼层导航事件驱动方法
-             * @params Number index  楼层下标
-             */
-            setFloorNavMountClick (index) {
-                var _this = this;
-                let floor_item = document.getElementsByClassName('floor-item'),
-                    floor_offsetTop = floor_item[index].offsetTop - floor_item[0].offsetTop,
-                    window_scrollTop = document.documentElement.scrollTop || document.body.scrollTop,
-                    timer = {
-                        step: 50,
-                        times: 20,
-                        FLOOR_OFFSETTOP: floor_offsetTop,
-                    };
-                    console.log({index, offsetTop: timer.FLOOR_OFFSETTOP});
-                if (window_scrollTop > floor_offsetTop) {
-                    _this.setFloorScrollArrowUp(timer);
-                } else if (window_scrollTop == floor_offsetTop) {
-                    return false;
-                } else {
-                    _this.setFloorScrollArrowDown(timer);
-                }
-            },
-            /**
-             * 设置楼层向上滚动
-             * @params Object timer 定时器配置
-             */
-            setFloorScrollArrowUp (timer) {
-                var _this = this;
-                clearInterval(TIMER);
-                TIMER = setInterval(() => {
-                    let window_scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-                    if (window_scrollTop <= timer.FLOOR_OFFSETTOP) {
-                        document.documentElement.scrollTop = timer.FLOOR_OFFSETTOP;
-                        document.body.scrollTop = timer.FLOOR_OFFSETTOP;
-                        clearInterval(TIMER);
-                    } else {
-                        document.documentElement.scrollTop = window_scrollTop - timer.step;
-                        document.body.scrollTop = window_scrollTop - timer.step;
-                    }
-                }, timer.times);
- 
-            },
-            /**
-             * 设置楼层向下滚动
-             * @params Object timer 定时器配置
-             */
-            setFloorScrollArrowDown (timer) {
-                var _this = this;
-                clearInterval(TIMER);
-                TIMER = setInterval(() => {
-                    let window_scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-                    if (window_scrollTop >= timer.FLOOR_OFFSETTOP) {
-                        document.documentElement.scrollTop = timer.FLOOR_OFFSETTOP;
-                        document.body.scrollTop = timer.FLOOR_OFFSETTOP;
-                        clearInterval(TIMER);
-                    } else {
-                        document.documentElement.scrollTop = window_scrollTop + timer.step;
-                        document.body.scrollTop = window_scrollTop - timer.step;
-                    }
-                }, timer.times);
-            },
-        /**
-         * 监听窗口滚动楼层导航动态定位
-         */
-        floorSrcollAddEventListener () {
-            var _this = this;
-            let nav_item = document.getElementById('floorNavList').getElementsByClassName('nav-list-item'),
-                floor_item = document.getElementsByClassName('floor-item');
-                nav_item[0].className = 'nav-list-item active';
-            let img = document.getElementById('floorNavList').getElementsByClassName('nav-img');
-            // img[0].src='../assets/img/nav_point_on.png';
-            window.onscroll = function () {
-                let window_scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-                for (let i = 0, len = floor_item.length; i < len; i++) {
-                    let floor_offsetTop = floor_item[i].offsetTop - floor_item[0].offsetTop;
-                    if (window_scrollTop >= floor_offsetTop) {
-                        for (let n = 0, len = nav_item.length; n < len; n++) {
-                            nav_item[n].className = 'nav-list-item ' + (i === n ? 'active' : '');
-                        }
-                    }
-                }
-            };
-        },
-            /**
-             * 页面初始化
-             */
-            initPage () {
-                var _this = this;
-                _this.floorSrcollAddEventListener();
-            },
-        },
-        mounted () {
-            this.initPage();
-        },
-    }
+      })
+      var wow = new WOW()
+      wow.init()
+    },
+  }
 </script>
- 
 <style scoped>
-h1 {
+  .container {
+    width: 100%;
+  }
+  .banner {
+    /*color: #fff;*/
+    font-size: 30px;
+    height: 150px;
+    line-height: 150px;
+    /*background-image: url("../assets/img/banner_2.jpg");*/
+    background-image: url("../assets/img/bg_sec1_1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center center;
+  }
+
+  ul.nav-tabs {
+    width: 50px;
+    margin-top: 38px;
+    border: 0;
+    /*border-radius: 4px;*/
+    /*background: #fff;*/
+    z-index: 99999;
+    /*border: 1px solid #474747;*/
+    /*box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);*/
+  }
+
+  ul.nav-tabs li {
     text-align: center;
-}
-.setaxios {
-    width: 1000px;
-    margin: 20px auto;
-    text-align: right;
-}
-.setaxios input[type=button] {
+    margin: 0;
+    height: 100px;
+    /*border-top: 1px solid #474747;*/
+  }
+
+  ul.nav-tabs p {
+    /*color: #fff;*/
+    font-size: 18px;
+    font-weight: bold;
     text-align: center;
-}
-.floor-nav {
+    /*background: #474747;*/
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  ul.nav-tabs li:first-child {
+    /*border-top: none;*/
+  }
+
+  ul.nav-tabs li a {
+    margin: 0;
+    padding: 8px 16px;
+    /*border-radius: 0;*/
+    border: 0;
+    width: 56px;
+    height: 60px;
+    background: rgba(0,0,0,0);
+    background-image: url("../assets/img/nav_n03.png");
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-size: 50px 50px;
+  }
+
+  ul.nav-tabs li.active a,
+  ul.nav-tabs li.active a:hover {
+    /*color: #fff;*/
+    /*background: #474747;*/
+    /*border: 1px solid #474747;*/
+    border: 0;
+    background: rgba(0,0,0,0);
+    background-image: url("../assets/img/nav_n03_on.png");
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-size: 50px 50px;
+  }
+
+  ul.nav-tabs li:first-child a {
+    /*border-radius: 4px 4px 0 0;*/
+  }
+
+  ul.nav-tabs li:last-child a {
+    /*border-radius: 0 0 4px 4px;*/
+  }
+
+  ul.nav-tabs.affix {
+    top: 30px;
+  }
+
+  .content-block {
+    /*width: 200px;*/
+    margin: 50px auto;
+    min-height: 300px;
+    text-align: center;
+    /*color: #FFF;*/
+    /*background-color: #404040;*/
+  }
+
+  .content-block img {
+    /*margin: auto;*/
+    width: 100%;
+    height: 100%;
+  }
+
+  .content-block > h2 {
+    padding: 20px 0;
+    /*border-bottom: 1px solid #ccc;*/
+  }
+
+  .floor-nav {
     position: fixed;
     /* top: 200px; */
     /* left: 50px; */
     top: 25%;
-    right: 3%;
-}
-.floor-nav .nav-list {
-    width: 48px;
-    display: inline-block;
-    text-align: center;
-    /* background-color: #f8f8f8; */
-}
-.floor-nav .nav-list .nav-list-item {
-    display: inline-block;
-    width: 100%;
-    /* height: 100%; */
-    height: 105px;
-    line-height: 48px;
-    vertical-align: middle;
-    align-self: center;
-    /* border-bottom: 1px solid #fff; */
-    cursor: pointer;
-}
-.floor-nav .nav-list .nav-list-item img {
-    margin: auto
-}
-.floor-nav .nav-list .nav-list-item.active,
-.floor-nav .nav-list .nav-list-item:hover {
-    /* color: #FFF; */
-    /* background-color: #404040; */
-}
- 
-.floor-item {
-    /* width: 1000px; */
-    margin: 60px auto;
-    min-height: 300px;
-    text-align: center;
-    color: #FFF;
-    background-color: #404040;
-}
+    right: 2.5%;
+  }
 
-.line{
-    /* float:left; */
-    /* margin-top: 30px; */
-    position: absolute;;
+  .line {
+    position: absolute;
     left: 50%;
+    top: 53px;
     width: 1px;
-    height: 90px;
-    background: darkgray;
-}
+    height: 50px;
+    background-color: #b7b7b7;
+  }
 
-.nav-img {
-    background:url('../assets/img/nav_point_on.png') 0 0 no-repeat
-}
-
-.nav-imgS{
-    z-index:2;
-    opacity: 1;
-}
+  .nav-img {
+    margin: 0 auto;
+  }
 </style>

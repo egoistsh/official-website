@@ -63,10 +63,10 @@ export default {
     var opts = {
       width: 50, // 信息窗口宽度
       height: 10, // 信息窗口高度
-      title: "XXX公寓" // 信息窗口标题
+      title: "XXX公司" // 信息窗口标题
     };
     var infoWindow = new BMap.InfoWindow(
-      "家",
+      "公司",
       opts
     ); // 创建信息窗口对象
     map.openInfoWindow(infoWindow, map.getCenter()); // 打开信息窗口
