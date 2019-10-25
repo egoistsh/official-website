@@ -2,10 +2,10 @@
   <div id="HomePage">
     <!-- 轮播图 -->
     <div id="swiper" class="container-fuild">
-      <div class="swiper-container banner-swiper">
+      <div class="swiper-container banner-swiper wow zoomIn">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
-            <a :href="item.url" target="_blank"><img class="swiper-lazy" :data-src="item.imageUrl"></a>
+            <a :href="item.url" target="_blank"><img class="swiper-lazy img-responsive" :data-src="item.imageUrl"></a>
             <div class="swiper-lazy-preloader"></div>
             <!--<div class="swiper-slide-title">
                 <h1>{{item.title}}</h1>
@@ -28,7 +28,7 @@
 <!--          <a href="#"><img class="img-responsive" src="@/assets/img/sch-banner.jpg" alt="banner"></a>-->
           <a :href="left.url" v-if="left"><img class="img-responsive" :src="left.imageUrl"></a>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
           <video width="100%" height="auto" controls>
             <source src="@/assets/img/homeVideo.mp4" type="video/mp4">
           </video>
@@ -134,7 +134,12 @@
 <script>
   import Swiper from 'swiper'
   import { WOW } from 'wowjs'
-  import {listArticle,listPictureConfigs} from '@/api/portal.js'
+  import {listArticle,listPictureConfigs,count} from '@/api/portal.js'
+
+  /**
+   * 记录访问，只有页面刷新或者第一次加载才会记录
+   */
+  count().then(res => {})
 
   export default {
     name: 'HomePage',
@@ -143,56 +148,21 @@
         swiperList: [],
         customerList: [
           {
-            logo: require('@/assets/img/logo_hp.png'),
+            logo: require('@/assets/img/icon_01.jpg'),
             title:
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
             content:
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
           },
           {
-            logo: require('@/assets/img/logo_kk.png'),
+            logo: require('@/assets/img/icon_02.jpg'),
             title:
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
             content:
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
           },
           {
-            logo: require('@/assets/img/logo_toyota.png'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          {
-            logo: require('@/assets/img/logo_kk.png'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          {
-            logo: require('@/assets/img/logo_hp.png'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          {
-            logo: require('@/assets/img/logo_toyota.png'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          {
-            logo: require('@/assets/img/logo_kk.png'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          {
-            logo: require('@/assets/img/logo_hp.png'),
+            logo: require('@/assets/img/icon_03.jpg'),
             title:
               '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
             content:
@@ -340,8 +310,8 @@
   }
 
   #swiper .banner-swiper .swiper-slide img {
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
   }
 
   #swiper .banner-swiper .swiper-slide {
@@ -398,7 +368,7 @@
   #contactUs {
     color: #fff;
     height: 400px;
-    background: url("../assets/img/contact_us_bg.jpg") 0 0 no-repeat;
+    background: url("../assets/img/bg_01.jpg") 0 0 no-repeat;
     background-size: 100% 100%;
     transition: all ease 0.6s;
   }

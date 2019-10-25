@@ -1,7 +1,7 @@
 <template>
   <div id="footer" class="container-fluid">
     <div class="logo">
-      <img src="@/assets/img/unilever-logo.svg" width="50px">
+      <img src="@/assets/img/logo.svg" width="80px">
     </div>
 <!--    <p class="title">MYD公司</p>-->
     <p class="address_tel_fax">
@@ -36,7 +36,7 @@ export default {
 .logo {
   width: 95px;
   height: 45px;
-  margin: 50px auto 20px;
+  margin: 20px auto 50px;
 }
 .title {
   font-size: 25px;
@@ -54,7 +54,7 @@ export default {
 .copy {
   color: #d3d3d3;
   font-size: 14px;
-  margin: 50px 0 10px;
+  margin: 40px 0 10px;
 }
 @media screen and (max-width: 997px) {
   .title {

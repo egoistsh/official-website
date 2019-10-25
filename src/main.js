@@ -19,6 +19,7 @@ const i18n = new VueI18n({
 
   messages: {
     'zh-cn': require('./assets/lang/zh-cn'), // 中文语言包
+    'zh-hk':require('./assets/lang/zh-hk'),//中文繁体包
     'en': require('./assets/lang/en'), // 英文语言包
   }
 })

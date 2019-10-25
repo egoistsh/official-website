@@ -1,5 +1,7 @@
 <template>
+<!--  <div class="load" v-show></div>-->
   <div class="articles">
+    <br>
     <ul class="graphic mb20">
       <li v-for="(item,index) in articles" :key="index">
         <a :href="'#/articleDetail/'+item.id">
@@ -12,7 +14,7 @@
               <span class="title">{{item.title}}</span>
             </h2>
             <!--          <p>{{item.content}}</p>-->
-            <div class="contentStr" v-html="item.content"></div>
+            <div class="contentStr">{{item.brief}}</div>
             <div class="tip">
               <span>{{item.author}}</span>
               <span><i class="ico icon1"></i>{{item.viewCount | nullToZero}}</span>
@@ -22,6 +24,14 @@
         </a>
       </li>
     </ul>
+    <!--分页组件-->
+    <el-pagination
+      :total="total"
+      :current-page="page + 1"
+      style="margin:40px 0;"
+      layout="total, prev, pager, next, sizes"
+      @size-change="sizeChange"
+      @current-change="pageChange"/>
   </div>
 </template>
 <script>
@@ -31,7 +41,7 @@
   export default {
     name: 'News',
     filters: {
-      formatDate (date) { return date ? moment(date).format('YYYY-MM-DD HH-mm-ss') : '' },
+      formatDate (date) { return date ? moment(date).format('YYYY-MM-DD HH:mm:ss') : '' },
 
       /**
        * 如果为空，那么转换为0
@@ -50,6 +60,10 @@
         articles: [],
         coverImageSize: {width: '200px', height: '136px'},
 
+        //分页
+        total:0,
+        page:0,
+        size:10
       }
     },
     mounted () {
@@ -57,12 +71,34 @@
     },
     methods: {
       listArticle () {
-        listArticle().then((response) => {
+        const data = {
+          params:{
+            featureId:'1183252644685287424',
+            page:this.page,
+            size:this.size,
+            pubTime:moment(new Date().getTime()).format('YYYY-MM-DD HH:mm:ss'),
+            enabled:1,
+            sort:'pubTime,desc'
+            // sort:'showOrder,asc'
+          }
+        }
+        listArticle(data).then((response) => {
           this.articles = response.data.content
+          this.total = response.data.totalElements
 
         }).catch((error) => {
           console.log(error)
         })
+      },
+
+      pageChange(e) {
+        this.page = e - 1
+        this.listArticle()
+      },
+      sizeChange(e) {
+        this.page = 0
+        this.size = e
+        this.listArticle()
       },
     },
 

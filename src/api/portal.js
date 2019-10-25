@@ -1,9 +1,9 @@
 import axios from 'axios'
 import qs from 'qs'
 
-function listArticle () {
+function listArticle (data) {
   const url = '/api/portal/article'
-  return axios.get(url)
+  return axios.get(url,data)
 }
 
 function findArticleById (id) {
@@ -26,10 +26,16 @@ function listPictureConfigs (data) {
   return axios.get(url,data)
 }
 
+function count() {
+  const url = '/api/portal/visits'
+  return axios.post(url)
+}
+
 export {
   listArticle,
   findArticleById,
   viewArticle,
   updateArticle,
-  listPictureConfigs
+  listPictureConfigs,
+  count
 }

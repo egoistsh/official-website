@@ -29,7 +29,7 @@
       <!-- 导航logo -->
       <div class="header-nav-logo">
         <!--        <img src="@/assets/img/logo.gif">-->
-        <img src="@/assets/img/unilever-logo.svg">
+        <img src="@/assets/img/logo.svg">
       </div>
       <!-- 导航内容 -->
       <ul class="header-nav-wrapper">
@@ -56,7 +56,7 @@
     <div class="header-nav-m container-fuild visible-xs">
       <div class="header-nav-m-logo">
 <!--        <img class="center-block" src="@/assets/img/logo_black.png" alt="logo">-->
-        <img src="@/assets/img/unilever-logo.svg">
+        <img src="@/assets/img/logo.svg">
       </div>
       <!-- 导航栏 -->
       <div class="header-nav-m-menu text-center">
@@ -331,7 +331,7 @@
   #header .header-nav .header-nav-logo img {
     width: 95px;
     /*height: 45px;*/
-    height: 80px;
+    height: 100px;
     position: absolute;
     top: 0;
     left: 0;
@@ -460,7 +460,7 @@
     /* 导航栏logo图片 */
     #header .header-nav-m .header-nav-m-logo img {
       width: 95px;
-      height: 45px;
+      height: 80px;
       position: absolute;
       top: 0;
       left: 0;
