@@ -9,7 +9,7 @@ module.exports = {
     live:'Live',
     latest:'Latest Activity',
     news:'News',
-    dessertStation:'Dessert Station',
+    dessertStation:'MYD Dessert Station',
   },
   confirm: {
     ok: '确认',

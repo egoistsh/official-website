@@ -3,7 +3,7 @@
     <Header></Header>
     <router-view/>
     <Footer></Footer>
-    <GoTop></GoTop>
+<!--    <GoTop></GoTop>-->
   </div>
 </template>
 

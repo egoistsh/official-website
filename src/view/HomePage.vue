@@ -1,5 +1,10 @@
 <template>
   <div id="HomePage">
+    <!-- start preloader -->
+    <div class="preloader">
+      <div class="sk-spinner sk-spinner-rotating-plane"></div>
+    </div>
+    <!-- end preloader -->
     <!-- 轮播图 -->
     <div id="swiper" class="container-fuild">
       <div class="swiper-container banner-swiper wow zoomIn">
@@ -36,9 +41,9 @@
       </div>
     </div>
     <!-- 您身边的IT专家 -->
-    <div id="contactUs" class="container-fuild text-center">
+   <!-- <div id="contactUs" class="container-fuild text-center">
       <div class="container contactUs-container wow slideInUp">
-        <h1>Title</h1>
+        <h1>联系我们</h1>
         <h3>SubTitle</h3>
         <button
           class="btn btn-default btn-sm"
@@ -52,26 +57,26 @@
           <a href="http://taobao.com"><span></span></a>
         </div>
       </div>
-    </div>
+    </div>-->
     <!-- 客户评价 -->
     <div id="customer" class="container-fuild">
       <div class="container customer-container">
-        <p class="customer-title text-center">Title</p>
+        <p class="customer-title text-center">热点排行榜</p>
         <div class="swiper-container customer-swiper hidden-xs">
           <div class="swiper-wrapper">
             <div
               class="swiper-slide customer-block"
-              v-for="(item,index) in customerList"
+              v-for="(item,index) in articles"
               :key="index"
             >
               <div class="customer-logo">
-                <img class="center-block" :src="item.logo" alt="logo">
+                <img class="center-block" :src="item.imageUrl" alt="logo">
               </div>
               <div class="customer-yh">
                 <img src="@/assets/img/yinhao.png" alt="引号">
               </div>
               <div class="customer-content1">
-                <small>{{item.content}}</small>
+                <small>{{item.brief}}</small>
               </div>
               <div class="customer-content2">{{item.title}}</div>
             </div>
@@ -81,15 +86,15 @@
           <div class="swiper-button-next"></div>
         </div>
         <div class="row visible-xs customer-block">
-          <div class="col-xs-12" v-for="(item,index) in customerList" :key="index">
+          <div class="col-xs-12" v-for="(item,index) in articles" :key="index">
             <div class="customer-logo">
-              <img class="center-block" :src="item.logo" alt="logo">
+              <img class="center-block" :src="item.imageUrl" alt="logo">
             </div>
             <div class="customer-yh">
               <img src="@/assets/img/yinhao.png" alt="引号">
             </div>
             <div class="customer-content1">
-              <small>{{item.content}}</small>
+              <small>{{item.brief}}</small>
             </div>
             <div class="customer-content2">
               <small>{{item.title}}</small>
@@ -146,29 +151,6 @@
     data () {
       return {
         swiperList: [],
-        customerList: [
-          {
-            logo: require('@/assets/img/icon_01.jpg'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          {
-            logo: require('@/assets/img/icon_02.jpg'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          },
-          {
-            logo: require('@/assets/img/icon_03.jpg'),
-            title:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-            content:
-              '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
-          }
-        ],
         serverList: [
           {
             logo: require('@/assets/img/tel.png'),
@@ -192,7 +174,8 @@
           },
         ],
         swiper:undefined,
-        left:undefined
+        left:undefined,
+        articles:undefined
       }
     },
     mounted () {
@@ -227,6 +210,8 @@
 
       this.listBannerConfigs()
       this.listLeftConfigs()
+
+      this.listArticle()
     },
     methods: {
       listBannerConfigs () {
@@ -241,6 +226,7 @@
           this.$nextTick(()=>{//下一个UI帧再初始化swiper
             this.initSwiper()
           })
+          $('.preloader').fadeOut(1000);
         }).catch((error) => {
           console.log(error)
         })
@@ -289,7 +275,25 @@
           observer: true, //修改swiper自己或子元素时，自动初始化swiper
           observeParents: true, //修改swiper的父元素时，自动初始化swiper
         })
-      }
+      },
+      listArticle () {
+        const data = {
+          params:{
+            // featureId:'1183252644685287424',
+            size:10,
+            // pubTime:moment(new Date().getTime()).format('YYYY-MM-DD HH:mm:ss'),
+            enabled:1,
+            sort:'viewCount,desc'
+            // sort:'showOrder,asc'
+          }
+        }
+        listArticle(data).then((response) => {
+          this.articles = response.data.content
+          console.log(this.articles)
+        }).catch((error) => {
+          console.log(error)
+        })
+      },
     }
   }
 </script>
@@ -312,6 +316,7 @@
   #swiper .banner-swiper .swiper-slide img {
     /*width: 100%;*/
     /*height: 100%;*/
+    margin: auto;
   }
 
   #swiper .banner-swiper .swiper-slide {
@@ -438,10 +443,12 @@
   #customer .customer-content1 {
     padding-bottom: 20px;
     border-bottom: 1px solid #0ce9f1;
+    height: 120px;
   }
 
   #customer .customer-content2 {
     padding-top: 20px;
+    height: 30px;
   }
 
   /* 为什么选择我们 */

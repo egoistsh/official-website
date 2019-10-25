@@ -8,20 +8,23 @@
             <!--            <p>品牌服务</p>-->
             <li
               :class="item.id==id?'active':''"
-              v-for="(item,index) in serviceNavList"
+              v-for="(item,index) in serialList"
               :key="index"
             >
               <!--              <a :href="'#'+item.id">{{item.title}}</a>-->
               <a :href="'#'+item.id">
-                <span class="point"><!--<img class="nav-img" src="../assets/img/nav_point.png">--></span>
                 <div class="line"></div>
+              </a>
+            </li>
+            <li>
+              <a href="#" @click="GoTop" id="to-top">
               </a>
             </li>
           </ul>
         </div>
         <div class="load" v-loading='loading' v-show="loading" element-loading-text="拼命加载中"></div>
         <div class="content" v-show="!loading">
-          <div :id=item.id class="content-block" v-for="(item,index) in serviceContentList" :key="index">
+          <div :id=item.id class="content-block" v-for="(item,index) in serialList" :key="index">
             <!-- <h2 :id="item.id">
              {{item.title}}
              <small>/ {{item.eng_title}}</small>
@@ -29,12 +32,12 @@
              <div v-html="item.content"></div>-->
             <!--            <img src="../assets/img/bg_sec1_1.jpg">-->
 
-            <img src="../assets/img/de/_sec3_2_01.gif" alt="梦妆花园" class="img-bg img-responsive">
+            <img src="../assets/img/de/产品系列-底图.png" alt="产品系列" class="img-bg img-responsive">
             <img src="../assets/img/de/_sec3_6_02.jpg" alt="梦妆花园" class="img-bg img-responsive">
             <img src="../assets/img/de/_sec3_6_03.jpg" alt="梦妆花园" class="img-bg img-responsive" @load="imageLoaded">
             <div class="con">
-              <div class="tit tit01"><img src="../assets/img/de/tit_section3.png" alt="5大原料故事" class="img-responsive"></div>
-              <div class="tit tit02 over"><img src="../assets/img/de/tit_sec3_6_161222.png" alt="05 莲花" class="img-responsive"></div>
+<!--              <div class="tit tit01"><img src="../assets/img/de/产品系列-底图.png" alt="5大原料故事" class="img-responsive"></div>-->
+              <div class="tit tit02 over"><img :src="item.serialImg" alt="05 莲花" class="img-responsive"></div>
               <div class="img img01"><img src="../assets/img/de/img_sec3_6_01.jpg" alt="梦妆花园" class="img-responsive"></div>
               <div class="img img02 reveal-top"><img src="../assets/img/de/img_sec3_6_02.jpg" alt="梦妆花园" class="img-responsive"></div>
               <div class="img img03 reveal-img"><img src="../assets/img/de/img_sec3_6_03.jpg" alt="梦妆花园" class="img-responsive"></div>
@@ -83,9 +86,10 @@
             title: 'XXX',
           },
         ],
-        serviceContentList: [
+        serialList: [
           {
             id: 'section-1',
+            serialImg:'/static/img/松饼系列.png',
             title: '品牌含义',
             eng_title: 'Brand meaning',
             content:
@@ -93,6 +97,7 @@
           },
           {
             id: 'section-2',
+            serialImg:'/static/img/冰淇淋系列.png',
             title: 'MYD理念',
             eng_title: 'MYD Mind',
             content:
@@ -100,6 +105,7 @@
           },
           {
             id: 'section-3',
+            serialImg:'/static/img/布丁系列.png',
             title: '品牌历程',
             eng_title: 'Brand Road',
             content:
@@ -107,6 +113,23 @@
           },
           {
             id: 'section-4',
+            serialImg:'/static/img/香蕉船系列.png',
+            title: 'XXX',
+            eng_title: 'XXX',
+            content:
+              '<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>',
+          },
+          {
+            id: 'section-5',
+            serialImg:'/static/img/奶茶系列.png',
+            title: 'XXX',
+            eng_title: 'XXX',
+            content:
+              '<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>',
+          },
+          {
+            id: 'section-6',
+            serialImg:'/static/img/吐司系列.png',
             title: 'XXX',
             eng_title: 'XXX',
             content:
@@ -174,10 +197,21 @@
 
       var newImg = new Image()
       newImg.src = '../assets/img/de/_sec3_6_02.jpg'
+
     },
     methods: {
       imageLoaded () {
         this.loading = false
+      },
+      GoTop() {
+        (function smoothscroll() {
+          var currentScroll =
+            document.documentElement.scrollTop || document.body.scrollTop;
+          if (currentScroll > 0) {
+            window.requestAnimationFrame(smoothscroll);
+            window.scrollTo(0, currentScroll - currentScroll / 10);
+          }
+        })();
       },
     },
   }
@@ -215,7 +249,7 @@
   ul.nav-tabs li {
     text-align: center;
     margin: 0;
-    height: 100px;
+    height: 80px;
     /*border-top: 1px solid #474747;*/
   }
 
@@ -237,14 +271,17 @@
     margin: 0;
     padding: 8px 16px;
     /*border-radius: 0;*/
-    border: 0;
+    /*border: 10px;*/
     width: 56px;
-    height: 60px;
+    height: 56px;
     background: rgba(0, 0, 0, 0);
     background-image: url("../assets/img/icon_01.jpg");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 50px 50px;
+    background-size: 56px 56px;
+    border-radius: 50%;
+    border-width: 1px;
+    border-color: gray;
   }
 
   ul.nav-tabs li.active a,
@@ -257,7 +294,18 @@
     background-image: url("../assets/img/icon_01_on.jpg");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 50px 50px;
+    background-size: 56px 56px;
+    border-radius: 50%;
+  }
+
+  #to-top {
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+    background-image: url("../assets/img/goTop.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 56px 56px;
+    border-radius: 50%;
   }
 
   ul.nav-tabs li:first-child a {
@@ -282,6 +330,7 @@
     /*color: #FFF;*/
     /*background-color: #404040;*/
     position: relative;
+    z-index: 1;
   }
 
   .content-block img {
@@ -306,7 +355,7 @@
     /* top: 200px; */
     /* left: 50px; */
     top: 19%;
-    right: 2.5%;
+    right: 3%;
   }
 
   .line {
@@ -324,7 +373,7 @@
 
   .tit {
     position: absolute;
-    left: 50%;
+    /*left: 50%;*/
   }
 
   .tit01 {
@@ -337,9 +386,37 @@
   .tit02 {
     /*position: absolute;*/
     /*left: 50%;*/
-    top: 9.6%;
-    width: 7.4%;
-    margin-left: -1%;
+    /*top: 9.6%;*/
+    /*width: 7.4%;*/
+    /*margin-left: -1%;*/
+    left: 1px;
+    top: 1px;
+    z-index: 10;
+    animation:blink 1s infinite;
+    -webkit-animation:blink 1s infinite; /*Safari and Chrome*/
+  }
+
+  @keyframes blink{
+    0%{
+      opacity: 0;
+    }
+    50%{
+      opacity: 100;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes blink{
+    0%{
+      opacity: 0;
+    }
+    50%{
+      opacity: 100;
+    }
+    100%{
+      opacity: 0;
+    }
   }
 
   .img01 {

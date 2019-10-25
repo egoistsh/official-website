@@ -40,6 +40,9 @@ import 'swiper/dist/css/swiper.min.css'
 /* 重置样式 */
 import './assets/css/reset.min.css'
 
+/* 通用样式 */
+import './assets/css/index.css'
+
 /* jquery */
 import 'jquery'
 

@@ -1,7 +1,10 @@
 <template>
   <div id="footer" class="container-fluid">
     <div class="logo">
-      <img src="@/assets/img/logo.svg" width="80px">
+      <a href="http://weixin.com"><img src="@/assets/img/weixin.png"></a>
+      <a href="http://weibo.com"><img src="@/assets/img/weibo.png"></a>
+      <a href="http://taobao.com"><img src="@/assets/img/twitter.png"></a>
+
     </div>
 <!--    <p class="title">MYD公司</p>-->
     <p class="address_tel_fax">
@@ -34,10 +37,17 @@ export default {
   text-align: center;
 }
 .logo {
-  width: 95px;
+  width: 240px;
   height: 45px;
   margin: 20px auto 50px;
 }
+
+.logo img {
+  float: left;
+  margin: 0 10px;
+  width: 60px;
+}
+
 .title {
   font-size: 25px;
   margin-bottom: 20px;

@@ -1,6 +1,7 @@
 <template>
 <!--  <div class="load" v-show></div>-->
   <div class="articles">
+    <div class="load" v-loading='loading' v-show="loading" element-loading-text="拼命加载中"></div>
     <br>
     <ul class="graphic mb20">
       <li v-for="(item,index) in articles" :key="index">
@@ -63,7 +64,9 @@
         //分页
         total:0,
         page:0,
-        size:10
+        size:10,
+
+        loading:true
       }
     },
     mounted () {
@@ -85,7 +88,7 @@
         listArticle(data).then((response) => {
           this.articles = response.data.content
           this.total = response.data.totalElements
-
+          this.loading = false
         }).catch((error) => {
           console.log(error)
         })
@@ -106,6 +109,11 @@
 </script>
 <style scoped>
   a:link, a:visited { text-decoration: none; color: #000; }
+
+  .load {
+    width: 100%;
+    height: 500px;
+  }
 
   .articles {
     width: 60%;

@@ -9,6 +9,6 @@ module.exports = {
     live:'動態',
     latest:'最新活動',
     news:'新聞事件',
-    dessertStation:'甜品站',
+    dessertStation:'MYD甜品站',
   }
 }
