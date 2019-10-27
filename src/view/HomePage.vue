@@ -6,7 +6,28 @@
     </div>
     <!-- end preloader -->
     <!-- 轮播图 -->
-    <div id="swiper" class="container-fuild">
+    <div id="swiper" class="container-fuild hidden-xs">
+      <div class="swiper-container banner-swiper wow zoomIn">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
+            <a :href="item.url" target="_blank"><img class="swiper-lazy img-responsive" :data-src="item.imageUrl"></a>
+            <div class="swiper-lazy-preloader"></div>
+            <!--<div class="swiper-slide-title">
+                <h1>{{item.title}}</h1>
+                <p>{{item.content}}</p>
+            </div>-->
+          </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+    <!-- 手机轮播图 -->
+    <div id="swiper-app" class="container-fuild visible-xs">
       <div class="swiper-container banner-swiper wow zoomIn">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
@@ -62,7 +83,7 @@
     <div id="customer" class="container-fuild">
       <div class="container customer-container">
         <p class="customer-title text-center">热点排行榜</p>
-        <div class="swiper-container customer-swiper hidden-xs">
+        <div class="swiper-container customer-swiper hidden-xs" style="margin: 0 -90px;">
           <div class="swiper-wrapper">
             <div
               class="swiper-slide customer-block"
@@ -212,6 +233,7 @@
       this.listLeftConfigs()
 
       this.listArticle()
+
     },
     methods: {
       listBannerConfigs () {
@@ -305,25 +327,34 @@
 
   /* 轮播图 */
   #swiper {
-    height: 600px;
+    /*height: 600px;*/
+    /*width: 83%;*/
+    margin: 0 96px;
+    /*width: 100vw;*/
+    /*height: 100vh;*/
+    /*margin: 10px 20px;*/
   }
 
-  #swiper .banner-swiper {
+  #swiper-app {
+    margin: 0 30px;
+  }
+
+  .banner-swiper {
     width: 100%;
     height: 100%;
   }
 
-  #swiper .banner-swiper .swiper-slide img {
+  .banner-swiper .swiper-slide img {
     /*width: 100%;*/
     /*height: 100%;*/
     margin: auto;
   }
 
-  #swiper .banner-swiper .swiper-slide {
+  .banner-swiper .swiper-slide {
     position: relative;
   }
 
-  #swiper .banner-swiper .swiper-slide-title {
+  .banner-swiper .swiper-slide-title {
     position: absolute;
     top: 0;
     left: 0;
@@ -336,12 +367,12 @@
     line-height: 80px;
   }
 
-  #swiper .banner-swiper .swiper-slide-title > h1 {
+  .banner-swiper .swiper-slide-title > h1 {
     font-size: 50px;
     margin-top: 12%;
   }
 
-  #swiper .banner-swiper .swiper-slide-title > p {
+  .banner-swiper .swiper-slide-title > p {
     font-size: 20px;
     margin-top: 1%;
     font-weight: 700;

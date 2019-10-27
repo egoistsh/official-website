@@ -106,19 +106,19 @@ export default new Router({
         {
           path: '/live',
           name: 'live',
-          component: resolve => require(['@/view/News'], resolve),
+          component: resolve => require(['@/view/Article'], resolve),
           meta: {
             title: '动态'
           },
           children: [
             {
               path: '/live',
-              redirect: '/live/news'
+              redirect: '/live/latest'
             },
             {
               path: '/live/latest',
               name: 'latest',
-              component: resolve => require(['@/view/Software_smartTown'], resolve),
+              component: resolve => require(['@/view/LatestArticle'], resolve),
               meta: {
                 title: '最新活动'
               }
@@ -126,7 +126,7 @@ export default new Router({
             {
               path: '/live/news',
               name: 'news',
-              component: resolve => require(['@/view/Software_bigData'], resolve),
+              component: resolve => require(['@/view/NewsArticle'], resolve),
               meta: {
                 title: '新闻事件'
               }

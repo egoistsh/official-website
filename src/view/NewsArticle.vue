@@ -117,7 +117,8 @@
 
   .articles {
     width: 60%;
-    margin:auto;
+    margin: auto;
+    /*margin:0 185px;*/
   }
 
   /* 图文式 */

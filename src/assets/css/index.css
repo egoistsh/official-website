@@ -21,13 +21,13 @@
 }
 .sk-spinner-rotating-plane.sk-spinner
 {
-  width: 30px;
-  height: 30px;
-  background-color: #28a7e9;
+  width: 120px;
+  height: 120px;
+  /*background-color: #28a7e9;*/
   margin: 0 auto;
   -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
   animation: sk-rotatePlane 1.2s infinite ease-in-out;
-  /*background: url("../assets/img/logo.svg");*/
+  background: url("../img/logo.svg");
 }
 
 @-webkit-keyframes sk-rotatePlane {

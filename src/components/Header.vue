@@ -2,7 +2,7 @@
   <!-- 头部整体盒子 -->
   <div id="header" class="container-fuild">
     <!-- 头部顶部 -->
-    <div class="header-top container-fuild hidden-xs">
+    <!--<div class="header-top container-fuild hidden-xs">
       <div class="container">
         <div class="server pull-left">
           <span class="glyphicon glyphicon-earphone"></span>888-888-888
@@ -10,12 +10,11 @@
           <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
         </div>
         <div class="shejiao pull-right">
-          <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！<!--{{$t('nav.home')}}-->
-          <!--          <el-button v-on:click="changeLanguage('en')">change</el-button>-->
+          <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！
           <span class="glyphicon glyphicon-hand-left"></span>
           <el-dropdown style="color: #fff;font-size: 12px" @command="changeLanguage">
           <span class="el-dropdown-link ">
-          切换语言<i class="el-icon-arrow-down el-icon--right"></i>
+          切换语言<i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>
           </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item v-for="item in options" :key="item.value" :command="item.value">{{item.label}}</el-dropdown-item>
@@ -23,7 +22,7 @@
           </el-dropdown>
         </div>
       </div>
-    </div>
+    </div>-->
     <!-- 电脑导航 -->
     <div class="header-nav container hidden-xs">
       <!-- 导航logo -->
@@ -47,15 +46,32 @@
           <dl v-if="item.children.length>0">
             <dt v-for="(i,n) in item.children" :key="n">
               <router-link :to="i.path">{{i.name}}</router-link>
+<!--              <router-view></router-view>-->
             </dt>
           </dl>
         </li>
       </ul>
+      <div class="header-language">
+        <el-dropdown @command="changeLanguage" class="lang-dropdown">
+          <span class="el-dropdown-link ">
+          切换语言<i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item v-for="item in options" :key="item.value" :command="item.value">{{item.label}}
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <!--        <a href="http://weixin.com"><img src="@/assets/img/tianmao.jpg" style="height: 30px;width: 30px;float: right">天猫</a>-->
+        <!--        <a href="http://weibo.com">&lt;!&ndash;<img src="@/assets/img/weibo.png">&ndash;&gt;微博</a>-->
+        <a href="#"><img src="../assets/img/tianmao.jpg" style="width: 30px;height: 30px;display: inline-block;margin-bottom: 5px;margin-right: 3px"></a>
+        <a href="#"><img src="../assets/img/weibo2.jpg" style="width: 35px;height: 35px;display: inline-block;margin-bottom: 5px"></a>
+      </div>
+
     </div>
     <!-- 手机导航 -->
     <div class="header-nav-m container-fuild visible-xs">
       <div class="header-nav-m-logo">
-<!--        <img class="center-block" src="@/assets/img/logo_black.png" alt="logo">-->
+        <!--        <img class="center-block" src="@/assets/img/logo_black.png" alt="logo">-->
         <img src="@/assets/img/logo.svg">
       </div>
       <!-- 导航栏 -->
@@ -288,8 +304,8 @@
       changeLanguage (language) {
         this.$i18n.locale = language
       },
-      handleCommand(command) {
-        this.$message('click on item ' + command);
+      handleCommand (command) {
+        this.$message('click on item ' + command)
       },
     },
   }
@@ -347,7 +363,7 @@
 
   #header .header-nav .header-nav-wrapper {
     line-height: 110px;
-    float: right;
+    /*float: right;*/
     margin: 0;
     max-width: 800px;
   }
@@ -446,6 +462,20 @@
     background: #ccc;
   }
 
+  /* 切换语言 */
+  .header-language {
+    float: right;
+    /*line-height: 110px;*/
+    margin-top: 36px;
+  }
+
+  /* 切换语言下拉框样式 */
+  .lang-dropdown {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
   @media screen and (max-width: 997px) {
     #header .header-nav-m {
       position: relative;
@@ -527,8 +557,15 @@
       cursor: pointer;
       color: #fffdfd;
     }
+
     .el-icon-arrow-down {
       font-size: 12px;
+    }
+
+    .link {
+      display: inline-block;
+      /*background: url('../assets/img/weibo2.jpg');*/
+      /*background: black;*/
     }
   }
 </style>

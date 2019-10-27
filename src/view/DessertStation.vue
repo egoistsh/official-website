@@ -37,7 +37,7 @@
             <img src="../assets/img/de/_sec3_6_03.jpg" alt="梦妆花园" class="img-bg img-responsive" @load="imageLoaded">
             <div class="con">
 <!--              <div class="tit tit01"><img src="../assets/img/de/产品系列-底图.png" alt="5大原料故事" class="img-responsive"></div>-->
-              <div class="tit tit02 over"><img :src="item.serialImg" alt="05 莲花" class="img-responsive"></div>
+              <div class="tit tit02 wow bounceInUp"><img :src="item.serialImg" alt="05 莲花" class="img-responsive"></div>
               <div class="img img01"><img src="../assets/img/de/img_sec3_6_01.jpg" alt="梦妆花园" class="img-responsive"></div>
               <div class="img img02 reveal-top"><img src="../assets/img/de/img_sec3_6_02.jpg" alt="梦妆花园" class="img-responsive"></div>
               <div class="img img03 reveal-img"><img src="../assets/img/de/img_sec3_6_03.jpg" alt="梦妆花园" class="img-responsive"></div>
@@ -392,8 +392,8 @@
     left: 1px;
     top: 1px;
     z-index: 10;
-    animation:blink 1s infinite;
-    -webkit-animation:blink 1s infinite; /*Safari and Chrome*/
+    /*animation:blink 1s infinite;
+    -webkit-animation:blink 1s infinite;*/ /*Safari and Chrome*/
   }
 
   @keyframes blink{
