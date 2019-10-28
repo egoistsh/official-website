@@ -9,7 +9,7 @@
       </div>
     </div>
     <div v-if="article" class="content">
-      <span v-html="article.content"></span>
+      <div v-html="article.content"></div>
     </div>
   </div>
 </template>
@@ -107,7 +107,7 @@
     padding-top: 25px;
   }
 
-  .textbox span {
+  /*.textbox span {
     font-size: 20px;
     line-height: 40px;
     text-indent: 38px;
@@ -122,9 +122,14 @@
     display: block;
     color: #666;
     line-height: 40px;
-  }
+  }*/
 
   .pr22 {
     padding-right: 22px;
+  }
+</style>
+<style>
+  .content img {
+    display: inline-block;
   }
 </style>
