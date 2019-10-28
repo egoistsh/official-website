@@ -10,5 +10,6 @@ module.exports = {
     latest:'最新活動',
     news:'新聞事件',
     dessertStation:'MYD甜品站',
+    language:'繁體'
   }
 }

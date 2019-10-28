@@ -10,6 +10,7 @@ module.exports = {
     latest:'Latest Activity',
     news:'News',
     dessertStation:'MYD Dessert Station',
+    language:'English'
   },
   confirm: {
     ok: '确认',

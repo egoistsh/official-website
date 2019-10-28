@@ -54,7 +54,7 @@
       <div class="header-language">
         <el-dropdown @command="changeLanguage" class="lang-dropdown">
           <span class="el-dropdown-link ">
-          切换语言<i class="el-icon-arrow-down el-icon--right"></i>
+          {{$t('nav.language')}}<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item v-for="item in options" :key="item.value" :command="item.value">{{item.label}}
@@ -116,13 +116,13 @@
         options: [
           {
             value: 'zh-cn',
-            label: '中文简体',
+            label: '中文',
           }, {
             value: 'zh-hk',
-            label: '中文繁体',
+            label: '繁體',
           }, {
             value: 'en',
-            label: '英文',
+            label: 'English',
           }],
         value: '',
         /*navList: [

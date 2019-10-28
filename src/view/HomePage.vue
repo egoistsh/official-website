@@ -82,7 +82,7 @@
     <!-- 客户评价 -->
     <div id="customer" class="container-fuild">
       <div class="container customer-container">
-        <p class="customer-title text-center">热点排行榜</p>
+        <p class="customer-title text-center">产品排行榜</p>
         <div class="swiper-container customer-swiper hidden-xs" style="margin: 0 -90px;">
           <div class="swiper-wrapper">
             <div
