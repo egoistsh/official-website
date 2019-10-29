@@ -60,8 +60,10 @@ Vue.component(Header.name, Header)
 
 /* 尾部组件 */
 import Footer from './components/Footer'
+import FooterImage from './components/FooterImage'
 
 Vue.component(Footer.name, Footer)
+Vue.component(FooterImage.name,FooterImage)
 
 /* 回到顶部 */
 import GoTop from './components/GoTop'

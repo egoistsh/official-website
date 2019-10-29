@@ -10,6 +10,9 @@ module.exports = {
     latest:'最新活動',
     news:'新聞事件',
     dessertStation:'MYD甜品站',
-    language:'繁體'
+    language:'繁體中文'
+  },
+  home: {
+    ranking:'產品排行榜'
   }
 }

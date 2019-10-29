@@ -12,6 +12,9 @@ module.exports = {
     dessertStation:'MYD Dessert Station',
     language:'English'
   },
+  home:{
+    ranking:'Product ranking'
+  },
   confirm: {
     ok: '确认',
     cancel: '取消',

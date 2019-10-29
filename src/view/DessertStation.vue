@@ -24,17 +24,16 @@
         </div>
         <div class="load" v-loading='loading' v-show="loading" element-loading-text="拼命加载中"></div>
         <div class="content" v-show="!loading">
-          <div :id=item.id class="content-block" v-for="(item,index) in serialList" :key="index">
-            <!-- <h2 :id="item.id">
-             {{item.title}}
-             <small>/ {{item.eng_title}}</small>
-           </h2>
-             <div v-html="item.content"></div>-->
-            <!--            <img src="../assets/img/bg_sec1_1.jpg">-->
+          <div>
+            <img src="/static/img/甜品站-1.jpg" class="img-responsive">
+            <img src="/static/img/甜品站-2.jpg" class="img-responsive">
+            <img src="/static/img/甜品-3.jpg" class="img-responsive">
 
+          </div>
+          <div :id=item.id class="content-block" v-for="(item,index) in serialList" :key="index">
             <img src="../assets/img/de/产品系列-底图.png" alt="产品系列" class="img-bg img-responsive">
-            <img src="../assets/img/de/_sec3_6_02.jpg" alt="梦妆花园" class="img-bg img-responsive">
-            <img src="../assets/img/de/_sec3_6_03.jpg" alt="梦妆花园" class="img-bg img-responsive" @load="imageLoaded">
+            <img :src="item.bgImg" alt="梦妆花园" class="img-bg img-responsive">
+            <img :src="item.bgImg2" alt="梦妆花园" class="img-bg img-responsive" @load="imageLoaded">
             <div class="con">
 <!--              <div class="tit tit01"><img src="../assets/img/de/产品系列-底图.png" alt="5大原料故事" class="img-responsive"></div>-->
               <div class="tit tit02 wow bounceInUp"><img :src="item.serialImg" alt="05 莲花" class="img-responsive"></div>
@@ -90,6 +89,8 @@
           {
             id: 'section-1',
             serialImg:'/static/img/松饼系列.png',
+            bgImg:'/static/img/松饼系列1.jpg',
+            bgImg2:'/static/img/松饼系列2.jpg',
             title: '品牌含义',
             eng_title: 'Brand meaning',
             content:
@@ -98,6 +99,8 @@
           {
             id: 'section-2',
             serialImg:'/static/img/冰淇淋系列.png',
+            bgImg:'/static/img/冰淇淋-1.jpg',
+            bgImg2:'/static/img/冰淇淋-2.jpg',
             title: 'MYD理念',
             eng_title: 'MYD Mind',
             content:
@@ -106,6 +109,8 @@
           {
             id: 'section-3',
             serialImg:'/static/img/布丁系列.png',
+            bgImg:'/static/img/布丁-1.jpg',
+            bgImg2:'/static/img/布丁-2.jpg',
             title: '品牌历程',
             eng_title: 'Brand Road',
             content:
@@ -114,6 +119,8 @@
           {
             id: 'section-4',
             serialImg:'/static/img/香蕉船系列.png',
+            bgImg:'/static/img/香蕉船-1.jpg',
+            bgImg2:'/static/img/香蕉船-2.jpg',
             title: 'XXX',
             eng_title: 'XXX',
             content:
@@ -122,6 +129,8 @@
           {
             id: 'section-5',
             serialImg:'/static/img/奶茶系列.png',
+            bgImg:'/static/img/奶茶-1.jpg',
+            bgImg2:'/static/img/奶茶-2.jpg',
             title: 'XXX',
             eng_title: 'XXX',
             content:
@@ -130,6 +139,8 @@
           {
             id: 'section-6',
             serialImg:'/static/img/吐司系列.png',
+            bgImg:'/static/img/吐司-1.jpg',
+            bgImg2:'/static/img/吐司-2.jpg',
             title: 'XXX',
             eng_title: 'XXX',
             content:
@@ -218,7 +229,7 @@
 </script>
 <style scoped>
   .container {
-    width: 100%;
+    width: 90%;
     /*position: relative;*/
   }
 
@@ -249,7 +260,7 @@
   ul.nav-tabs li {
     text-align: center;
     margin: 0;
-    height: 80px;
+    height: 100px;
     /*border-top: 1px solid #474747;*/
   }
 
@@ -323,7 +334,7 @@
   .content-block {
     /*width: 200px;*/
     /*margin: 50px auto;*/
-    margin: 0 40px;
+    /*margin: 0 40px;*/
     min-height: 800px;
     text-align: center;
     /*background:url("../assets/img/bg_sec1_1.jpg");*/
@@ -355,7 +366,7 @@
     /* top: 200px; */
     /* left: 50px; */
     top: 19%;
-    right: 3%;
+    right: 1%;
   }
 
   .line {

@@ -1,33 +1,10 @@
 <template>
   <!-- 头部整体盒子 -->
   <div id="header" class="container-fuild">
-    <!-- 头部顶部 -->
-    <!--<div class="header-top container-fuild hidden-xs">
-      <div class="container">
-        <div class="server pull-left">
-          <span class="glyphicon glyphicon-earphone"></span>888-888-888
-          <span class="glyphicon glyphicon-envelope"></span>g_billy@163.com
-          <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
-        </div>
-        <div class="shejiao pull-right">
-          <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！
-          <span class="glyphicon glyphicon-hand-left"></span>
-          <el-dropdown style="color: #fff;font-size: 12px" @command="changeLanguage">
-          <span class="el-dropdown-link ">
-          切换语言<i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>
-          </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item v-for="item in options" :key="item.value" :command="item.value">{{item.label}}</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </div>
-      </div>
-    </div>-->
     <!-- 电脑导航 -->
-    <div class="header-nav container hidden-xs">
+    <div class="header-nav hidden-xs">
       <!-- 导航logo -->
       <div class="header-nav-logo">
-        <!--        <img src="@/assets/img/logo.gif">-->
         <img src="@/assets/img/logo.svg">
       </div>
       <!-- 导航内容 -->
@@ -52,6 +29,8 @@
         </li>
       </ul>
       <div class="header-language">
+        <a href="#"><img src="../assets/img/tianmao.jpg" style="width: 30px;height: 30px;display: inline-block;margin-bottom: 5px;margin-right: 3px"></a>
+        <a href="#"><img src="../assets/img/weibo2.jpg" style="width: 35px;height: 35px;display: inline-block;margin-bottom: 5px"></a>
         <el-dropdown @command="changeLanguage" class="lang-dropdown">
           <span class="el-dropdown-link ">
           {{$t('nav.language')}}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -63,8 +42,6 @@
         </el-dropdown>
         <!--        <a href="http://weixin.com"><img src="@/assets/img/tianmao.jpg" style="height: 30px;width: 30px;float: right">天猫</a>-->
         <!--        <a href="http://weibo.com">&lt;!&ndash;<img src="@/assets/img/weibo.png">&ndash;&gt;微博</a>-->
-        <a href="#"><img src="../assets/img/tianmao.jpg" style="width: 30px;height: 30px;display: inline-block;margin-bottom: 5px;margin-right: 3px"></a>
-        <a href="#"><img src="../assets/img/weibo2.jpg" style="width: 35px;height: 35px;display: inline-block;margin-bottom: 5px"></a>
       </div>
 
     </div>
@@ -116,10 +93,10 @@
         options: [
           {
             value: 'zh-cn',
-            label: '中文',
+            label: '简体中文',
           }, {
             value: 'zh-hk',
-            label: '繁體',
+            label: '繁體中文',
           }, {
             value: 'en',
             label: 'English',
@@ -333,6 +310,9 @@
   /* 导航栏 */
   #header .header-nav {
     height: 110px;
+    margin: 0 95px;
+    /*width: 80%;*/
+    /*margin: auto;*/
   }
 
   /* 导航栏logo */
@@ -365,7 +345,7 @@
     line-height: 110px;
     /*float: right;*/
     margin: 0;
-    max-width: 800px;
+    /*max-width: 800px;*/
   }
 
   /* 导航栏 每个导航 */

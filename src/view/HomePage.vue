@@ -6,11 +6,11 @@
     </div>
     <!-- end preloader -->
     <!-- 轮播图 -->
-    <div id="swiper" class="container-fuild hidden-xs">
+    <div id="swiper" class="container-fuild">
       <div class="swiper-container banner-swiper wow zoomIn">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
-            <a :href="item.url" target="_blank"><img class="swiper-lazy img-responsive" :data-src="item.imageUrl"></a>
+            <a :href="item.url" target="_blank"><img class="swiper-lazy" :data-src="item.imageUrl"></a>
             <div class="swiper-lazy-preloader"></div>
             <!--<div class="swiper-slide-title">
                 <h1>{{item.title}}</h1>
@@ -27,26 +27,26 @@
       </div>
     </div>
     <!-- 手机轮播图 -->
-    <div id="swiper-app" class="container-fuild visible-xs">
+    <!--<div id="swiper-app" class="container-fuild visible-xs">
       <div class="swiper-container banner-swiper wow zoomIn">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
             <a :href="item.url" target="_blank"><img class="swiper-lazy img-responsive" :data-src="item.imageUrl"></a>
             <div class="swiper-lazy-preloader"></div>
-            <!--<div class="swiper-slide-title">
+            &lt;!&ndash;<div class="swiper-slide-title">
                 <h1>{{item.title}}</h1>
                 <p>{{item.content}}</p>
-            </div>-->
+            </div>&ndash;&gt;
           </div>
         </div>
-        <!-- 如果需要分页器 -->
+        &lt;!&ndash; 如果需要分页器 &ndash;&gt;
         <div class="swiper-pagination"></div>
 
-        <!-- 如果需要导航按钮 -->
+        &lt;!&ndash; 如果需要导航按钮 &ndash;&gt;
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
-    </div>
+    </div>-->
     <!-- 大数据管理系统 -->
     <div id="bigData" class="container-fuild">
       <div class="row bigData-container">
@@ -61,29 +61,11 @@
         </div>
       </div>
     </div>
-    <!-- 您身边的IT专家 -->
-   <!-- <div id="contactUs" class="container-fuild text-center">
-      <div class="container contactUs-container wow slideInUp">
-        <h1>联系我们</h1>
-        <h3>SubTitle</h3>
-        <button
-          class="btn btn-default btn-sm"
-          onmouseleave="this.style.borderColor='#ffffff'; this.style.backgroundColor='#ffffff'; this.style.color='#3f3f3f';"
-          onmouseenter="this.style.backgroundColor='transparent'; this.style.borderColor='#ffffff'; this.style.color='#ffffff';"
-        >联系我们
-        </button>
-        <div class="contactUs-contactWay">
-          <a href="http://weixin.com"><span></span></a>
-          <a href="http://weibo.com"><span></span></a>
-          <a href="http://taobao.com"><span></span></a>
-        </div>
-      </div>
-    </div>-->
     <!-- 客户评价 -->
-    <div id="customer" class="container-fuild">
+   <!-- <div id="customer" class="container-fuild">
       <div class="container customer-container">
         <p class="customer-title text-center">产品排行榜</p>
-        <div class="swiper-container customer-swiper hidden-xs" style="margin: 0 -90px;">
+        <div class="swiper-container customer-swiper hidden-xs" style="margin: 0 -284px;">
           <div class="swiper-wrapper">
             <div
               class="swiper-slide customer-block"
@@ -102,7 +84,7 @@
               <div class="customer-content2">{{item.title}}</div>
             </div>
           </div>
-          <!-- 如果需要导航按钮 -->
+          &lt;!&ndash; 如果需要导航按钮 &ndash;&gt;
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </div>
@@ -123,9 +105,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
     <!-- 为什么选择我们 -->
-    <div id="whyChooseUs" class="conatiner-fuild">
+    <!--<div id="whyChooseUs" class="conatiner-fuild">
       <div class="container">
         <div class="whyChooseUs-title text-center">
           <p>为什么选择我们</p>
@@ -154,7 +136,32 @@
           </div>
         </div>
       </div>
+    </div>-->
+    <div id="ranking">
+      <p class="customer-title text-center">{{$t('home.ranking')}}</p>
+      <div class="hidden-xs">
+        <el-carousel :interval="4000" type="card" height="400px">
+          <el-carousel-item v-for="item in articles" :key="item.id">
+            <img :src="item.imageUrl" alt="产品">
+          </el-carousel-item>
+        </el-carousel>
+      </div>
+      <div class="visible-xs">
+        <el-carousel :interval="4000" type="card" height="150px">
+          <el-carousel-item v-for="item in articles" :key="item.id">
+            <img :src="item.imageUrl" alt="产品">
+          </el-carousel-item>
+        </el-carousel>
+      </div>
+     <!-- <div>
+        <div class="box" id="scroll">
+          <ul>
+            <li v-for="item in articles"><img :src="item.imageUrl" alt=""></li>
+          </ul>
+        </div>
+      </div>-->
     </div>
+    <FooterImage></FooterImage>
   </div>
 </template>
 <script>
@@ -233,6 +240,26 @@
       this.listLeftConfigs()
 
       this.listArticle()
+
+      //图片无线滚动
+      /*window.onload = function(){
+        var scroll = document.getElementById("scroll");
+        var ul = scroll.children[0];//孩子都要加[0]无论几个孩子,因为得到的是数组
+        var num = 0;//控制左侧值left
+        var timer = null;	//声明定时器
+        timer = setInterval(autoPlay,5);
+        function autoPlay(){
+          num--;
+          num <=-1500 ? num = 0 : num;	//一张图宽300，四张1200，左为负
+          ul.style.left = num+"px";
+        }
+        scroll.onmouseover = function(){
+          clearInterval(timer);
+        }
+        scroll.onmouseout = function(){
+          timer = setInterval(autoPlay,5);
+        }
+      }*/
 
     },
     methods: {
@@ -329,7 +356,7 @@
   #swiper {
     /*height: 600px;*/
     /*width: 83%;*/
-    margin: 0 96px;
+    margin: 0 97px;
     /*width: 100vw;*/
     /*height: 100vh;*/
     /*margin: 10px 20px;*/
@@ -347,6 +374,8 @@
   .banner-swiper .swiper-slide img {
     /*width: 100%;*/
     /*height: 100%;*/
+    width: 100%;
+    height: auto;
     margin: auto;
   }
 
@@ -520,10 +549,28 @@
     color: #ccc;
   }
 
+  #ranking {
+    width: 90%;
+    margin: auto;
+  }
+
+  #ranking .customer-title {
+    font-size: 30px;
+    color: rgb(102, 102, 102);
+    margin: 0 0 30px;
+  }
+
+  /* 走马灯图片适配 */
+  #ranking img {
+    width: 100%;
+    height: inherit;
+  }
+
   /* 媒体查询（手机） */
   @media screen and (max-width: 768px) {
     #swiper {
-      height: 200px;
+      /*height: 200px;*/
+      margin: 0 30px;
     }
 
     #bigData {
@@ -631,7 +678,8 @@
   /* 媒体查询（平板） */
   @media screen and (min-width: 768px) and (max-width: 996px) {
     #swiper {
-      height: 400px;
+      /*height: 400px;*/
+      margin: 0 57px;
     }
 
     #bigData {
@@ -691,6 +739,44 @@
     .loading {
       color: #1b6d85;
     }
+
   }
+</style>
+<style>
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+  }
+
+
+  /* 无限滚动 */
+  /*img{vertical-align: top;} !*去掉上下两张图片之间的默认间隙距离*!*/
+ /* .box{
+    !*width: 600px;*!
+    height: 400px;
+    margin: auto;
+    background-color: pink;
+    overflow: hidden;
+    position: relative;
+  }
+  .box ul li{
+    float: left;
+  }
+  .box ul{
+    width: 500%;	!*四张图片就是百分之四百*!
+    position: absolute;!*大盒子做动画，就给大盒子定位*!
+    left: 0;
+    top: 0;
+  }
+
+  .box img {
+    !*height: 100px;*!
+    width: 300px;
+    height: 400px;
+  }*/
+
 </style>
 

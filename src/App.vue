@@ -2,7 +2,8 @@
   <div id="app">
     <Header></Header>
     <router-view/>
-    <Footer></Footer>
+<!--    <FooterImage></FooterImage>-->
+<!--    <Footer></Footer>-->
 <!--    <GoTop></GoTop>-->
   </div>
 </template>
