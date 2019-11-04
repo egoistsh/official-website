@@ -61,105 +61,40 @@
         </div>
       </div>
     </div>
-    <!-- 客户评价 -->
-   <!-- <div id="customer" class="container-fuild">
-      <div class="container customer-container">
-        <p class="customer-title text-center">产品排行榜</p>
-        <div class="swiper-container customer-swiper hidden-xs" style="margin: 0 -284px;">
-          <div class="swiper-wrapper">
-            <div
-              class="swiper-slide customer-block"
-              v-for="(item,index) in articles"
-              :key="index"
-            >
-              <div class="customer-logo">
-                <img class="center-block" :src="item.imageUrl" alt="logo">
-              </div>
-              <div class="customer-yh">
-                <img src="@/assets/img/yinhao.png" alt="引号">
-              </div>
-              <div class="customer-content1">
-                <small>{{item.brief}}</small>
-              </div>
-              <div class="customer-content2">{{item.title}}</div>
-            </div>
-          </div>
-          &lt;!&ndash; 如果需要导航按钮 &ndash;&gt;
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-        <div class="row visible-xs customer-block">
-          <div class="col-xs-12" v-for="(item,index) in articles" :key="index">
-            <div class="customer-logo">
-              <img class="center-block" :src="item.imageUrl" alt="logo">
-            </div>
-            <div class="customer-yh">
-              <img src="@/assets/img/yinhao.png" alt="引号">
-            </div>
-            <div class="customer-content1">
-              <small>{{item.brief}}</small>
-            </div>
-            <div class="customer-content2">
-              <small>{{item.title}}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
-    <!-- 为什么选择我们 -->
-    <!--<div id="whyChooseUs" class="conatiner-fuild">
-      <div class="container">
-        <div class="whyChooseUs-title text-center">
-          <p>为什么选择我们</p>
-          <p>THE REASON TO CHOOSING US</p>
-        </div>
-        <div class="row">
-          <div
-            class="col-xs-12 col-sm-6 col-md-3 server-wrapper"
-            v-for="(item,index) in serverList"
-            :key="index"
-          >
-            <div
-              class="server-block wow slideInUp"
-              onmouseenter="this.style.color='#28f';this.style.borderColor='#28f'"
-              onmouseleave="this.style.color='#666';this.style.borderColor='#ccc'"
-            >
-              <img class="center-block" :src="item.logo" alt="logo">
-              <p class="text-center">{{item.title}}</p>
-              <div
-                class="text-center"
-                v-html="item.content"
-                onmouseenter="this.style.color='#28f'"
-                onmouseleave="this.style.color='#ccc'"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>-->
     <div id="ranking">
       <p class="customer-title text-center">{{$t('home.ranking')}}</p>
       <div class="hidden-xs">
-        <el-carousel :interval="4000" type="card" height="400px">
-          <el-carousel-item v-for="item in articles" :key="item.id">
-            <img :src="item.imageUrl" alt="产品">
+        <el-carousel :interval="4000" height="400px" arrow="always">
+          <el-carousel-item v-for="list in carouselList" :key="list.id">
+            <div class="ranking-content">
+              <div class="ranking-block" v-for="item in list">
+                <a :href="'#/productDetail/'+item.id" target="_blank"><el-image :src="item.imageUrl" fit="cover" style="height: 300px;width: 300px" >
+                  <div slot="error" class="image-slot">
+                    <i class="el-icon-picture-outline"></i>
+                  </div>
+                </el-image></a>
+                <div class="item-title"><span>{{item.title}}</span></div>
+              </div>
+            </div>
           </el-carousel-item>
         </el-carousel>
       </div>
       <div class="visible-xs">
-        <el-carousel :interval="4000" type="card" height="150px">
-          <el-carousel-item v-for="item in articles" :key="item.id">
-            <img :src="item.imageUrl" alt="产品">
+        <el-carousel :interval="4000" height="150px" arrow="always">
+          <el-carousel-item v-for="list in carouselList" :key="list.id">
+            <div class="ranking-content">
+              <div class="ranking-block" v-for="item in list">
+                <a :href="'#/productDetail/'+item.id" target="_blank"><el-image :src="item.imageUrl" fit="cover" style="width: 110px;height: 110px">
+                  <div slot="error" class="image-slot">
+                    <i class="el-icon-picture-outline"></i>
+                  </div>
+                </el-image></a>
+                <div class="item-title"><span>{{item.title}}</span></div>
+              </div>
+            </div>
           </el-carousel-item>
         </el-carousel>
       </div>
-     <!-- <div>
-        <div class="box" id="scroll">
-          <ul>
-            <li v-for="item in articles"><img :src="item.imageUrl" alt=""></li>
-          </ul>
-        </div>
-      </div>-->
     </div>
     <FooterImage></FooterImage>
   </div>
@@ -203,7 +138,8 @@
         ],
         swiper:undefined,
         left:undefined,
-        articles:undefined
+        articles:undefined,
+        carouselList:undefined
       }
     },
     mounted () {
@@ -328,7 +264,7 @@
       listArticle () {
         const data = {
           params:{
-            // featureId:'1183252644685287424',
+            featureId:'1189714214260969472',
             size:10,
             // pubTime:moment(new Date().getTime()).format('YYYY-MM-DD HH:mm:ss'),
             enabled:1,
@@ -338,7 +274,17 @@
         }
         listArticle(data).then((response) => {
           this.articles = response.data.content
-          console.log(this.articles)
+          this.carouselList = []
+          var length = this.articles.length
+          for (var i=0;i<length/3;i++) {
+            var item = []
+            item.push(this.articles[i])
+            item.push(this.articles[i+1])
+            item.push(this.articles[i+2])
+            this.carouselList.push(item)
+          }
+          console.log("list:"+this.carouselList)
+          // console.log(this.articles)
         }).catch((error) => {
           console.log(error)
         })
@@ -562,8 +508,30 @@
 
   /* 走马灯图片适配 */
   #ranking img {
+    /*width: 100%;*/
+    /*height: inherit;*/
+  }
+
+  .ranking-content {
+    /*width: 990px;*/
     width: 100%;
-    height: inherit;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .ranking-block {
+    float: left;
+    width: 33%;
+    /*width: 300px;*/
+    height: 300px;
+    /*margin: 0 135px;*/
+    /*display: inline-block;*/
+  }
+
+  .ranking-block .item-title {
+    font-size: 16px;
+    color: grey;
+    font-weight: bold;
   }
 
   /* 媒体查询（手机） */
@@ -673,6 +641,12 @@
     #whyChooseUs .server-block > div {
       color: #ccc;
     }
+
+    .ranking-content {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
   }
 
   /* 媒体查询（平板） */
@@ -743,13 +717,13 @@
   }
 </style>
 <style>
-  .el-carousel__item:nth-child(2n) {
+  /*.el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
 
   .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
-  }
+  }*/
 
 
   /* 无限滚动 */

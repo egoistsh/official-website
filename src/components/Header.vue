@@ -29,8 +29,8 @@
         </li>
       </ul>
       <div class="header-language">
-        <a href="#"><img src="../assets/img/tianmao.jpg" style="width: 30px;height: 30px;display: inline-block;margin-bottom: 5px;margin-right: 3px"></a>
-        <a href="#"><img src="../assets/img/weibo2.jpg" style="width: 35px;height: 35px;display: inline-block;margin-bottom: 5px"></a>
+        <a href="https://mydydhw.tmall.com/shop/view_shop.htm?tracelog=twddp&user_number_id=3335031321" target="_blank"><img src="/static/img/tianmao.png" style="width: 35px;height: 35px;display: inline-block;margin-bottom: 5px;margin-right: 8px"></a>
+        <a href="https://weibo.com/p/1006067030184028/home?from=page_100606&mod=TAB&is_hot=1#place" target="_blank"><img src="/static/img/weibo.png" style="width: 35px;height: 35px;display: inline-block;margin-bottom: 5px;margin-right: 8px"></a>
         <el-dropdown @command="changeLanguage" class="lang-dropdown">
           <span class="el-dropdown-link ">
           {{$t('nav.language')}}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -351,7 +351,7 @@
   /* 导航栏 每个导航 */
   #header .header-nav .header-nav-wrapper > li {
     float: left;
-    margin: 0 15px;
+    margin: 0 20px;
     position: relative;
   }
 

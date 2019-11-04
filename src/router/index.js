@@ -145,6 +145,17 @@ export default new Router({
           })
         },
         {
+          path: '/productDetail/:id',
+          name: 'productDetail',
+          component: resolve => require(['@/view/ProductDetail'], resolve),
+          meta: {
+            title: '产品详情'
+          },
+          props:(route) => ({
+            articleId:route.params.id
+          })
+        },
+        {
           path: '/dessertStation',
           name: 'dessertStation',
           component: resolve => require(['@/view/DessertStation'], resolve),
