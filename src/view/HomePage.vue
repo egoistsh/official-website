@@ -12,10 +12,6 @@
           <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
             <a :href="item.url" target="_blank"><img class="swiper-lazy" :data-src="item.imageUrl"></a>
             <div class="swiper-lazy-preloader"></div>
-            <!--<div class="swiper-slide-title">
-                <h1>{{item.title}}</h1>
-                <p>{{item.content}}</p>
-            </div>-->
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -51,7 +47,6 @@
     <div id="bigData" class="container-fuild">
       <div class="row bigData-container">
         <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
-<!--          <a href="#"><img class="img-responsive" src="@/assets/img/sch-banner.jpg" alt="banner"></a>-->
           <a :href="left.url" v-if="left"><img class="img-responsive" :src="left.imageUrl"></a>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
@@ -64,11 +59,11 @@
     <div id="ranking">
       <p class="customer-title text-center">{{$t('home.ranking')}}</p>
       <div class="hidden-xs">
-        <el-carousel :interval="4000" height="400px" arrow="always">
+        <el-carousel :interval="4000" height="31rem" arrow="always">
           <el-carousel-item v-for="list in carouselList" :key="list.id">
             <div class="ranking-content">
               <div class="ranking-block" v-for="item in list">
-                <a :href="'#/productDetail/'+item.id" target="_blank"><el-image :src="item.imageUrl" fit="cover" style="height: 300px;width: 300px" >
+                <a :href="'#/productDetail/'+item.id" target="_blank"><el-image :src="item.imageUrl" fit="cover" style="height: 23rem;width: 23rem" >
                   <div slot="error" class="image-slot">
                     <i class="el-icon-picture-outline"></i>
                   </div>
@@ -80,11 +75,11 @@
         </el-carousel>
       </div>
       <div class="visible-xs">
-        <el-carousel :interval="4000" height="150px" arrow="always">
+        <el-carousel :interval="4000" height="12rem" arrow="always">
           <el-carousel-item v-for="list in carouselList" :key="list.id">
             <div class="ranking-content">
               <div class="ranking-block" v-for="item in list">
-                <a :href="'#/productDetail/'+item.id" target="_blank"><el-image :src="item.imageUrl" fit="cover" style="width: 110px;height: 110px">
+                <a :href="'#/productDetail/'+item.id" target="_blank"><el-image :src="item.imageUrl" fit="cover" style="width: 9rem;height: 9rem">
                   <div slot="error" class="image-slot">
                     <i class="el-icon-picture-outline"></i>
                   </div>
@@ -300,16 +295,8 @@
 
   /* 轮播图 */
   #swiper {
-    /*height: 600px;*/
-    /*width: 83%;*/
-    margin: 0 97px;
-    /*width: 100vw;*/
-    /*height: 100vh;*/
-    /*margin: 10px 20px;*/
-  }
-
-  #swiper-app {
-    margin: 0 30px;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .banner-swiper {
@@ -318,8 +305,6 @@
   }
 
   .banner-swiper .swiper-slide img {
-    /*width: 100%;*/
-    /*height: 100%;*/
     width: 100%;
     height: auto;
     margin: auto;
@@ -329,181 +314,24 @@
     position: relative;
   }
 
-  .banner-swiper .swiper-slide-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999999999;
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    background: rgba(51, 51, 51, 0.534);
-    text-align: center;
-    line-height: 80px;
-  }
-
-  .banner-swiper .swiper-slide-title > h1 {
-    font-size: 50px;
-    margin-top: 12%;
-  }
-
-  .banner-swiper .swiper-slide-title > p {
-    font-size: 20px;
-    margin-top: 1%;
-    font-weight: 700;
-  }
-
   /* 大数据管理系统 */
   #bigData {
-    padding: 100px;
+    width: 90%;
+    margin: 2rem auto;
     transition: all ease 0.6s;
     box-sizing: border-box;
   }
 
-  #bigData .bigData-title {
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-
-  #bigData p {
-    font-size: 14px;
-    color: #333;
-    line-height: 2rem;
-  }
-
-  #bigData .bigData-device {
-    margin: 50px 0 20px;
-  }
-
-  /* 您身边的IT专家 */
-  #contactUs {
-    color: #fff;
-    height: 400px;
-    background: url("../assets/img/bg_01.jpg") 0 0 no-repeat;
-    background-size: 100% 100%;
-    transition: all ease 0.6s;
-  }
-
-  #contactUs .contactUs-container {
-    padding-top: 50px;
-  }
-
-  #contactUs .contactUs-container button {
-    width: 300px;
-    height: 50px;
-    margin-top: 40px;
-  }
-
-  #contactUs .contactUs-container .contactUs-contactWay span {
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    margin: 30px;
-  }
-
-  #contactUs .contactUs-container .contactUs-contactWay a:nth-of-type(1) span {
-    background: url("../assets/img/weixin.png") 0 0 no-repeat;
-    background-size: 100% 100%;
-  }
-
-  #contactUs .contactUs-container .contactUs-contactWay a:nth-of-type(2) span {
-    background: url("../assets/img/weibo.png") 0 0 no-repeat;
-    background-size: 100% 100%;
-  }
-
-  #contactUs .contactUs-container .contactUs-contactWay a:nth-of-type(3) span {
-    background: url("../assets/img/twitter.png") 0 0 no-repeat;
-    background-size: 100% 100%;
-  }
-
-  /* 客户评价 */
-  #customer {
-    padding: 50px 0;
-    box-sizing: border-box;
-    background: #efefef;
-    transition: all ease 0.6s;
-  }
-
-  #customer .customer-title {
-    font-size: 30px;
-    color: rgb(102, 102, 102);
-    margin: 0 0 30px;
-  }
-
-  #customer .customer-block {
-    background: #fff;
-    padding: 30px;
-  }
-
-  #customer .customer-logo img {
-    width: 94px;
-    height: 94px;
-    border: 1px solid #ccc;
-  }
-
-  #customer .customer-yh img {
-    width: 34px;
-    height: 34px;
-  }
-
-  #customer .customer-content1 {
-    padding-bottom: 20px;
-    border-bottom: 1px solid #0ce9f1;
-    height: 120px;
-  }
-
-  #customer .customer-content2 {
-    padding-top: 20px;
-    height: 30px;
-  }
-
-  /* 为什么选择我们 */
-  #whyChooseUs {
-    padding: 100px;
-  }
-
-  #whyChooseUs .whyChooseUs-title {
-    margin-bottom: 50px;
-  }
-
-  #whyChooseUs .whyChooseUs-title p:nth-of-type(1) {
-    font-size: 25px;
-    font-weight: 500;
-  }
-
-  #whyChooseUs .whyChooseUs-title p:nth-of-type(2) {
-    font-size: 14px;
-  }
-
-  #whyChooseUs .server-block {
-    padding: 50px 20px;
-    border: 1px solid #ccc;
-    border-bottom: 5px solid #ccc;
-  }
-
-  #whyChooseUs .server-block img {
-    width: 48px;
-    height: 48px;
-  }
-
-  #whyChooseUs .server-block > p {
-    font-size: 20px;
-    margin: 30px 0;
-  }
-
-  #whyChooseUs .server-block > div {
-    color: #ccc;
-  }
-
+  /* 产品排行榜 */
   #ranking {
     width: 90%;
     margin: auto;
   }
 
   #ranking .customer-title {
-    font-size: 30px;
+    font-size: 3rem;
     color: rgb(102, 102, 102);
-    margin: 0 0 30px;
+    margin: 0 0 3rem;
   }
 
   /* 走马灯图片适配 */
@@ -513,134 +341,33 @@
   }
 
   .ranking-content {
-    /*width: 990px;*/
     width: 100%;
-    margin: 40px auto;
+    margin: 4rem auto;
     text-align: center;
   }
 
   .ranking-block {
     float: left;
     width: 33%;
-    /*width: 300px;*/
-    height: 300px;
-    /*margin: 0 135px;*/
-    /*display: inline-block;*/
+    /*height: 300px;*/
   }
 
   .ranking-block .item-title {
-    font-size: 16px;
+    font-size: 1.5rem;
     color: grey;
     font-weight: bold;
   }
 
   /* 媒体查询（手机） */
   @media screen and (max-width: 768px) {
-    #swiper {
-      /*height: 200px;*/
-      margin: 0 30px;
-    }
+   /* #swiper {
+      !*height: 200px;*!
+      !*margin: 0 30px;*!
+    }*/
 
-    #bigData {
+    /*#bigData {
       padding: 30px;
-    }
-
-    #bigData .bigData-title {
-      font-size: 20px;
-    }
-
-    #bigData .bigData-device {
-      font-size: 20px;
-      margin: 10px 0 10px;
-    }
-
-    #contactUs {
-      height: 200px;
-      transition: all ease 0.6s;
-    }
-
-    #contactUs .contactUs-container {
-      padding-top: 0;
-    }
-
-    #contactUs .contactUs-container h1 {
-      font-size: 25px;
-    }
-
-    #contactUs .contactUs-container h3 {
-      font-size: 18px;
-    }
-
-    #contactUs .contactUs-container button {
-      width: 200px;
-      height: 30px;
-      margin-top: 20px;
-    }
-
-    #contactUs .contactUs-container .contactUs-contactWay span {
-      display: inline-block;
-      width: 28px;
-      height: 28px;
-      margin: 10px;
-    }
-
-    #customer {
-      padding: 30px 0;
-      box-sizing: border-box;
-      background: #fff;
-    }
-
-    #customer .customer-title {
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    #customer .customer-logo img {
-      width: 48px;
-      height: 48px;
-    }
-
-    #customer .customer-block {
-      padding: 30px;
-    }
-
-    #customer .customer-block > div {
-      padding: 30px 0;
-    }
-
-    #whyChooseUs {
-      padding: 20px 0;
-      transition: all ease 0.6s;
-    }
-
-    #whyChooseUs .whyChooseUs-title p:nth-of-type(1) {
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    #whyChooseUs .whyChooseUs-title p:nth-of-type(2) {
-      font-size: 12px;
-    }
-
-    #whyChooseUs .server-block {
-      padding: 50px 0;
-      border: 1px solid #ccc;
-      border-bottom: 5px solid #ccc;
-    }
-
-    #whyChooseUs .server-block img {
-      width: 48px;
-      height: 48px;
-    }
-
-    #whyChooseUs .server-block > p {
-      font-size: 20px;
-      margin: 30px 0;
-    }
-
-    #whyChooseUs .server-block > div {
-      color: #ccc;
-    }
+    }*/
 
     .ranking-content {
       width: 100%;
@@ -667,51 +394,6 @@
     #bigData .bigData-device {
       font-size: 30px;
       margin: 30px 0 15px;
-    }
-
-    #contactUs {
-      height: 300px;
-    }
-
-    #contactUs .contactUs-container {
-      padding-top: 50px;
-    }
-
-    #contactUs .contactUs-container h1 {
-      font-size: 30px;
-    }
-
-    #contactUs .contactUs-container h3 {
-      font-size: 20px;
-    }
-
-    #contactUs .contactUs-container button {
-      width: 300px;
-      height: 50px;
-      margin-top: 30px;
-    }
-
-    #contactUs .contactUs-container .contactUs-contactWay span {
-      display: inline-block;
-      width: 32px;
-      height: 32px;
-      margin: 15px;
-    }
-
-    #customer .customer-title {
-      font-size: 24px;
-    }
-
-    #whyChooseUs {
-      padding: 20px 0;
-    }
-
-    video {
-      /*object-fit: fill;*/
-    }
-
-    .loading {
-      color: #1b6d85;
     }
 
   }

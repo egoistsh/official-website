@@ -27,7 +27,7 @@
 <style scoped>
   #footer {
     width: 100%;
-    height: 830px;
+    height: 69rem;
     /*height: 100%;*/
     color: #fff;
     overflow: hidden;
