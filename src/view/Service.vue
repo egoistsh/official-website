@@ -1,5 +1,6 @@
 <template>
     <div id="Service">
+      <Header></Header>
         <div class="container text-center">
             <h3>品牌故事</h3>
             <p style="color:#b2b2b2">The Brand Story</p>

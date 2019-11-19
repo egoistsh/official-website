@@ -1,6 +1,6 @@
 <template>
   <!-- 头部整体盒子 -->
-  <div id="header" class="container-fuild">
+  <div id="header" class="container-fuild fixDiv2">
     <!-- 电脑导航 -->
     <div class="header-nav hidden-xs">
       <!-- 导航logo -->
@@ -8,32 +8,34 @@
         <img src="@/assets/img/logo.svg">
       </div>
       <!-- 导航内容 -->
-      <ul class="header-nav-wrapper">
-        <li
-          v-for="(item,index) in navList"
-          :key="index"
-          :class="index==navIndex?'active':''"
-          @click="navClick(index,item.name)"
-        >
-          <router-link :to="item.path">
-            {{item.name}}
-            <span v-if="item.children.length>0" class="glyphicon glyphicon-menu-down"></span>
-            <i class="underline"></i>
-          </router-link>
-          <dl v-if="item.children.length>0">
-            <dt v-for="(i,n) in item.children" :key="n">
-              <router-link :to="i.path">{{i.name}}</router-link>
-<!--              <router-view></router-view>-->
-            </dt>
-          </dl>
-        </li>
-      </ul>
+        <ul class="header-nav-wrapper">
+          <li
+            v-for="(item,index) in navList"
+            :key="index"
+            :class="index==navIndex?'active':''"
+            class="my-font"
+            @click="navClick(index,item.name)"
+          >
+            <router-link :to="item.path">
+              {{item.name}}
+              <span v-if="item.children.length>0" class="glyphicon glyphicon-menu-down"></span>
+              <i class="underline"></i>
+            </router-link>
+            <dl v-if="item.children.length>0">
+              <dt v-for="(i,n) in item.children" :key="n">
+                <router-link :to="i.path" style="font-weight: initial">{{i.name}}</router-link>
+                <!--              <router-view></router-view>-->
+              </dt>
+            </dl>
+          </li>
+        </ul>
       <div class="header-language">
-        <a href="https://mydydhw.tmall.com/shop/view_shop.htm?tracelog=twddp&user_number_id=3335031321" target="_blank"><img src="/static/img/tianmao.png" style="width: 35px;height: 35px;display: inline-block;margin-bottom: 5px;margin-right: 8px"></a>
-        <a href="https://weibo.com/p/1006067030184028/home?from=page_100606&mod=TAB&is_hot=1#place" target="_blank"><img src="/static/img/weibo.png" style="width: 35px;height: 35px;display: inline-block;margin-bottom: 5px;margin-right: 8px"></a>
-        <el-dropdown @command="changeLanguage" class="lang-dropdown">
+        <a href="https://mydydhw.tmall.com/shop/view_shop.htm?tracelog=twddp&user_number_id=3335031321" target="_blank"><img src="/static/img/天猫.png" style="height: 45px;display: inline;;margin-right: 8px"></a>
+        <a href="https://weibo.com/p/1006067030184028/home?from=page_100606&mod=TAB&is_hot=1#place" target="_blank"><img src="/static/img/微博.png" style="height: 45px;display: inline;margin-right: 8px"></a>
+        <el-dropdown @command="changeLanguage" class="lang-dropdown my-font">
           <span class="el-dropdown-link ">
-          {{$t('nav.language')}}<i class="el-icon-arrow-down el-icon--right"></i>
+<!--          {{$t('nav.language')}}<i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
+            <img :src="langUrl" style="height: 45px;display: inline">
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item v-for="item in options" :key="item.value" :command="item.value">{{item.label}}
@@ -87,6 +89,7 @@
     name: 'Header',
     data () {
       return {
+        navBarFixed:false,
         navIndex: sessionStorage.getItem('navIndex') ? sessionStorage.getItem('navIndex') : 0,
         menuName: '首页',
         menuClass: 'glyphicon glyphicon-menu-down',
@@ -102,77 +105,7 @@
             label: 'English',
           }],
         value: '',
-        /*navList: [
-          {
-            name: this.$t('nav.home'),
-            path: "/",
-            children: []
-          },
-          /!*{
-            name: "软件产品",
-            path: "/software",
-            children: [
-              {
-                name: "智能小镇管理系统",
-                path: "/software/smartTown"
-              },
-              {
-                name: "大数据管理系统",
-                path: "/software/bigData"
-              }
-            ]
-          },
-          {
-            name: "相关服务",
-            path: "/service",
-            children: []
-          },
-          {
-            name: "新闻动态",
-            path: "/newsinformation",
-            children: []
-          },
-          {
-            name: "公司介绍",
-            path: "/companyintroduction",
-            children: []
-          },
-          {
-            name: "工作机会",
-            path: "/jobchance",
-            children: []
-          },
-          {
-            name: "联系我们",
-            path: "/contactus",
-            children: []
-          },*!/
-          {
-            name: "关于我们",
-            path: "/companyintroduction",
-            children: []
-          },
-          {
-            name: "产品展示",
-            path: "/productShow",
-            children: []
-          },
-          {
-            name: "品牌形象",
-            path: "/brandImage",
-            children: []
-          },
-          {
-            name: "MYD咨询",
-            path: "/informationMyd",
-            children: []
-          },
-          {
-            name: "联系我们",
-            path: "/contactus",
-            children: []
-          },
-        ],*/
+        langUrl:'/static/img/简.png'
       }
     },
     computed: {
@@ -183,60 +116,11 @@
             path: '/',
             children: [],
           },
-          /*{
-            name: "软件产品",
-            path: "/software",
-            children: [
-              {
-                name: "智能小镇管理系统",
-                path: "/software/smartTown"
-              },
-              {
-                name: "大数据管理系统",
-                path: "/software/bigData"
-              }
-            ]
-          },
-          {
-            name: "相关服务",
-            path: "/service",
-            children: []
-          },
-          {
-            name: "新闻动态",
-            path: "/newsinformation",
-            children: []
-          },
-          {
-            name: "公司介绍",
-            path: "/companyintroduction",
-            children: []
-          },
-          {
-            name: "工作机会",
-            path: "/jobchance",
-            children: []
-          },
-          {
-            name: "联系我们",
-            path: "/contactus",
-            children: []
-          },*/
           {
             name: this.$t('nav.dessertStation'),
-            path: '/dessertStation',
+            path: '/dessertStation2',
             children: [],
           },
-          /*{
-            name: this.$t('nav.companyintroduction'),
-            path: '/companyintroduction',
-            children: [],
-          },*/
-          /*{
-            name: '产品展示',
-            path: '/productShow',
-            children: [],
-          },*/
           {
             name: this.$t('nav.brandStory'),
             path: '/service',
@@ -265,11 +149,39 @@
       },
 
     },
+    mounted() {
+      /*$(function(){
+        var banOffTop=$("#header").offset().top;//获取到距离顶部的垂直距离
+        var scTop=0;//初始化垂直滚动的距离
+        $(document).scroll(function(){
+          scTop=$(this).scrollTop();//获取到滚动条拉动的距离
+          //console.log(scTop);查看滚动时，垂直方向上，滚动条滚动的距离
+          if(scTop>=banOffTop){
+            //核心部分：当滚动条拉动的距离大于等于导航栏距离顶部的距离时，添加指定的样式
+            $("#header").addClass("fixDiv");
+          }else{
+            $("#header").removeClass("fixDiv");
+          }
+        })
+      })*/
+      // 事件监听滚动条
+      window.addEventListener('scroll', this.watchScroll)
+    },
     methods: {
+      watchScroll () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        //  当滚动超过 50 时，实现吸顶效果
+        if (scrollTop > 49) {
+          this.navBarFixed = true
+        } else {
+          this.navBarFixed = false
+        }
+      },
       navClick (index, name) {
         this.navIndex = index
         sessionStorage.setItem('navIndex', index)
         this.menuName = name
+        console.log(index+ " " + name)
       },
       menuClick () {
         if (this.menuClass == 'glyphicon glyphicon-menu-down') {
@@ -280,6 +192,25 @@
       },
       changeLanguage (language) {
         this.$i18n.locale = language
+        //更换字体
+        /*if (language == 'zh-hk') {
+          $("#header .header-nav .header-nav-wrapper > li").addClass("hk-font")
+          $(".lang-dropdown").addClass("hk-font")
+        } else {
+          $("#header .header-nav .header-nav-wrapper > li").removeClass("hk-font")
+          $(".lang-dropdown").removeClass("hk-font")
+        }*/
+
+        //切换图标
+        if (language == 'zh-cn') {
+          this.langUrl = '/static/img/简.png'
+        } else if (language == 'zh-hk') {
+          this.langUrl = '/static/img/繁.png'
+        }
+        else if (language == 'en') {
+          this.langUrl = '/static/img/English.png'
+        }
+
       },
       handleCommand (command) {
         this.$message('click on item ' + command)
@@ -292,14 +223,38 @@
   #header {
     background: #FFFFFF;
     transition: all ease 0.6s;
+    border-bottom: 1px solid #e4e7ed;
   }
+
+  /* PC导航栏 */
+  @media screen and (min-width: 768px){
+    /* 固定导航栏&覆盖 */
+    .fixDiv{
+      position:fixed;
+      z-index: 999;
+      width: 100%;
+      top:0;
+      left:0;
+      background: rgba(255,255,255,1) ;
+      /*box-shadow: 0 1px 20px #888;*/
+    }
+
+    /*固定导航栏&不覆盖*/
+    .fixDiv2 {
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+      top: 0;
+    }
+  }
+
 
   #header .header-top {
     height: 50px;
     color: #fff;
     font-size: 12px;
     line-height: 50px;
-    background: #007dbb;
+    background: #7fcff0;
   }
 
   /* 顶部的图标 */
@@ -309,8 +264,8 @@
 
   /* 导航栏 */
   #header .header-nav {
-    height: 110px;
-    margin: 0 95px;
+    height: 8rem;
+    margin: 0 2rem 0.5rem;
     /*width: 80%;*/
     /*margin: auto;*/
   }
@@ -325,9 +280,8 @@
 
   /* 导航栏logo图片 */
   #header .header-nav .header-nav-logo img {
-    width: 95px;
-    /*height: 45px;*/
-    height: 100px;
+    width: 7rem;
+    height: 8rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -344,24 +298,37 @@
   #header .header-nav .header-nav-wrapper {
     line-height: 110px;
     /*float: right;*/
-    margin: 0;
-    /*max-width: 800px;*/
+    margin: 0 auto;
+    /*max-width: 58rem;*/
+    position: absolute;
+    left: 33.2%;
   }
 
   /* 导航栏 每个导航 */
   #header .header-nav .header-nav-wrapper > li {
     float: left;
-    margin: 0 20px;
+    margin: 0 3rem -1rem;
     position: relative;
   }
 
   /* 导航栏 每个导航下面的 a 链接 */
   #header .header-nav .header-nav-wrapper > li > a {
     color: #000;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: bold;
     padding: 15px 0;
     position: relative;
+  }
+
+  /* 自定义字体*/
+  .my-font {
+    /*font-family: XinQingNian;*/
+    font-family: PingFangSC-Ultralight, sans-serif;
+  }
+
+  .hk-font {
+    font-family:none;
+    font-weight: bold;
   }
 
   /* 导航栏 每个导航下面的 a 链接的下划线 */
@@ -374,7 +341,7 @@
     height: 2px;
     opacity: 0;
     transition: all 0.6s ease;
-    background-color: #1e73be;
+    background-color: #7fcff0;
   }
 
   /* 导航栏 每个导航下面的 a 链接的右侧小三角 */
@@ -385,7 +352,7 @@
 
   /* 导航栏 每个导航下面的 a 链接 鼠标滑上去的样式 */
   #header .header-nav .header-nav-wrapper > li > a:hover {
-    color: #1e73be;
+    color: #7fcff0;
     text-decoration: none;
   }
 
@@ -403,9 +370,9 @@
 
   /* 导航栏 每个导航下面的 a 链接 鼠标点击后的样式 */
   #header .header-nav .header-nav-wrapper > li.active > a {
-    color: #1e73be;
+    color: #7fcff0;
     text-decoration: none;
-    border-bottom: 2px solid #1e73be;
+    border-bottom: 2px solid #7fcff0;
   }
 
   /* 导航栏 每个导航下面的二级导航容器 */
@@ -446,13 +413,13 @@
   .header-language {
     float: right;
     /*line-height: 110px;*/
-    margin-top: 36px;
+    margin-top: 30px;
   }
 
   /* 切换语言下拉框样式 */
   .lang-dropdown {
     color: black;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: bold;
   }
 
@@ -485,7 +452,7 @@
       height: 50px;
       font-size: 20px;
       line-height: 50px;
-      background: #1197d6;
+      background: #7fcff0;
       position: relative;
     }
 
@@ -508,7 +475,7 @@
       top: 50px;
       left: 0;
       width: 100%;
-      background: #474747;
+      background: white;
       z-index: 9999999;
     }
 
@@ -521,7 +488,7 @@
 
     /* 导航栏 每个导航下面的 a 链接 */
     #header .header-nav-m .header-nav-m-wrapper > li > a {
-      color: #fff;
+      color: black;
       font-size: 15px;
       font-weight: bold;
       padding: 15px 0;

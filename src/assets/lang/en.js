@@ -14,6 +14,12 @@ module.exports = {
   },
   home:{
     ranking:'Product ranking',
+    video: {
+      span1:'Sometimes you think life is over',
+      span2:'There are no ripples like a still lake',
+      span3:'A moment to wake up, pick up the long-lost confidence',
+      span4:'It makes you a little bit different, which is what MYD is for'
+    },
     footer: {
       title:'About us',
       span:'MYD means make you different. One of the small and fresh style brands of literature and art.Founded in Melbourne in 2010. At the beginning, it was sold in Australia\'s Local Art Institute and under the charity line.',
@@ -32,4 +38,31 @@ module.exports = {
     content: '你确认要退出系统吗？',
     logout: '退 出'
   },
+  ds: {
+    learnMore:'Learn more',
+    goToStorm:'Go to the store',
+    title:'Only desserts and bags are true love',
+    list:{
+      1:'ICE CREAM SERIES',
+      2:'MUFFIN SERIES',
+      3:'BANANA SERIES',
+      4:'PUDDING SERIES',
+      5:'MILKY TEA SERIES',
+      6:'CUP CAKE SERIES',
+      7:'TOAST MINI SERIES',
+      8:'BENJI SERIES',
+      9:'PIZZA SERIES'
+    },
+    backpack:{
+      1:'Ice-Cream Backpack',
+      2:'Muffin Backpack',
+      3:'Banana Backpack',
+      4:'Pudding Backpack',
+      5:'Milky-Tea Backpack',
+      6:'Cup-Cake Backpack',
+      7:'Toast-Mini Backpack',
+      8:'Benji Backpack',
+      9:'Pizza Backpack'
+    }
+  }
 }

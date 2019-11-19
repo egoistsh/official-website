@@ -1,5 +1,6 @@
 <template>
   <div id="ServiceDetail">
+    <Header></Header>
     <div class="banner container-fuild text-center">品牌故事</div>
     <div class="container">
       <div class="row">

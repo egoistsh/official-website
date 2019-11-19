@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header></Header>
+<!--    <Header></Header>-->
     <router-view/>
 <!--    <FooterImage></FooterImage>-->
 <!--    <Footer></Footer>-->
@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style>
+  #app {
+    padding-top: 100px;
+  }
 </style>

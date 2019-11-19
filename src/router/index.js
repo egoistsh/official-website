@@ -162,6 +162,14 @@ export default new Router({
           meta: {
             title: '甜品站'
           }
+        },
+        {
+          path: '/dessertStation2',
+          name: 'dessertStation2',
+          component: resolve => require(['@/view/DessertStation2'], resolve),
+          meta: {
+            title: '甜品站2'
+          }
         }
       ]
     }

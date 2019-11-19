@@ -1,5 +1,6 @@
 <template>
   <div class="textbox">
+    <Header></Header>
     <div v-if="article" class="info">
       <!--<h2>{{article.title}}</h2>
       <div class="infor">
@@ -8,9 +9,9 @@
         浏览({{article.viewCount|nullToZero}})
       </div>-->
       <div class="img">
+<!--        <img :src="article.imageUrl" class="img-responsive">-->
         <el-image :src='article.imageUrl'></el-image>
       </div>
-      <!--      <img :src="article.imageUrl">-->
       <div class="main">
         <dl>
           <dt class="title"><span>{{article.title}}</span></dt>
@@ -99,12 +100,12 @@
   .info {
     /*border-bottom: 1px solid #dcdcdc;*/
     width: 100%;
-    height: 450px;
-    margin: auto;
+    height: 45rem;
+    /*margin: 0 auto;*/
   }
 
   .info .img {
-    float: left;
+    width: 30%;
   }
 
   .info .main {
@@ -116,15 +117,21 @@
   .info .title {
     padding-bottom: .2em;
     line-height: 1;
-    font-size: 30px;
+    font-size: 3rem;
     font-weight: 700;
     color: #000;
     margin-bottom: 20px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
   }
 
   .info .brief {
     font-size: 25px;
     text-align: left;
+    position: absolute;
+    top: 25%;
+    left: 30%;
   }
 
   .line {

@@ -39,7 +39,7 @@ export default {
   display: block;
   width: 100%;
   height: 100%;
-  color: rgb(8, 162, 233);
+  color: #7fcff0;
   font-size: 30px;
 }
 </style>

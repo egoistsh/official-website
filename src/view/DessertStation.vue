@@ -1,17 +1,14 @@
 <template>
   <div id="ServiceDetail">
-    <!--    <div class="banner container-fuild text-center">品牌故事</div>-->
+    <Header></Header>
     <div class="container">
       <div class="row">
         <div class="floor-nav" id="myScrollspy">
           <ul class="nav nav-tabs nav-stacked center-block hidden-xs" id="myNav">
-            <!--            <p>品牌服务</p>-->
             <li
               :class="item.id==id?'active':''"
               v-for="(item,index) in serialList"
-              :key="index"
-            >
-              <!--              <a :href="'#'+item.id">{{item.title}}</a>-->
+              :key="index">
               <a :href="'#'+item.id">
                 <div class="line"></div>
               </a>
@@ -35,15 +32,18 @@
             <img :src="item.bgImg" alt="梦妆花园" class="img-bg img-responsive">
             <img :src="item.bgImg2" alt="梦妆花园" class="img-bg img-responsive" @load="imageLoaded">
             <div class="con">
-<!--              <div class="tit tit01"><img src="../assets/img/de/产品系列-底图.png" alt="5大原料故事" class="img-responsive"></div>-->
+              <!--              <div class="tit tit01"><img src="../assets/img/de/产品系列-底图.png" alt="5大原料故事" class="img-responsive"></div>-->
               <div class="tit tit02 wow bounceInUp"><img :src="item.serialImg" alt="05 莲花" class="img-responsive"></div>
-              <div class="img img01"><img src="../assets/img/de/img_sec3_6_01.jpg" alt="梦妆花园" class="img-responsive"></div>
-              <div class="img img02 reveal-top"><img src="../assets/img/de/img_sec3_6_02.jpg" alt="梦妆花园" class="img-responsive"></div>
-              <div class="img img03 reveal-img"><img src="../assets/img/de/img_sec3_6_03.jpg" alt="梦妆花园" class="img-responsive"></div>
+              <div class="img img01"><img src="../assets/img/de/img_sec3_6_01.jpg" alt="梦妆花园" class="img-responsive">
+              </div>
+              <div class="img img02 reveal-top"><img src="../assets/img/de/img_sec3_6_02.jpg" alt="梦妆花园"
+                                                     class="img-responsive"></div>
+              <div class="img img03 reveal-img"><img src="../assets/img/de/img_sec3_6_03.jpg" alt="梦妆花园"
+                                                     class="img-responsive"></div>
               <div class="img img04"><img src="../assets/img/de/pdt_sec3_9.jpg" alt="梦妆花园" class="img-responsive"></div>
               <div class="txt txt03 reveal-top" style="color: white">
-<!--                <img src="../assets/img/de/txt_sec3_6_03.png">-->
-                永远清新的安神颗粒的哈桑领导看哈斯卡拉的撒好看的的撒开了好多和克拉斯DHL卡手了肯定打算看来回答客户收到货雷克萨打算考虑到了贺卡收到
+                                <img src="../assets/img/de/txt_sec3_6_03.png" class="img-responsive">
+<!--                永远清新的安神颗粒的哈桑领导看哈斯卡拉的撒好看的的撒开了好多和克拉斯DHL卡手了肯定打算看来回答客户收到货雷克萨打算考虑到了贺卡收到-->
               </div>
             </div>
             <div class="txt txt04 reveal-top"><img
@@ -62,6 +62,11 @@
 
   export default {
     name: 'ServiceDetail',
+    //在模板渲染成html或者模板编译进路有前调用created（）
+    created(){
+      //创建时执行跳转锚点位置
+      this.$nextTick(() => {this.getlocal()})
+    },
     data () {
       return {
         loading: true,
@@ -88,9 +93,9 @@
         serialList: [
           {
             id: 'section-1',
-            serialImg:'/static/img/松饼系列.png',
-            bgImg:'/static/img/松饼系列1.jpg',
-            bgImg2:'/static/img/松饼系列2.jpg',
+            serialImg: '/static/img/松饼系列.png',
+            bgImg: '/static/img/松饼系列1.jpg',
+            bgImg2: '/static/img/松饼系列2.jpg',
             title: '品牌含义',
             eng_title: 'Brand meaning',
             content:
@@ -98,9 +103,9 @@
           },
           {
             id: 'section-2',
-            serialImg:'/static/img/冰淇淋系列.png',
-            bgImg:'/static/img/冰淇淋-1.jpg',
-            bgImg2:'/static/img/冰淇淋-2.jpg',
+            serialImg: '/static/img/冰淇淋系列.png',
+            bgImg: '/static/img/冰淇淋-1.jpg',
+            bgImg2: '/static/img/冰淇淋-2.jpg',
             title: 'MYD理念',
             eng_title: 'MYD Mind',
             content:
@@ -108,9 +113,9 @@
           },
           {
             id: 'section-3',
-            serialImg:'/static/img/布丁系列.png',
-            bgImg:'/static/img/布丁-1.jpg',
-            bgImg2:'/static/img/布丁-2.jpg',
+            serialImg: '/static/img/布丁系列.png',
+            bgImg: '/static/img/布丁-1.jpg',
+            bgImg2: '/static/img/布丁-2.jpg',
             title: '品牌历程',
             eng_title: 'Brand Road',
             content:
@@ -118,9 +123,9 @@
           },
           {
             id: 'section-4',
-            serialImg:'/static/img/香蕉船系列.png',
-            bgImg:'/static/img/香蕉船-1.jpg',
-            bgImg2:'/static/img/香蕉船-2.jpg',
+            serialImg: '/static/img/香蕉船系列.png',
+            bgImg: '/static/img/香蕉船-1.jpg',
+            bgImg2: '/static/img/香蕉船-2.jpg',
             title: 'XXX',
             eng_title: 'XXX',
             content:
@@ -128,9 +133,9 @@
           },
           {
             id: 'section-5',
-            serialImg:'/static/img/奶茶系列.png',
-            bgImg:'/static/img/奶茶-1.jpg',
-            bgImg2:'/static/img/奶茶-2.jpg',
+            serialImg: '/static/img/奶茶系列.png',
+            bgImg: '/static/img/奶茶-1.jpg',
+            bgImg2: '/static/img/奶茶-2.jpg',
             title: 'XXX',
             eng_title: 'XXX',
             content:
@@ -138,9 +143,9 @@
           },
           {
             id: 'section-6',
-            serialImg:'/static/img/吐司系列.png',
-            bgImg:'/static/img/吐司-1.jpg',
-            bgImg2:'/static/img/吐司-2.jpg',
+            serialImg: '/static/img/吐司系列.png',
+            bgImg: '/static/img/吐司-1.jpg',
+            bgImg2: '/static/img/吐司-2.jpg',
             title: 'XXX',
             eng_title: 'XXX',
             content:
@@ -160,6 +165,7 @@
       })*/
       var wow = new WOW({
           // animateClass: 'infinite'
+          live: false,
         },
       )
       wow.init()
@@ -178,7 +184,7 @@
         // 在移动端是否使用动画
         mobile: false,
         // 滚动的距离，单位可以用%，rem等
-        distance: '100px',
+        distance: '2rem',
         // 其他可用的动画效果
         opacity: 1,
         easing: 'ease-in-out',
@@ -197,7 +203,7 @@
         // 在移动端是否使用动画
         mobile: false,
         // 滚动的距离，单位可以用%，rem等
-        distance: '100px',
+        distance: '2rem',
         // 其他可用的动画效果
         opacity: 1,
         // easing: 'linear',
@@ -206,25 +212,38 @@
         viewFactor: 0.5,
       })
 
-      var newImg = new Image()
-      newImg.src = '../assets/img/de/_sec3_6_02.jpg'
-
     },
     methods: {
       imageLoaded () {
         this.loading = false
       },
-      GoTop() {
-        (function smoothscroll() {
+      GoTop () {
+        (function smoothscroll () {
           var currentScroll =
-            document.documentElement.scrollTop || document.body.scrollTop;
+            document.documentElement.scrollTop || document.body.scrollTop
           if (currentScroll > 0) {
-            window.requestAnimationFrame(smoothscroll);
-            window.scrollTo(0, currentScroll - currentScroll / 10);
+            window.requestAnimationFrame(smoothscroll)
+            window.scrollTo(0, currentScroll - currentScroll / 10)
           }
-        })();
+        })()
       },
+      //从我本地找到id
+      getlocal(){
+        //找到锚点id
+        let selectId = localStorage.getItem("told");
+        let toElement = document.getElementById(selectId);
+        console.log("test"+toElement)
+        //如果对应id存在，就跳转
+        if(selectId){
+          // toElement.scrollIntoView()
+          console.log("success")
+        }
+      }
     },
+    //离开页面进行对localStorage  id销毁，避免其他入口进来有锚点问题(监听销毁事件)
+    /*destroyed(){
+      localStorage.setItem("toId",'')
+    }*/
   }
 </script>
 <style scoped>
@@ -233,79 +252,41 @@
     /*position: relative;*/
   }
 
-  .banner {
-    /*color: #fff;*/
-    font-size: 30px;
-    height: 150px;
-    line-height: 150px;
-    /*background-image: url("../assets/img/banner_2.jpg");*/
-    background-image: url("../assets/img/bg_sec1_1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: scroll;
-    background-position: center center;
-  }
-
   ul.nav-tabs {
-    width: 50px;
-    margin-top: 38px;
+    width: 5rem;
+    margin-top: 4rem;
     border: 0;
-    /*border-radius: 4px;*/
-    /*background: #fff;*/
     z-index: 99999;
-    /*border: 1px solid #474747;*/
-    /*box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);*/
   }
 
   ul.nav-tabs li {
     text-align: center;
     margin: 0;
-    height: 100px;
-    /*border-top: 1px solid #474747;*/
-  }
-
-  ul.nav-tabs p {
-    /*color: #fff;*/
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    /*background: #474747;*/
-    margin: 0;
-    padding: 10px 0;
-  }
-
-  ul.nav-tabs li:first-child {
-    /*border-top: none;*/
+    height: 10rem;
   }
 
   ul.nav-tabs li a {
     margin: 0;
-    padding: 8px 16px;
-    /*border-radius: 0;*/
-    /*border: 10px;*/
-    width: 56px;
-    height: 56px;
+    width: 5rem;
+    height: 5rem;
     background: rgba(0, 0, 0, 0);
     background-image: url("../assets/img/icon_01.jpg");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 56px 56px;
+    background-size: 5rem 5rem;
     border-radius: 50%;
-    border-width: 1px;
+    border-width: 0.1rem;
     border-color: gray;
   }
 
   ul.nav-tabs li.active a,
   ul.nav-tabs li.active a:hover {
-    /*color: #fff;*/
-    /*background: #474747;*/
-    /*border: 1px solid #474747;*/
     border: 0;
     background: rgba(0, 0, 0, 0);
     background-image: url("../assets/img/icon_01_on.jpg");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 56px 56px;
+    background-size: 5rem 5rem;
     border-radius: 50%;
   }
 
@@ -315,117 +296,70 @@
     background-image: url("../assets/img/goTop.png");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 56px 56px;
+    background-size: 5rem 5rem;
     border-radius: 50%;
   }
 
-  ul.nav-tabs li:first-child a {
-    /*border-radius: 4px 4px 0 0;*/
-  }
-
-  ul.nav-tabs li:last-child a {
-    /*border-radius: 0 0 4px 4px;*/
-  }
-
-  ul.nav-tabs.affix {
-    top: 30px;
-  }
-
   .content-block {
-    /*width: 200px;*/
-    /*margin: 50px auto;*/
-    /*margin: 0 40px;*/
-    min-height: 800px;
+    min-height: 8rem;
     text-align: center;
-    /*background:url("../assets/img/bg_sec1_1.jpg");*/
-    /*color: #FFF;*/
-    /*background-color: #404040;*/
     position: relative;
     z-index: 1;
-  }
-
-  .content-block img {
-    /*width: 100%;*/
-    /*height: 100%;*/
-  }
-
-  .img-bg {
-    /*margin: auto;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-  }
-
-  .content-block > h2 {
-    padding: 20px 0;
-    /*border-bottom: 1px solid #ccc;*/
   }
 
   .floor-nav {
     position: fixed;
     z-index: 100;
-    /* top: 200px; */
-    /* left: 50px; */
-    top: 19%;
+    top: 10%;
     right: 1%;
   }
 
   .line {
     position: absolute;
     left: 50%;
-    top: 53px;
-    width: 1px;
-    height: 50px;
+    top: 5rem;
+    width: 0.1rem;
+    height: 5rem;
     background-color: #b7b7b7;
-  }
-
-  .nav-img {
-    margin: 0 auto;
   }
 
   .tit {
     position: absolute;
-    /*left: 50%;*/
   }
 
   .tit01 {
-    /*position: absolute;*/
     top: 5.7%;
-    /*left: 50%;*/
     width: 6.3%;
   }
 
   .tit02 {
-    /*position: absolute;*/
-    /*left: 50%;*/
-    /*top: 9.6%;*/
-    /*width: 7.4%;*/
-    /*margin-left: -1%;*/
-    left: 1px;
-    top: 1px;
+    left: 0.1rem;
+    top: 0.1rem;
     z-index: 10;
     /*animation:blink 1s infinite;
     -webkit-animation:blink 1s infinite;*/ /*Safari and Chrome*/
   }
 
-  @keyframes blink{
-    0%{
+  @keyframes blink {
+    0% {
       opacity: 0;
     }
-    50%{
+    50% {
       opacity: 100;
     }
-    100%{
+    100% {
       opacity: 0;
     }
   }
-  @-webkit-keyframes blink{
-    0%{
+
+  @-webkit-keyframes blink {
+    0% {
       opacity: 0;
     }
-    50%{
+    50% {
       opacity: 100;
     }
-    100%{
+    100% {
       opacity: 0;
     }
   }
@@ -433,7 +367,7 @@
   .img01 {
     position: absolute;
     left: 50%;
-    top: 22%;
+    top: 19%;
     width: 29%;
     margin-left: -13%;
   }
@@ -483,6 +417,6 @@
 
   .load {
     width: 100%;
-    height: 500px;
+    height: 5rem;
   }
 </style>
