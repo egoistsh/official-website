@@ -168,7 +168,7 @@ export default new Router({
           name: 'dessertStation2',
           component: resolve => require(['@/view/DessertStation2'], resolve),
           meta: {
-            title: '甜品站2'
+            title: '甜品站'
           }
         }
       ]

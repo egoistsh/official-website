@@ -68,6 +68,11 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: DS;
+  src: url("../fonts/ds.ttf");
+}
+
 
 /*!
  * fullPage 3.0.7

@@ -36,7 +36,7 @@
           <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
             <!--            <a :href="item.url" target="_blank"><img class="swiper-lazy" :data-src="item.imageUrl"></a>-->
             <img class="swiper-lazy img-responsive" :data-src="item.imageUrl">
-            <div class="swiper-lazy-preloader"></div>
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
           </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -165,9 +165,9 @@
     <div class="section-dark">
       <i class="fas fa-quote-left section-icon"></i>
       <div class="section-contain">
-        <span style="font-size: 50px">MAKE</span><br/>
-        <span style="font-size: 50px">YOU</span><br/>
-        <span style="font-size: 50px">DIFFERENT</span>
+        <span>MAKE</span><br/>
+        <span>YOU</span><br/>
+        <span>DIFFERENT</span>
       </div>
     </div>
     <!--<div class="test">
@@ -247,6 +247,10 @@
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
+        },
+        // 延迟加载
+        lazy: {
+          loadPrevNext: true,
         },
         observer: true, //修改swiper自己或子元素时，自动初始化swiper
         observeParents: true, //修改swiper的父元素时，自动初始化swiper
@@ -345,7 +349,6 @@
           // 延迟加载
           lazy: {
             loadPrevNext: true,
-            // preloaderClass:'swiper-lazy-preloader',
           },
           observer: true, //修改swiper自己或子元素时，自动初始化swiper
           observeParents: true, //修改swiper的父元素时，自动初始化swiper
@@ -597,9 +600,12 @@
   }
 
   .section-contain {
-    position: absolute;
-    left: 42.5%;
+    /*position: absolute;*/
+    /*left: 42.5%;*/
     text-align: center;
+    font-family: DS;
+    font-size: 55px;
+
   }
 
   .section-icon {
@@ -625,13 +631,13 @@
     /*视频居中*/
     .videoShow {
       position: relative;
-      left: 27%;
-      top: 23%;
+      left: 36%;
+      top: 41%;
     }
 
     .videoShow video {
-      width: 70rem;
-      height: 40rem;
+      width: 42rem;
+      /*height: 40rem;*/
       outline: none;
     }
   }
