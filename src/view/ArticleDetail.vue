@@ -83,8 +83,8 @@
 <style scoped>
   /* 正文 */
   .textbox {
-    width: 80%;
-    margin: auto;
+    /*width: 80%;*/
+    /*margin: auto;*/
   }
 
   .textbox h2 {

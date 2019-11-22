@@ -297,11 +297,10 @@
 
   #header .header-nav .header-nav-wrapper {
     line-height: 110px;
-    /*float: right;*/
     margin: 0 auto;
-    /*max-width: 58rem;*/
     position: absolute;
-    left: 33.2%;
+    left: 50%;
+    transform: translate(-50%,0);
   }
 
   /* 导航栏 每个导航 */

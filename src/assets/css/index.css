@@ -70,7 +70,15 @@
 
 @font-face {
   font-family: DS;
-  src: url("../fonts/ds.ttf");
+  /*src: url("../fonts/ds.ttf");*/
+  /*此字体文件为压缩后的*/
+  src: url("../fonts/ds.woff2") format('woff2'),
+      url("../fonts/ds.woff") format('woff');
+}
+
+@font-face {
+  font-family: HalisGR-SLight;
+  src: url("../fonts/en-39699D_11_0.woff2") format('woff2');
 }
 
 

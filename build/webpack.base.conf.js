@@ -17,8 +17,12 @@ module.exports = {
     app: './src/main.js'
   },
   externals: {
-    "BMap": "BMap" 
-  }, 
+    "BMap": "BMap" ,
+    'vue':'Vue',
+    'VueI18n':'VueI18n',
+    'ElementUI':'ElementUI',
+
+  },
   plugins: [
     new webpack.ProvidePlugin({
       $: "jquery",

@@ -3,8 +3,8 @@
     <Header></Header>
     <full-page :options="options">
       <div class="section">
-        <el-image src="/static/img/images/dsHeader.jpg"></el-image>
-        <div class="quick-jump-font">
+        <el-image src="/static/img/images/dsHeader.jpg" @load="quickJump"></el-image>
+        <div class="quick-jump-font" v-show="quickJumpFlag">
           <p style="text-align: center">
               <span v-for="i in 4">
                 <a :href="'#'+i" >{{$t('ds.backpack.'+i)}}</a>
@@ -90,6 +90,7 @@
             '#ba5be9',
             '#b4b8ab'],*/
         },
+        quickJumpFlag:false
       }
     },
     computed: {
@@ -145,6 +146,9 @@
       },
     },
     methods:{
+      quickJump() {
+        this.quickJumpFlag = true
+      }
     }
   }
 </script>

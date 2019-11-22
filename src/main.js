@@ -1,28 +1,30 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
+
+//采用cdn加速
+// import Vue from 'vue'
+// import VueI18n from 'vue-i18n'
+// import ElementUI from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css'
+/* bootstarp */
+// import './assets/css/bootstrap.min.css'
+// import './assets/js/bootstrap.min'
+// import 'animate.css'
+// import 'jquery'
+
+
+
+
 import App from './App'
-import VueI18n from 'vue-i18n'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/zh-CN' // vue lang i18n
 import DrawerLayout from 'vue-drawer-layout'
 
 // font awesome图标库
 import fontawesome from '@fortawesome/fontawesome'
-// import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
-import regular from '@fortawesome/fontawesome-free-regular'
-import brands from '@fortawesome/fontawesome-free-brands'
 
-fontawesome.library.add(solid)
-fontawesome.library.add(regular)
-fontawesome.library.add(brands)
-// Vue.component('font-awesome-icon', FontAwesomeIcon)
-
-
-Vue.use(VueI18n)
-Vue.use(ElementUI,{locale})
+// Vue.use(VueI18n)
+// Vue.use(ElementUI,{locale})
 Vue.use(DrawerLayout)
 
 //实例化vue-i18n
@@ -57,12 +59,9 @@ import './assets/css/reset.min.css'
 /* 通用样式 */
 import './assets/css/index.css'
 
-/* jquery */
-import 'jquery'
 
-/* bootstarp */
-import './assets/css/bootstrap.min.css'
-import './assets/js/bootstrap.min'
+
+
 
 /* onepage */
 /*import './assets/css/onepage-scroll.css'
@@ -72,9 +71,6 @@ import './assets/js/jquery.onepage-scroll'*/
 import VueFullPage from 'vue-fullpage.js';
 Vue.use(VueFullPage);
 
-
-/* animate.css */
-import 'animate.css'
 
 /* 头部组件 */
 import Header from './components/Header'

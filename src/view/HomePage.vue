@@ -232,7 +232,7 @@
     mounted () {
 
       /* customer-swiper */
-      new Swiper('.customer-swiper', {
+     /* new Swiper('.customer-swiper', {
         // lazyLoading:true,
         // preloadImages:false,
         loop: true, // 循环模式选项
@@ -254,7 +254,7 @@
         },
         observer: true, //修改swiper自己或子元素时，自动初始化swiper
         observeParents: true, //修改swiper的父元素时，自动初始化swiper
-      })
+      })*/
       /* wowjs动画 */
       var wow = new WOW({
         boxClass: 'wow',
@@ -264,12 +264,13 @@
         live: false,
       })
       wow.init()
-
+      this.initSwiper()
       this.listBannerConfigs()
       this.listMydShowConfigs()
 
       this.listArticle()
 
+      $('.preloader').fadeOut(1000)
       //图片无线滚动
       /*window.onload = function(){
         var scroll = document.getElementById("scroll");
@@ -301,10 +302,9 @@
         }
         listPictureConfigs(data).then((response) => {
           this.swiperList = response.data.content
-          $('.preloader').fadeOut(1000)
-          this.$nextTick(() => {//下一个UI帧再初始化swiper
+          /*this.$nextTick(() => {//下一个UI帧再初始化swiper
             this.initSwiper()
-          })
+          })*/
 
         }).catch((error) => {
           console.log(error)
@@ -330,6 +330,7 @@
         this.swiper = new Swiper('.banner-swiper', {
           loop: true, // 循环模式选项
           effect: 'fade',
+          preloadImages:false,
           //自动播放
           autoplay: {
             delay: 3000,
