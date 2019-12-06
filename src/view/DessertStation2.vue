@@ -5,7 +5,7 @@
       <div class="section">
         <el-image src="/static/img/images/dsHeader.jpg" @load="quickJump"></el-image>
         <div class="quick-jump-font" v-show="quickJumpFlag">
-          <p style="text-align: center">
+          <p style="text-align: center;line-height: 3rem">
               <span v-for="i in 4">
                 <a :href="'#'+i" >{{$t('ds.backpack.'+i)}}</a>
                 <span v-if="i!=4">/</span>
@@ -169,11 +169,12 @@
     margin-bottom: 5rem;
     /*font-family: FZ;*/
     font-family: PingFangSC-Ultralight, sans-serif;
+    letter-spacing: 2px;
   }
 
   .quick-jump-font a {
     color: black;
-    margin: 0 2rem;
+    margin: 0 1.5rem;
   }
 
   /*  end*/

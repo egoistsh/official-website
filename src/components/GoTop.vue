@@ -1,6 +1,7 @@
 <template>
   <div id="GoTop" @click="GoTop()">
-    <span class="glyphicon glyphicon-chevron-up"></span>
+<!--    <span class="glyphicon glyphicon-chevron-up"></span>-->
+    <div class="el-backtop" style="right: 40px; bottom: 40px;"><i class="el-icon-caret-top"></i></div>
   </div>
 </template>
 <script>

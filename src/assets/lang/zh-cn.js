@@ -1,62 +1,113 @@
 module.exports = {
   nav: {
     home: '首页',
-    companyintroduction:'关于我们',
-    productShow:'产品展示',
-    brandStory:'品牌故事',
-    informationMyd:'MYD咨询',
-    contactus:'联系我们',
-    live:'动态',
-    latest:'最新活动',
-    news:'新闻事件',
-    dessertStation:'MYD甜品站',
-    language:'简体中文'
+    companyintroduction: '关于我们',
+    productShow: '产品展示',
+    brandStory: '品牌故事',
+    informationMyd: 'MYD咨询',
+    contactus: '联系我们',
+    live: '动态',
+    latest: '最新活动',
+    news: '新闻事件',
+    dessertStation: 'MYD甜品站',
+    language: '简体中文',
   },
   home: {
-    ranking:'产品排行榜',
+    ranking: '产品排行榜',
     video: {
-      span1:'有时候你以为人生就此定格',
-      span2:'如同平静的湖水般不再有涟漪',
-      span3:'一瞬间的醒来，重拾起久违的信心',
-      span4:'让你变得有那么点不一样，这也是MYD的初衷'
+      span1: '有时候你以为人生就此定格',
+      span2: '如同平静的湖水般不再有涟漪',
+      span3: '一瞬间的醒来，重拾起久违的信心',
+      span4: '让你变得有那么点不一样，这也是MYD的初衷',
+    },
+    //临时策略
+    mydShow: {
+      muffin: {
+        title: '松饼系列',
+        brief: '能伸能屈的高度，自由自在的风度',
+      },
+      milkyTea: {
+        title: '奶茶系列',
+        brief: '极简风格随心而行',
+      },
+      iceCream: {
+        title: '冰淇淋系列',
+        brief: '风声到了这里，已不需要释怀',
+      },
+      toast: {
+        title: '吐司系列',
+        brief: '长时间的旅程充满太多未知的诱惑',
+      },
+      banana: {
+        title: '香蕉船系列',
+        brief: '和别人不一样，没什么好怕的',
+      },
+      cupCake: {
+        title: '杯子蛋糕系列',
+        brief: '陪你路过全世界装载精彩的回忆',
+      },
+      Benji: {
+        title: '班戟系列',
+        brief: '拥有无限可能去搭配属于你的气派',
+      },
+      Pudding: {
+        title: '布丁系列',
+        brief: '放下平凡外表，照亮内心的闪光点',
+      },
     },
     footer: {
-      title:'关于我们',
-      span:'寓意MAKE YOU DIFFERENT / 让你与众不同，文艺小清新风格品牌之一，2010年创立于墨尔本，成立初期主要在澳大利亚本土艺术学院及慈善线下销售。',
-      span2:'2016年MYD产品已遍布五大洲，并在2017年首次登陆亚洲，当中My Desserts我的甜品系列已全部走红，并深受艺术界及文化界追棒，系列之一款冰淇淋背包更获得了大学生及白领追捧...',
-      span3:'我们会继续创新，不断为大家提供优质的产品体验！',
-      learnMore:'了解更多',
-      wechat:'公众号',
-      redbook:'小红书',
-      more:'更多内容',
-      more2:'敬请期待'
-    }
+      title: '关于我们',
+      span: '寓意MAKE YOU DIFFERENT / 让你与众不同，文艺小清新风格品牌之一2010年创立于墨尔本，成立初期主要在澳大利亚本土艺术学院及慈善线下销售。',
+      span2: '2016年MYD产品已遍布五大洲，并在2017年首次登陆亚洲，当中My Desserts我的甜品系列已全部走红，并深受艺术界及文化界追棒，系列之一款冰淇淋背包更获得了大学生及白领追捧...',
+      span3: '我们会继续创新，不断为大家提供优质的产品体验！',
+      learnMore: '了解更多',
+      wechat: '公众号',
+      redbook: '小红书',
+      more: '更多内容',
+      more2: '敬请期待',
+    },
   },
   ds: {
-    learnMore:'了解更多',
-    goToStorm:'前往店铺',
-    title:'唯有甜品与包，才是挚爱',
-    list:{
-      1:'冰淇淋系列',
-      2:'松饼系列',
-      3:'香蕉船系列',
-      4:'布丁系列',
-      5:'奶茶系列',
-      6:'杯子蛋糕系列',
-      7:'吐司迷你系列',
-      8:'班戟系列',
-      9:'薄饼系列'
+    learnMore: '了解更多',
+    goToStorm: '前往店铺',
+    title: '唯有甜品与包，才是挚爱',
+    list: {
+      1: '冰淇淋系列',
+      2: '松饼系列',
+      3: '香蕉船系列',
+      4: '布丁系列',
+      5: '奶茶系列',
+      6: '杯子蛋糕系列',
+      7: '吐司迷你系列',
+      8: '班戟系列',
+      9: '薄饼系列',
     },
-    backpack:{
-      1:'冰淇淋背包',
-      2:'松饼背包',
-      3:'香蕉船背包',
-      4:'布丁背包',
-      5:'奶茶背包',
-      6:'杯子蛋糕背包',
-      7:'吐司迷你背包',
-      8:'班戟背包',
-      9:'薄饼背包'
-    }
-  }
+    backpack: {
+      1: '冰淇淋背包',
+      2: '松饼背包',
+      3: '香蕉船背包',
+      4: '布丁背包',
+      5: '奶茶背包',
+      6: '杯子蛋糕背包',
+      7: '吐司迷你背包',
+      8: '班戟背包',
+      9: '薄饼背包',
+    },
+  },
+  contact: {
+    contact: '联系我们',
+    company: '公司',
+    name: '姓名',
+    email: '邮箱',
+    address: '地址',
+    phone: '手机',
+    message: '消息',
+    submit: '提交',
+  },
+  brand: {
+    brandStory: '品牌故事',
+    meaning: '品牌含义',
+    concept: '品牌理念',
+    course: '发展历程',
+  },
 }

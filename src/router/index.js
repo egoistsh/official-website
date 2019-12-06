@@ -4,6 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
+  // mode:'history',
   routes: [
     {
       path: '*',
@@ -48,7 +49,7 @@ export default new Router({
         }, {
           path: '/contactus',
           name: 'contactus',
-          component: resolve => require(['@/view/ContactUs'], resolve),
+          component: resolve => require(['@/view/ContactUs2'], resolve),
           meta: {
             title: '联系我们',
           },
@@ -135,6 +136,14 @@ export default new Router({
           component: resolve => require(['@/view/DessertStation2'], resolve),
           meta: {
             title: '甜品站',
+          },
+        },
+        {
+          path: '/brand',
+          name: 'brand',
+          component: resolve => require(['@/view/Brand'], resolve),
+          meta: {
+            title: '品牌故事',
           },
         },
       ],

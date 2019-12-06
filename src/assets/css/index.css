@@ -81,6 +81,10 @@
   src: url("../fonts/en-39699D_11_0.woff2") format('woff2');
 }
 
+@font-face {
+  font-family: PingFangSC-Light;
+  src: url("../fonts/PingFangSC-Light.woff") format('woff');
+}
 
 /*!
  * fullPage 3.0.7

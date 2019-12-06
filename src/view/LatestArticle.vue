@@ -3,7 +3,7 @@
     <div v-loading="loading" class="loading"></div>
     <div class="article-contents" v-show="!loading">
       <div class="page-title">
-        <h1><a href="/live">News / Blog</a></h1>
+        <h1><a href="#">News / Blog</a></h1>
         <nav class="nav-article">
           <a href="#">All</a>
           <a href="#">news</a>
@@ -115,11 +115,26 @@
     height: 80%;
   }
 
+  /*.page-title {
+    position: relative;
+    padding: 6rem 0;
+    text-align: center;
+    font-family: HalisGR-SLight;
+  }
+
+  .page-title h1 {
+    margin-bottom: 18px;
+    !*color: #C8A062;*!
+    font-size: 37px;
+    letter-spacing: 0.08em;
+  }*/
+
   .page-title {
     position: relative;
     padding: 6rem 0;
     text-align: center;
     font-family: HalisGR-SLight;
+    height: 21vh;
   }
 
   .page-title h1 {
@@ -207,6 +222,20 @@
     z-index: -1;
   }
 
+  /*app*/
+  @media screen and (max-width: 997px) {
+    .article-list {
+      width: 25rem;
+      margin: 0 auto;
+    }
+
+    .article-list article {
+      float: left;
+      height: 462px;
+      text-align: center;
+      margin: auto;
+    }
+  }
 
 </style>
 

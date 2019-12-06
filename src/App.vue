@@ -15,7 +15,9 @@ export default {
 </script>
 
 <style>
-  #app {
-    padding-top: 100px;
+  @media screen and (min-width: 768px){
+    #app {
+      padding-top: 100px;
+    }
   }
 </style>

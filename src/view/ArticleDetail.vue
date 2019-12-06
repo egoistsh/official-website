@@ -91,10 +91,11 @@
     font-size: 30px;
     text-align: center;
     line-height: 50px;
+    margin-top: 30px;
   }
 
   .textbox .infor {
-    border-bottom: 1px solid #dcdcdc;
+    /*border-bottom: 1px solid #dcdcdc;*/
     height: 45px;
     line-height: 28px;
     padding-bottom: 5px;

@@ -9,7 +9,7 @@
         <span class="txt">{{$t('home.footer.span3')}}</span>
       </div>
 
-      <el-button round plain class="learn-more">{{$t('home.footer.learnMore')}}</el-button>
+      <el-button round plain class="learn-more hidden-xs">{{$t('home.footer.learnMore')}}</el-button>
       <div class="link">
         <div class="">
           <el-image src="/static/img/footer/wechat.png"></el-image>
@@ -51,7 +51,7 @@
 
   .aboutUs {
     margin: 150px auto 0;
-    width: 450px;
+    width: 465px;
     height: 240px;
   }
 
@@ -95,6 +95,32 @@
   .link div{
     float: left;
     margin: 0 3rem;
+  }
+
+  /*app*/
+  @media screen and (max-width: 997px) {
+    #footer {
+      background-position: center;
+    }
+
+    .aboutUs {
+      width: auto;
+      margin: 30px auto 0;
+    }
+
+    .link {
+      top: 43%;
+      left: 0;
+      transform: none;
+    }
+
+    .link div {
+      margin: 0 1.6rem;
+    }
+
+    .link div:nth-child(3) {
+      margin: 1rem 10rem;
+    }
   }
 </style>
 <style>

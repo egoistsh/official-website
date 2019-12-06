@@ -1,12 +1,6 @@
 <template>
   <div id="HomePage">
     <Header></Header>
-    <!-- start preloader -->
-    <div class="preloader">
-      <div class="sk-spinner sk-spinner-rotating-plane"></div>
-    </div>
-    <!-- end preloader -->
-
     <!--    快速跳转模块-->
     <div class="quick-jump">
       <div class="quick-jump-img">
@@ -14,22 +8,18 @@
           <el-image src="/static/img/bigLogo.jpg" style="height: 20rem;width: 20rem"></el-image>
         </p>
       </div>
-      <div class="quick-jump-font">
-        <!--<router-link to="/dessertStation#section-3">Ice-Cream Backpack</router-link>
-        <router-link to="/dessertStation#section-3">Muffin Backpack</router-link>
-        <router-link to="/dessertStation#section-3">Pizza Backpack</router-link>
-        <router-link to="/dessertStation#section-3">Banana split Backpack</router-link>-->
+     <!-- <div class="quick-jump-font">
         <p style="text-align: center">
-          <a href="#" @click="quickJump('dessertStation','section-3')">Ice-Cream Backpack</a>/
-          <a href="#" @click="quickJump('dessertStation','section-3')">Muffin Backpack</a>/
-          <a href="#" @click="quickJump('dessertStation','section-3')">Pizza Backpack</a>/
-          <a href="#" @click="quickJump('dessertStation','section-3')">Banana split Backpack</a>
+          <a href="#" @click="quickJump('dessertStation2','section-3')">Ice-Cream Backpack</a>/
+          <a href="#" @click="quickJump('dessertStation2','section-3')">Muffin Backpack</a>/
+          <a href="#" @click="quickJump('dessertStation2','section-3')">Pizza Backpack</a>/
+          <a href="#" @click="quickJump('dessertStation2','section-3')">Banana split Backpack</a>
         </p>
-      </div>
+      </div>-->
     </div>
 
     <!-- 轮播图 -->
-    <div id="swiper" class="container-fuild">
+    <div id="swiper" class="container-fuild" v-loading=loading>
       <div class="swiper-container banner-swiper wow zoomIn">
         <header></header>
         <div class="swiper-wrapper">
@@ -148,11 +138,11 @@
       <figure></figure>
     </div>-->
     <div class="portfolio-items wow zoomIn animated">
-      <figure class="image-Item" style="" v-for="item in articles">
+      <figure class="image-Item" style="" v-for="item in mydShowList">
 <!--        <img src="/static/img/portfolio_1.jpg" alt="img25" style="width: 100%;height: auto">-->
-        <img :src="item.imageUrl" alt="img25" style="width: 100%;height: auto">
+        <img :src="item.imageUrl" alt="img" style="width: 100%;height: auto">
         <figcaption>
-          <h2 style="font-size: 27px;font-weight: 700">{{item.title}}</h2>
+          <h2 style="font-size: 27px;font-weight: 700;padding-top: 20px">{{item.title}}</h2>
           <p class="description">
             <!--Zoe never had the patience of her sisters. She deliberately punched the bear in his
             face.-->
@@ -227,6 +217,54 @@
         mydShow: {imageUrl: undefined},
         articles: undefined,
         carouselList: undefined,
+
+        loading:true
+      }
+    },
+    computed: {
+      mydShowList() {
+        return [
+          {
+            imageUrl:'http://myd-official.com/image/upimg_1574220542248231342.jpg',
+            title:this.$t('home.mydShow.muffin.title'),
+            brief:this.$t('home.mydShow.muffin.brief')
+          },
+          {
+            imageUrl:'http://myd-official.com/image/upimg_1575012106408923969.jpg',
+            title:this.$t('home.mydShow.milkyTea.title'),
+            brief:this.$t('home.mydShow.milkyTea.brief')
+          },
+          {
+            imageUrl:"http://myd-official.com/image/upimg_1574220620150754059.jpg",
+            title:this.$t('home.mydShow.iceCream.title'),
+            brief:this.$t('home.mydShow.iceCream.brief')
+          },
+          {
+            imageUrl:"http://myd-official.com/image/upimg_1574220649386702210.png",
+            title:this.$t('home.mydShow.toast.title'),
+            brief:this.$t('home.mydShow.toast.brief')
+          },
+          {
+            imageUrl:"http://myd-official.com/image/upimg_1575011593504171137.jpg",
+            title:this.$t('home.mydShow.banana.title'),
+            brief:this.$t('home.mydShow.banana.brief')
+          },
+          {
+            imageUrl:"http://myd-official.com/image/upimg_1574220704271296935.jpg",
+            title:this.$t('home.mydShow.cupCake.title'),
+            brief:this.$t('home.mydShow.cupCake.brief')
+          },
+          {
+            imageUrl:"http://myd-official.com/image/upimg_1575012122641605391.jpg",
+            title:this.$t('home.mydShow.Benji.title'),
+            brief:this.$t('home.mydShow.Benji.brief')
+          },
+          {
+            imageUrl:"http://myd-official.com/image/upimg_1574220734154112098.jpg",
+            title:this.$t('home.mydShow.Pudding.title'),
+            brief:this.$t('home.mydShow.Pudding.brief')
+          }
+        ]
       }
     },
     mounted () {
@@ -255,6 +293,7 @@
         observer: true, //修改swiper自己或子元素时，自动初始化swiper
         observeParents: true, //修改swiper的父元素时，自动初始化swiper
       })*/
+      // this.initSwiper()
       /* wowjs动画 */
       var wow = new WOW({
         boxClass: 'wow',
@@ -264,13 +303,12 @@
         live: false,
       })
       wow.init()
-      this.initSwiper()
       this.listBannerConfigs()
       this.listMydShowConfigs()
 
-      this.listArticle()
+      //！！目前写死了，因为要语言切换，所以这个方法形同虚设。但最终还是要改用请求的方式配置。
+      // this.listArticle()
 
-      $('.preloader').fadeOut(1000)
       //图片无线滚动
       /*window.onload = function(){
         var scroll = document.getElementById("scroll");
@@ -302,10 +340,10 @@
         }
         listPictureConfigs(data).then((response) => {
           this.swiperList = response.data.content
-          /*this.$nextTick(() => {//下一个UI帧再初始化swiper
+          this.loading = false
+          this.$nextTick(() => {//下一个UI帧再初始化swiper
             this.initSwiper()
-          })*/
-
+          })
         }).catch((error) => {
           console.log(error)
         })
@@ -368,7 +406,21 @@
         }
         listArticle(data).then((response) => {
           this.articles = response.data.content
-          this.carouselList = []
+
+          /*for (var i=0;i < this.articles.length;i++) {
+            for (var j=0;j < this.mydShowList.length;j++) {
+              if (this.articles[i].title === this.mydShowList[j].title) {
+                this.mydShowList[j].imageUrl = this.articles[i].imageUrl
+                break
+              }
+            }
+          }*/
+          for (var i=0 ;i<this.mydShowList.length;i++) {
+            this.mydShowList[i].imageUrl = this.articles[i].imageUrl
+          }
+          console.log(this.mydShowList)
+
+          /*this.carouselList = []
           var length = this.articles.length
           for (var i = 0; i < length / 3; i++) {
             var item = []
@@ -377,14 +429,13 @@
             item.push(this.articles[i + 2])
             this.carouselList.push(item)
           }
-          console.log('list:' + this.carouselList)
+          console.log('list:' + this.carouselList)*/
           // console.log(this.articles)
         }).catch((error) => {
           console.log(error)
         })
       },
       quickJump (page, id) {
-        localStorage.setItem('told', id)
         this.$router.push('/' + page)
       },
     },
@@ -474,17 +525,18 @@
   }
 
   .mydShow-font {
-    width: 70rem;
+    width: fit-content;
     position: relative;
     top: 55%;
-    left: 28%;
+    left: 50%;
+    transform: translate(-42%, 0);
 
     color: #dddddd;
     font-size: 1.8rem;
     font-family: PingFangSC-Ultralight, sans-serif;
     text-align: center;
-    line-height: 3rem;
-    text-shadow: -4px 3px 8px black;
+    line-height: 2.5rem;
+    /*text-shadow: -4px 3px 8px black;*/
     letter-spacing: 5px;
   }
 
@@ -604,7 +656,8 @@
     /*position: absolute;*/
     /*left: 42.5%;*/
     text-align: center;
-    font-family: DS;
+    /*font-family: DS;*/
+    font-family: PingFangSC-Light, sans-serif;
     font-size: 55px;
 
   }
@@ -632,8 +685,9 @@
     /*视频居中*/
     .videoShow {
       position: relative;
-      left: 36%;
+      left: 50%;
       top: 41%;
+      transform: translate(-50%, 0);
     }
 
     .videoShow video {
@@ -644,7 +698,7 @@
   }
 
   /* 媒体查询（手机） */
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 996px) {
     /* #swiper {
        !*height: 200px;*!
        !*margin: 0 30px;*!
@@ -664,32 +718,20 @@
     }
 
     .mydShow-font {
-      width: 100%;
-      top: 64%;
-      left: 0;
-      /*font-size: 1rem;*/
+      left: 43%;
     }
   }
 
   /* 媒体查询（平板） */
   @media screen and (min-width: 768px) and (max-width: 996px) {
-    #swiper {
-      /*height: 400px;*/
-      margin: 0 57px;
+    /*视频居中*/
+    .videoShow {
+      position: relative;
+      left: 50%;
+      top: 41%;
+      transform: translate(-150%, 0);
     }
 
-    #bigData {
-      padding: 60px;
-    }
-
-    #bigData .bigData-title {
-      font-size: 30px;
-    }
-
-    #bigData .bigData-device {
-      font-size: 30px;
-      margin: 30px 0 15px;
-    }
   }
 </style>
 <style>

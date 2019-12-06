@@ -1,6 +1,13 @@
 <template>
   <!-- 头部整体盒子 -->
   <div id="header" class="container-fuild fixDiv2">
+
+    <!-- start preloader -->
+    <div class="preloader">
+      <div class="sk-spinner sk-spinner-rotating-plane"></div>
+    </div>
+    <!-- end preloader -->
+
     <!-- 电脑导航 -->
     <div class="header-nav hidden-xs">
       <!-- 导航logo -->
@@ -24,7 +31,7 @@
             <dl v-if="item.children.length>0">
               <dt v-for="(i,n) in item.children" :key="n">
                 <router-link :to="i.path" style="font-weight: initial">{{i.name}}</router-link>
-                <!--              <router-view></router-view>-->
+<!--                              <router-view></router-view>-->
               </dt>
             </dl>
           </li>
@@ -123,21 +130,21 @@
           },
           {
             name: this.$t('nav.brandStory'),
-            path: '/service',
+            path: '/brand',
             children: [],
           },
           {
             name: this.$t('nav.live'),
             path: '/live',
             children: [
-              {
+              /*{
                 name: this.$t('nav.latest'),
                 path: '/live/latest',
               },
               {
                 name: this.$t('nav.news'),
                 path: '/live/news',
-              },
+              },*/
             ],
           },
           {
@@ -150,6 +157,7 @@
 
     },
     mounted() {
+      $('.preloader').fadeOut(1500)
       /*$(function(){
         var banOffTop=$("#header").offset().top;//获取到距离顶部的垂直距离
         var scTop=0;//初始化垂直滚动的距离
@@ -264,7 +272,8 @@
 
   /* 导航栏 */
   #header .header-nav {
-    height: 8rem;
+    /*height: 8rem;*/
+    height: 11vh;
     margin: 0 2rem 0.5rem;
     /*width: 80%;*/
     /*margin: auto;*/
@@ -422,6 +431,7 @@
     font-weight: bold;
   }
 
+  /*app*/
   @media screen and (max-width: 997px) {
     #header .header-nav-m {
       position: relative;
@@ -514,4 +524,15 @@
       /*background: black;*/
     }
   }
+
+  /*平板*/
+  @media screen and (min-width: 768px) and (max-width: 1265px) {
+    /* 导航栏 每个导航 */
+    #header .header-nav .header-nav-wrapper > li {
+      float: left;
+      margin: 0 1rem -1rem;
+      position: relative;
+    }
+  }
+
 </style>
