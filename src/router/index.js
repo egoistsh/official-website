@@ -22,7 +22,7 @@ export default new Router({
           name: 'home',
           component: resolve => require(['@/view/HomePage'], resolve),
           meta: {
-            title: '首页',
+            title: 'MYD官网',
           },
         }, {
           path: '/service',
@@ -51,7 +51,7 @@ export default new Router({
           name: 'contactus',
           component: resolve => require(['@/view/ContactUs2'], resolve),
           meta: {
-            title: '联系我们',
+            title: 'MYD-联系我们',
           },
         },
         {
@@ -75,7 +75,7 @@ export default new Router({
           name: 'live',
           component: resolve => require(['@/view/Article'], resolve),
           meta: {
-            title: '动态',
+            title: 'MYD动态',
           },
           children: [
             {
@@ -135,7 +135,7 @@ export default new Router({
           name: 'dessertStation2',
           component: resolve => require(['@/view/DessertStation2'], resolve),
           meta: {
-            title: '甜品站',
+            title: 'MYD甜品站',
           },
         },
         {
@@ -143,7 +143,7 @@ export default new Router({
           name: 'brand',
           component: resolve => require(['@/view/Brand'], resolve),
           meta: {
-            title: '品牌故事',
+            title: 'MYD-品牌故事',
           },
         },
       ],
