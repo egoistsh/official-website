@@ -41,7 +41,7 @@
            v-for="(item,index) in list">
         <div :class="[index%2==0?'name-span':'name-span-right',index==0||index==2?'temp':'']"><span>{{item.nameSpan}}</span></div>
         <div :class="[index%2==0?'title-span':'title-span-right',index==0||index==2?'temp':'']"><span>{{$t('ds.title')}}</span></div>
-        <el-image :src="item.floatImg" :class="index%2==0?'float-img':'float-img-right'" fit="contain"></el-image>
+        <el-image :src="item.floatImg" :class="index%2==0?'float-img':'float-img-right'" fit="contain" lazy></el-image>
         <!--<el-button plain :class="index%2==0?'learn-more-btn':'learn-more-btn-right'"> {{$t('ds.learnMore')}}</el-button>
         <el-button plain :class="index%2==0?'to-storm-btn':'to-storm-btn-right'" v-show="index==0">
           {{$t('ds.goToStorm')}}

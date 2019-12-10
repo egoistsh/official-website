@@ -105,7 +105,7 @@
   }
 
   .textbox .content {
-    margin: 0 auto;
+    margin: 0 44rem;
     padding-top: 25px;
   }
 
@@ -129,9 +129,22 @@
   .pr22 {
     padding-right: 22px;
   }
+
+  /*app*/
+  @media screen and (max-width: 997px) {
+   .textbox .content {
+      margin:0 4rem;
+    }
+  }
 </style>
 <style>
   .content img {
     display: inline-block;
+  }
+
+  @media screen and (max-width: 997px) {
+    .content img {
+      max-width: 278px;
+    }
   }
 </style>
