@@ -1,76 +1,62 @@
 <template>
   <div id="HomePage">
-    <Header></Header>
+<!--    <Header></Header>-->
     <!--    快速跳转模块-->
     <div class="quick-jump">
       <div class="quick-jump-img">
-        <p style="text-align: center">
+        <!--<p style="text-align: center">
           <el-image src="/static/img/bigLogo.jpg" style="height: 20rem;width: 20rem"></el-image>
-        </p>
+        </p>-->
       </div>
-     <!-- <div class="quick-jump-font">
-        <p style="text-align: center">
-          <a href="#" @click="quickJump('dessertStation2','section-3')">Ice-Cream Backpack</a>/
-          <a href="#" @click="quickJump('dessertStation2','section-3')">Muffin Backpack</a>/
-          <a href="#" @click="quickJump('dessertStation2','section-3')">Pizza Backpack</a>/
-          <a href="#" @click="quickJump('dessertStation2','section-3')">Banana split Backpack</a>
-        </p>
-      </div>-->
     </div>
 
     <!-- 轮播图 -->
-    <div id="swiper" class="container-fuild" v-loading=loading>
+   <!-- <div id="swiper" class="container-fuild" v-loading=loading>
       <div class="swiper-container banner-swiper wow zoomIn">
         <header></header>
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
-            <!--            <a :href="item.url" target="_blank"><img class="swiper-lazy" :data-src="item.imageUrl"></a>-->
-            <img class="swiper-lazy img-responsive" :data-src="item.imageUrl">
+            <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
+              <div slot="placeholder">
+                <el-image class="swiper-lazy img-responsive" src="/static/img/preBarner.jpg"></el-image>
+              </div>
+            </el-image>
             <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
-          </div>
-        </div>
-        <!-- 如果需要分页器 -->
-        <div class="swiper-pagination"></div>
-
-        <!-- 如果需要导航按钮 -->
-        <div class="swiper-button-prev" ></div>
-        <div class="swiper-button-next"></div>
-      </div>
-    </div>
-    <!-- 手机轮播图 -->
-    <!--<div id="swiper-app" class="container-fuild visible-xs">
-      <div class="swiper-container banner-swiper wow zoomIn">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
-            <a :href="item.url" target="_blank"><img class="swiper-lazy img-responsive" :data-src="item.imageUrl"></a>
-            <div class="swiper-lazy-preloader"></div>
-            &lt;!&ndash;<div class="swiper-slide-title">
-                <h1>{{item.title}}</h1>
-                <p>{{item.content}}</p>
-            </div>&ndash;&gt;
           </div>
         </div>
         &lt;!&ndash; 如果需要分页器 &ndash;&gt;
         <div class="swiper-pagination"></div>
 
         &lt;!&ndash; 如果需要导航按钮 &ndash;&gt;
-        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-prev" ></div>
         <div class="swiper-button-next"></div>
       </div>
     </div>-->
-    <!-- 大数据管理系统 -->
-    <!--<div id="bigData" class="container-fuild">
-      <div class="row bigData-container">
-        <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
-          <a :href="left.url" v-if="left"><img class="img-responsive" :src="left.imageUrl"></a>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
-          <video width="100%" height="auto" controls poster="https://bk.image.styleweb.com.cn/%E5%8F%91%E5%B8%83%E7%BD%91%E7%AB%99%E7%9A%84%E5%89%AF%E6%9C%AC.mp4?vframe/jpg/offset/3">
-            <source src="@/assets/img/homeVideo.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>-->
+
+    <div class="container-fuild hidden-xs">
+      <el-carousel height="815px" :interval=2500>
+        <el-carousel-item v-for="(item,index) in swiperList" :key="index">
+          <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
+            <div slot="placeholder">
+              <el-image class="swiper-lazy img-responsive" src="/static/img/preBarner.jpg"></el-image>
+            </div>
+          </el-image>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+
+    <div class="container-fuild visible-xs">
+      <el-carousel height="158">
+        <el-carousel-item v-for="(item,index) in swiperList" :key="index">
+          <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
+            <div slot="placeholder">
+              <el-image class="swiper-lazy img-responsive" src="/static/img/preBarner.jpg"></el-image>
+            </div>
+          </el-image>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+
     <div id="mydShow" class="container-fluid" :style="{'background-image':'url('+ mydShow.imageUrl + ')'}">
       <div class="mydShow-font">
         <span>{{$t('home.video.span1')}}</span><br/>
@@ -80,7 +66,7 @@
       </div>
       <div class="col-xs-12 col-sm-3 col-md-3 wow zoomIn videoShow">
         <video width="100%" height="auto" controls
-               poster="https://bk.image.styleweb.com.cn/%E5%8F%91%E5%B8%83%E7%BD%91%E7%AB%99%E7%9A%84%E5%89%AF%E6%9C%AC.mp4?vframe/jpg/offset/3">
+               poster="#">
           <source src="/static/品牌宣传片初版.mp4" type="video/mp4">
           <!--          <source src="http://myd-official.com/image/品牌宣传片初版.mp4" type="video/mp4">-->
         </video>
@@ -268,32 +254,6 @@
       }
     },
     mounted () {
-
-      /* customer-swiper */
-     /* new Swiper('.customer-swiper', {
-        // lazyLoading:true,
-        // preloadImages:false,
-        loop: true, // 循环模式选项
-        slidesPerView: 3,
-        //自动播放
-        autoplay: {
-          delay: 3000,
-          stopOnLastSlide: false,
-          disableOnInteraction: false,
-        },
-        // 如果需要前进后退按钮
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        // 延迟加载
-        lazy: {
-          loadPrevNext: true,
-        },
-        observer: true, //修改swiper自己或子元素时，自动初始化swiper
-        observeParents: true, //修改swiper的父元素时，自动初始化swiper
-      })*/
-      // this.initSwiper()
       /* wowjs动画 */
       var wow = new WOW({
         boxClass: 'wow',
@@ -341,9 +301,6 @@
         listPictureConfigs(data).then((response) => {
           this.swiperList = response.data.content
           this.loading = false
-          this.$nextTick(() => {//下一个UI帧再初始化swiper
-            this.initSwiper()
-          })
         }).catch((error) => {
           console.log(error)
         })
@@ -360,37 +317,6 @@
           this.mydShow = response.data.content[0]
         }).catch((error) => {
           console.log(error)
-        })
-      },
-      initSwiper () {
-        /* banner-swiper */
-        if (this.swiper != null) return
-        this.swiper = new Swiper('.banner-swiper', {
-          loop: true, // 循环模式选项
-          effect: 'fade',
-          preloadImages:false,
-          //自动播放
-          autoplay: {
-            delay: 3000,
-            stopOnLastSlide: false,
-            disableOnInteraction: false,
-          },
-          // 如果需要分页器
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          // 如果需要前进后退按钮
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-          // 延迟加载
-          lazy: {
-            loadPrevNext: true,
-          },
-          observer: true, //修改swiper自己或子元素时，自动初始化swiper
-          observeParents: true, //修改swiper的父元素时，自动初始化swiper
         })
       },
       listArticle () {
@@ -499,6 +425,13 @@
   }
 
   .quick-jump-img {
+    height: 20rem;
+    /*width: 20rem;*/
+    background-image: url("/static/img/bigLogo.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+
   }
 
   /* 大数据管理系统 */
@@ -795,5 +728,42 @@
     background-repeat: no-repeat;
     background-size: cover;
   }*/
+  /*修改element 轮播按钮样式*/
+  .el-carousel__button {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #000;
+  }
+
+  .el-carousel__indicator.is-active button {
+    background:#007aff;
+  }
+
+  .el-carousel__arrow {
+    color:#7fcff0;
+    background-color: rgba(0,0,0,0);
+  }
+
+  .el-carousel__arrow:hover {
+    color:#7fcff0;
+    background-color: rgba(0,0,0,0);
+  }
+
+  /*[class*=" el-icon-"], [class^=el-icon-] {
+    font-size: 60px;
+  }*/
+
+  .el-carousel__arrow--left,.el-carousel__arrow--right{
+    font-size: 60px;
+  }
+
+  @media screen and (max-width: 996px) {
+    .el-carousel__container {
+      height: 168px;
+    }
+  }
+
 </style>
 

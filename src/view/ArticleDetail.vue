@@ -1,6 +1,6 @@
 <template>
   <div class="textbox">
-    <Header></Header>
+<!--    <Header></Header>-->
     <div v-if="article">
       <h2>{{article.title}}</h2>
       <div class="infor">

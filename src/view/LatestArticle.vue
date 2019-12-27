@@ -12,12 +12,14 @@
       </div>
       <div class="article-list">
         <article v-for="(item,index) in articles" :key="index">
-          <a :href="'#/articleDetail/'+item.id">
+<!--          <a :href="'/articleDetail/'+item.id">-->
+          <router-link :to="{name: 'articleDetail', params: { id: item.id }}">
             <time>{{item.pubTime | formatDate}} / news</time>
             <el-image class="img" :src="item.imageUrl" :alt="item.title"></el-image>
             <h2>{{item.title}}</h2>
             <p>{{item.brief}}</p>
-          </a>
+          </router-link>
+<!--          </a>-->
         </article>
       </div>
     </div>

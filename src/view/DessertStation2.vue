@@ -1,13 +1,14 @@
 <template>
   <div>
-    <Header></Header>
+<!--    <Header></Header>-->
     <full-page :options="options">
-      <div class="section">
-        <el-image src="/static/img/images/dsHeader.jpg" @load="quickJump"></el-image>
-        <div class="quick-jump-font" v-show="quickJumpFlag">
+      <div class="section ds-header">
+<!--        <el-image src="/static/img/images/dsHeader.jpg" @load="quickJump"></el-image>-->
+        <div class="quick-jump-font">
           <p style="text-align: center;line-height: 3rem">
-              <span v-for="i in 4">
+              <span v-for="i in 4" >
                 <a :href="'#'+i" >{{$t('ds.backpack.'+i)}}</a>
+<!--                <a @click="handleItem(i)">{{$t('ds.backpack.'+i)}}</a>-->
                 <span v-if="i!=4">/</span>
               </span><br>
             <span v-for="i in 5"><a :href="'#'+(i+4)">{{$t('ds.backpack.'+(i+4))}}</a>
@@ -41,7 +42,7 @@
            v-for="(item,index) in list">
         <div :class="[index%2==0?'name-span':'name-span-right',index==0||index==2?'temp':'']"><span>{{item.nameSpan}}</span></div>
         <div :class="[index%2==0?'title-span':'title-span-right',index==0||index==2?'temp':'']"><span>{{$t('ds.title')}}</span></div>
-        <el-image :src="item.floatImg" :class="index%2==0?'float-img':'float-img-right'" fit="contain" lazy></el-image>
+        <el-image :src="item.floatImg" :class="index%2==0?'float-img':'float-img-right'" fit="contain"></el-image>
         <!--<el-button plain :class="index%2==0?'learn-more-btn':'learn-more-btn-right'"> {{$t('ds.learnMore')}}</el-button>
         <el-button plain :class="index%2==0?'to-storm-btn':'to-storm-btn-right'" v-show="index==0">
           {{$t('ds.goToStorm')}}
@@ -65,7 +66,6 @@
           navigation: true,
           anchors: [
             'top',
-            'second',
             '1',
             '2',
             '3',
@@ -78,7 +78,8 @@
             '10',
             '11',
             '12',
-            '13'],
+            '13',
+            'end'],
           /*sectionsColor: [
             '#41b883',
             '#ff5f45',
@@ -100,17 +101,20 @@
             bgImg: '/static/img/images/甜品站_04.jpg',
             floatImg: '/static/img/images/冰淇淋-浮动.png',
             nameSpan: this.$t('ds.list.1'),
+            id: 'run1'
           },
           {
             bgImg: '/static/img/images/甜品站_05.jpg',
             floatImg: '/static/img/images/松饼-浮动.png',
             nameSpan: this.$t('ds.list.2'),
+            id: 'run2'
 
           },
           {
             bgImg: '/static/img/images/甜品站_06.jpg',
             floatImg: '/static/img/images/香蕉船-浮动.png',
             nameSpan: this.$t('ds.list.3'),
+            id: 'run3'
           },
           {
             bgImg: '/static/img/images/甜品站_07.jpg',
@@ -154,10 +158,11 @@
 </script>
 
 <style scoped>
-<!--  第一个section-->
- /* .dsHeader {
+  .ds-header {
     background-image: url("/static/img/images/dsHeader.jpg");
-  }*/
+    background-repeat: no-repeat;
+    position: relative;
+  }
 
   /* quick-jump快速跳转模块*/
   .quick-jump {
@@ -166,10 +171,14 @@
 
   .quick-jump-font {
     font-size: 1rem;
-    margin-bottom: 5rem;
     /*font-family: FZ;*/
     font-family: PingFangSC-Ultralight, sans-serif;
     letter-spacing: 2px;
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translate(-50%,0);
+
   }
 
   .quick-jump-font a {

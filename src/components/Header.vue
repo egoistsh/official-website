@@ -25,15 +25,15 @@
           >
             <router-link :to="item.path">
               {{item.name}}
-              <span v-if="item.children.length>0" class="glyphicon glyphicon-menu-down"></span>
+<!--              <span v-if="item.children.length>0" class="glyphicon glyphicon-menu-down"></span>-->
               <i class="underline"></i>
             </router-link>
-            <dl v-if="item.children.length>0">
+            <!--<dl v-if="item.children.length>0">
               <dt v-for="(i,n) in item.children" :key="n">
                 <router-link :to="i.path" style="font-weight: initial">{{i.name}}</router-link>
-<!--                              <router-view></router-view>-->
+                              <router-view></router-view>
               </dt>
-            </dl>
+            </dl>-->
           </li>
         </ul>
       <div class="header-language">

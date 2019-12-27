@@ -35,7 +35,7 @@ module.exports = {
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+      : config.dev.assetsPublicPath,
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -43,7 +43,8 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
       'assets': path.resolve(__dirname, '../src/assets'),
-      'jquery': "jquery/src/jquery"
+      'jquery': "jquery/src/jquery",
+      chunkFilename: '[name].bundle.js'
     }
   },
   module: {

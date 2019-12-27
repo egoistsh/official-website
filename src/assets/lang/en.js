@@ -43,7 +43,7 @@ module.exports = {
         brief: 'Be yourself bravely.',
       },
       cupCake: {
-        title: 'CUP CAKE SERIES',
+        title: 'CUPCAKE SERIES',
         brief: 'There are three things i love: travel,you,travel with you.',
       },
       Benji: {
@@ -115,5 +115,18 @@ module.exports = {
     meaning: 'Meaning',
     concept: 'Concept',
     course: 'Course',
+    meaningDetail:'    Matthew Change the black-and-white painting of his girlfriend\'s into color，in order to cherish the Memory of his girlfriend Sanra, who died of MDD. He hope to build a colorful parallel world for her in this way.\n' +
+      '    Sanra is a young painter who suffered from MDD.Therefore, the style of painting gradually changed from lively and enthusiastic to oppressive. Matthew apparently knew Sanra was releasing her press according to drawing an increasing bags on people’s backs. Matthew was worried about Sanra’ situation and tried to accompany Sanra and heal her. But eventually Sanra choose to suicide.\n' +
+      '    Matthew was guilty about that he can’t help Sanra. He decided to change Sanra’s painting into color and place the hope on these painting to build the wonderful life that Sanra should have saw.\n' +
+      '    In 2006,Matthew established MYD. He designed the backpacks with the story and give it various colors.He regularly sent these backpacks to depressed patients as gifts, attaching a card to encourage them.He hoped that his actions could relieve their heavy pressure.\n' +
+      '    Everyone is different and never deny yourself. The founder,Matthew, hopes to encourage everyone to demonstrate their own style according to the MYD brand idea.\n',
+    conceptDetail:'    MYD means make you different,and it correspond to the idea of Matthew:Everyone is different and never deny yourself.He hopes to encourage everyone to demonstrate their own style according to the MYD brand idea.\n' +
+      '    MYD insists on unique and textured style. As for the design spirit, tehy pay more attention to details and diversified . What we insist on is the soul of MYD when making every product.\n',
+    courseDetail:'    2006,Matthew establish MYD brand.\n' +
+      '    2007,the trademark is registered.\n' +
+      '    2010,the commercial version of the trademark has been modified.\n' +
+      '    2016,MYD had been taken over by the COTTON LOVE AUSTRALIA PLY LIMITED. Matthew stayed in the company to lead the design team, and at the same time, he carried out offline charitable sales activities in campuses and communities in other countries and regions.\n' +
+      '    In 2017, Xv Dahong, general manager of China vitbony Co., Ltd,  was optimistic about the unique concept and sales model of MYD. After negotiation, Mr.Xv was given the authority from the director Mr.R.y.thugabe of Cotton Love Australia Ply Ltd. They signed the contact officially,and Vitbony Co.,Ltd became the exclusive agency of MYD brand in Asia Pacific and greater China. MYD’s production began to be sold on multiple online platforms in mainland China.\n' +
+      '    In 2008,TITHYIM,Hong Kong designer with years of backpack design experience,joined the MYD.In order to integrate the product into the Asian market, he and the Australian design team redesigned and built a new series —— My dessert(ice cream series,banana split series,pancake series,pudding series and so on.) In Melbourne, MYD’s backpacks has been on display in many characteristic clothing retail stores. In the future, it will expand to China, Hong Kong, Taiwan, Japan and other national and regional hypostatic stores.'
   },
 }

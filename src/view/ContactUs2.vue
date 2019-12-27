@@ -1,6 +1,6 @@
 <template>
   <div id="ContactUs">
-    <Header></Header>
+<!--    <Header></Header>-->
     <div class="page-title">
       <h1><a href="#">Contact</a></h1>
     </div>

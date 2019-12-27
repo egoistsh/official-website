@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100%">
-    <Header></Header>
+<!--    <Header></Header>-->
     <div>
       <div class="page-title">
         <h1><a href="#">Brand Story</a></h1>
@@ -12,7 +12,7 @@
       </div>
       <div class="contents">
         <div class="col-md-4" v-for="(item,index) in list">
-          <a href="#" @click="showDialog(item)">
+          <a href="#" @click="showDialog(index)">
             <div class="block" :style="{'background-image':'url('+ item.imageUrl + ')'}">
               <h2 v-if="index===0">{{$t('brand.meaning')}}</h2>
               <h2 v-if="index===1">{{$t('brand.concept')}}</h2>
@@ -21,12 +21,10 @@
             </div>
           </a>
         </div>
-        <el-dialog :visible.sync="dialogTableVisible" width="36%" top="8.5vh" center :modal=true custom-class="dialog"
-                   class="element wow jackInTheBox" data-wow-duration="1s" @open="open" @close="close" ref="dialog">
+        <el-dialog :visible.sync="dialogTableVisible" width="50%" top="8.5vh" center :modal=true custom-class="dialog"
+                   class="element animated jackInTheBox" @close="close" @open="open" ref="dialog">
           <div slot="title" class="dialog-title">{{title}}</div>
-          <div class="dialog-content">
-            {{content}}
-          </div>
+          <div class="dialog-content">{{content}}</div>
         </el-dialog>
       </div>
 
@@ -50,6 +48,24 @@
         content: '',
         // dialogClass:'dialog'
       }
+    },
+    computed: {
+      brandList () {
+        return [
+          {
+            title: this.$t('brand.meaning'),
+            content: this.$t('brand.meaningDetail'),
+          },
+          {
+            title: this.$t('brand.concept'),
+            content: this.$t('brand.conceptDetail'),
+          },
+          {
+            title: this.$t('brand.course'),
+            content: this.$t('brand.courseDetail'),
+          },
+        ]
+      },
     },
     mounted () {
       /* wowjs动画 */
@@ -78,17 +94,22 @@
           console.log(error)
         })
       },
-      showDialog (item) {
+      showDialog (index) {
         this.dialogTableVisible = true
-        this.title = item.name
-        this.content = item.description
-      },
-      open() {
-        this.$refs.dialog.className = 'element wow jackInTheBox'
-        console.log(this.$refs.dialog.className)
+        /*this.title = item.name
+        this.content = item.description*/
+        this.title = this.brandList[index].title
+        this.content = this.brandList[index].content
+        console.log(this.content)
       },
       close() {
-        this.$refs.dialog.className = 'element'
+        // this.dialogTableVisible = false
+        // this.$refs.dialog.className = 'element'
+        $('.element').removeClass('animated');
+      },
+      open() {
+        $('.element').addClass('animated');
+
       }
     },
   }
@@ -211,8 +232,9 @@
   .dialog-content {
     font-size: 20px;
     letter-spacing: 4px;
-    text-indent: 48px;
-    line-height: 36px;
+    text-indent: 0px;
+    line-height: 50px;
+    white-space: pre-wrap;
   }
 
   /*去除滚动条*/
@@ -220,9 +242,14 @@
     width: 0 !important
   }
 
+  .element {
+    animate-duration: 2s;
+
+  }
+
 </style>
 <style>
   .dialog {
-    opacity: 0.6;
+    opacity: 0.8;
   }
 </style>
