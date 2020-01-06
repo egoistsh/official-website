@@ -11,7 +11,7 @@
 // import './assets/js/bootstrap.min'
 // import 'animate.css'
 // import 'jquery'
-
+import VueLazyload from 'vue-lazyload'
 
 
 
@@ -26,6 +26,7 @@ import solid from '@fortawesome/fontawesome-free-solid'
 // Vue.use(VueI18n)
 // Vue.use(ElementUI,{locale})
 Vue.use(DrawerLayout)
+Vue.use(VueLazyload)
 
 //实例化vue-i18n
 const i18n = new VueI18n({

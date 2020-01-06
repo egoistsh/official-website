@@ -12,15 +12,18 @@
       <el-button round plain class="learn-more hidden-xs">{{$t('home.footer.learnMore')}}</el-button>
       <div class="link">
         <div class="">
-          <el-image src="/static/img/footer/wechat.png"></el-image>
+          <!-- <el-image v-lazy="'/static/img/footer/wechat.png'"></el-image> -->
+          <img v-lazy="'/static/img/footer/wechat.png'"/>
           <p>{{$t('home.footer.wechat')}}</p>
         </div>
         <div class="">
-          <el-image src="/static/img/footer/redbook.png"></el-image>
+          <!-- <el-image src="/static/img/footer/redbook.png"></el-image> -->
+          <img v-lazy="'/static/img/footer/redbook.png'"/>
           <p>{{$t('home.footer.redbook')}}</p>
         </div>
         <div class="">
-          <el-image src="/static/img/footer/MYD.png"></el-image>
+          <!-- <el-image src="/static/img/footer/MYD.png"></el-image> -->
+          <img v-lazy="'/static/img/footer/MYD.png'"/>
           <p>{{$t('home.footer.more')}}</p>
           <p>{{$t('home.footer.more2')}}</p>
         </div>

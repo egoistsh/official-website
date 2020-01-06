@@ -36,11 +36,12 @@
     <div class="container-fuild hidden-xs">
       <el-carousel height="815px" :interval=2500>
         <el-carousel-item v-for="(item,index) in swiperList" :key="index">
-          <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
+          <!-- <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
             <div slot="placeholder">
               <el-image class="swiper-lazy img-responsive" src="/static/img/preBarner.jpg"></el-image>
             </div>
-          </el-image>
+          </el-image> -->
+          <img class="img-responsive" v-lazy="item.imageUrl"/>
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -124,9 +125,9 @@
       <figure></figure>
     </div>-->
     <div class="portfolio-items wow zoomIn animated">
-      <figure class="image-Item" style="" v-for="item in mydShowList">
+      <figure class="image-Item" style="" v-for="(item,index) in mydShowList" :key="index">
 <!--        <img src="/static/img/portfolio_1.jpg" alt="img25" style="width: 100%;height: auto">-->
-        <img :src="item.imageUrl" alt="img" style="width: 100%;height: auto">
+        <img v-lazy="item.imageUrl" alt="img" style="width: 100%;height: auto">
         <figcaption>
           <h2 style="font-size: 27px;font-weight: 700;padding-top: 20px">{{item.title}}</h2>
           <p class="description">
