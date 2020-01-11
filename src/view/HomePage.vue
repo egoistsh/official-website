@@ -4,44 +4,18 @@
     <!--    快速跳转模块-->
     <div class="quick-jump">
       <div class="quick-jump-img">
-        <!--<p style="text-align: center">
-          <el-image src="/static/img/bigLogo.jpg" style="height: 20rem;width: 20rem"></el-image>
-        </p>-->
       </div>
     </div>
-
-    <!-- 轮播图 -->
-   <!-- <div id="swiper" class="container-fuild" v-loading=loading>
-      <div class="swiper-container banner-swiper wow zoomIn">
-        <header></header>
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
-            <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
-              <div slot="placeholder">
-                <el-image class="swiper-lazy img-responsive" src="/static/img/preBarner.jpg"></el-image>
-              </div>
-            </el-image>
-            <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
-          </div>
-        </div>
-        &lt;!&ndash; 如果需要分页器 &ndash;&gt;
-        <div class="swiper-pagination"></div>
-
-        &lt;!&ndash; 如果需要导航按钮 &ndash;&gt;
-        <div class="swiper-button-prev" ></div>
-        <div class="swiper-button-next"></div>
-      </div>
-    </div>-->
 
     <div class="container-fuild hidden-xs">
       <el-carousel height="815px" :interval=2500>
         <el-carousel-item v-for="(item,index) in swiperList" :key="index">
-          <!-- <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
+           <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
             <div slot="placeholder">
               <el-image class="swiper-lazy img-responsive" src="/static/img/preBarner.jpg"></el-image>
             </div>
-          </el-image> -->
-          <img class="img-responsive" v-lazy="item.imageUrl"/>
+          </el-image>
+<!--          <img class="img-responsive" v-lazy="item.imageUrl"/>-->
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -59,6 +33,8 @@
     </div>
 
     <div id="mydShow" class="container-fluid" :style="{'background-image':'url('+ mydShow.imageUrl + ')'}">
+<!--    图片懒加载的形式-->
+<!--    <div id="mydShow" class="container-fluid" v-lazy:background-image="{src: mydShow.imageUrl}">-->
       <div class="mydShow-font">
         <span>{{$t('home.video.span1')}}</span><br/>
         <span>{{$t('home.video.span2')}}</span><br/>
@@ -75,55 +51,7 @@
       </div>
     </div>
     <div id="ranking">
-      <!--      <p class="customer-title text-center">{{$t('home.ranking')}}</p>-->
-
-      <!--      轮播--终极-->
-      <!--      <Slide></Slide>-->
-
-      <!-- <ul>
-         <carousel :autoplay="true" :nav = "false" :margin="20" :responsive="{300:{items:2},600:{items:1,}}">
-           <li v-for="item in articles">
-             <img class="img-owl" v-bind:src="item.imageUrl" />
-           </li>
-         </carousel>
-       </ul>-->
-      <!--      走马灯图片轮询-->
-      <!--<div class="hidden-xs">
-        <el-carousel :interval="4000" height="31rem" arrow="always">
-          <el-carousel-item v-for="list in carouselList" :key="list.id">
-            <div class="ranking-content">
-              <div class="ranking-block" v-for="item in list">
-                <a :href="'#/productDetail/'+item.id" target="_blank"><el-image :src="item.imageUrl" fit="cover" style="height: 23rem;width: 23rem" >
-                  <div slot="error" class="image-slot">
-                    <i class="el-icon-picture-outline"></i>
-                  </div>
-                </el-image></a>
-                <div class="item-title"><span>{{item.title}}</span></div>
-              </div>
-            </div>
-          </el-carousel-item>
-        </el-carousel>
-      </div>
-      <div class="visible-xs">
-        <el-carousel :interval="4000" height="12rem" arrow="always">
-          <el-carousel-item v-for="list in carouselList" :key="list.id">
-            <div class="ranking-content">
-              <div class="ranking-block" v-for="item in list">
-                <a :href="'#/productDetail/'+item.id" target="_blank"><el-image :src="item.imageUrl" fit="cover" style="width: 9rem;height: 9rem">
-                  <div slot="error" class="image-slot">
-                    <i class="el-icon-picture-outline"></i>
-                  </div>
-                </el-image></a>
-                <div class="item-title"><span>{{item.title}}</span></div>
-              </div>
-            </div>
-          </el-carousel-item>
-        </el-carousel>
-      </div>-->
     </div>
-    <!--<div id="mydImage">
-      <figure></figure>
-    </div>-->
     <div class="portfolio-items wow zoomIn animated">
       <figure class="image-Item" style="" v-for="(item,index) in mydShowList" :key="index">
 <!--        <img src="/static/img/portfolio_1.jpg" alt="img25" style="width: 100%;height: auto">-->
@@ -140,7 +68,7 @@
     </div>
 
     <div class="section-dark">
-      <i class="fas fa-quote-left section-icon"></i>
+      <i class="fa fa-quote-left section-icon" aria-hidden="true"></i>
       <div class="section-contain">
         <span>MAKE</span><br/>
         <span>YOU</span><br/>
@@ -158,7 +86,6 @@
   </div>
 </template>
 <script>
-  import Swiper from 'swiper'
   import { WOW } from 'wowjs'
   import { listArticle, listPictureConfigs, count } from '@/api/portal.js'
   import carousel from 'vue-owl-carousel'
@@ -200,7 +127,6 @@
             content: '<p>XXX</p>XXX',
           },
         ],
-        swiper: undefined,
         mydShow: {imageUrl: undefined},
         articles: undefined,
         carouselList: undefined,
@@ -266,29 +192,6 @@
       wow.init()
       this.listBannerConfigs()
       this.listMydShowConfigs()
-
-      //！！目前写死了，因为要语言切换，所以这个方法形同虚设。但最终还是要改用请求的方式配置。
-      // this.listArticle()
-
-      //图片无线滚动
-      /*window.onload = function(){
-        var scroll = document.getElementById("scroll");
-        var ul = scroll.children[0];//孩子都要加[0]无论几个孩子,因为得到的是数组
-        var num = 0;//控制左侧值left
-        var timer = null;	//声明定时器
-        timer = setInterval(autoPlay,5);
-        function autoPlay(){
-          num--;
-          num <=-1500 ? num = 0 : num;	//一张图宽300，四张1200，左为负
-          ul.style.left = num+"px";
-        }
-        scroll.onmouseover = function(){
-          clearInterval(timer);
-        }
-        scroll.onmouseout = function(){
-          timer = setInterval(autoPlay,5);
-        }
-      }*/
 
     },
     methods: {
@@ -452,7 +355,7 @@
     transition: all ease 0.6s;
     box-sizing: border-box;
     /*position: relative;*/
-    background-image: url("/static/img/mydShow.jpg");
+    /*background-image: url("/static/img/mydShow.jpg");*/
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -669,66 +572,6 @@
   }
 </style>
 <style>
-  /*.el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }*/
-
-
-  /* 无限滚动 */
-  /*img{vertical-align: top;} !*去掉上下两张图片之间的默认间隙距离*!*/
-  /* .box{
-     !*width: 600px;*!
-     height: 400px;
-     margin: auto;
-     background-color: pink;
-     overflow: hidden;
-     position: relative;
-   }
-   .box ul li{
-     float: left;
-   }
-   .box ul{
-     width: 500%;	!*四张图片就是百分之四百*!
-     position: absolute;!*大盒子做动画，就给大盒子定位*!
-     left: 0;
-     top: 0;
-   }
-
-   .box img {
-     !*height: 100px;*!
-     width: 300px;
-     height: 400px;
-   }*/
-
-  /*test*/
-  /*.test {
-    position: relative;
-    z-index: 0;
-    min-height: 100vh!important;
-  }
-
-  .containTest {
-    z-index: 0;
-  }
-
-  .containBg-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    z-index: -1;
-
-    background-image: url(/static/img/A首页.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }*/
   /*修改element 轮播按钮样式*/
   .el-carousel__button {
     width: 8px;

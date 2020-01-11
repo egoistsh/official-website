@@ -20,8 +20,8 @@ import locale from 'element-ui/lib/locale/lang/zh-CN' // vue lang i18n
 import DrawerLayout from 'vue-drawer-layout'
 
 // font awesome图标库
-import fontawesome from '@fortawesome/fontawesome'
-import solid from '@fortawesome/fontawesome-free-solid'
+// import fontawesome from '@fortawesome/fontawesome'
+// import solid from '@fortawesome/fontawesome-free-solid'
 
 // Vue.use(VueI18n)
 // Vue.use(ElementUI,{locale})
@@ -52,7 +52,7 @@ Vue.prototype.http = axios
 Vue.prototype.api = api
 
 /* swiper */
-import 'swiper/dist/css/swiper.min.css'
+// import 'swiper/dist/css/swiper.min.css'
 
 /* 重置样式 */
 import './assets/css/reset.min.css'
