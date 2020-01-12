@@ -161,7 +161,8 @@
 
 <style scoped>
   .ds-header {
-    background-image: url("/static/img/images/dsHeader.jpg");
+    /*background-image: url("/static/img/images/dsHeader.jpg");*/
+    background-image: url("https://kaze.oss-cn-shenzhen.aliyuncs.com/myd/dsHeader.jpg");
     background-repeat: no-repeat;
     position: relative;
   }

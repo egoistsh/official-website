@@ -11,7 +11,8 @@
         </nav>
       </div>
       <div class="contents" v-loading=loading>
-        <div class="col-md-4" v-for="(item,index) in list">
+<!--        <div class="col-md-4" v-for="(item,index) in list">-->
+        <div class="col-md-4" v-for="(item,index) in brandList">
           <a href="#" @click="showDialog(index)">
             <div class="block" :style="{'background-image':'url('+ item.imageUrl + ')'}">
               <h2 v-if="index===0">{{$t('brand.meaning')}}</h2>
@@ -56,14 +57,17 @@
           {
             title: this.$t('brand.meaning'),
             content: this.$t('brand.meaningDetail'),
+            imageUrl: 'https://kaze.oss-cn-shenzhen.aliyuncs.com/myd/1.jpg'
           },
           {
             title: this.$t('brand.concept'),
             content: this.$t('brand.conceptDetail'),
+            imageUrl: 'https://kaze.oss-cn-shenzhen.aliyuncs.com/myd/2.jpg'
           },
           {
             title: this.$t('brand.course'),
             content: this.$t('brand.courseDetail'),
+            imageUrl: 'https://kaze.oss-cn-shenzhen.aliyuncs.com/myd/3.jpg'
           },
         ]
       },
