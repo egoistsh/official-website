@@ -38,7 +38,9 @@
           </div>
         </div>
       </div>-->
-      <div class="section page-left" :style="{'background-image':'url('+ item.bgImg + ')'}"
+      <!--<div class="section page-left" :style="{'background-image':'url('+ item.bgImg + ')'}"
+           v-for="(item,index) in list">-->
+      <div class="section page-left" v-lazy:background-image="{src: item.bgImg}"
            v-for="(item,index) in list">
         <div :class="[index%2==0?'name-span':'name-span-right',index==0||index==2?'temp':'']"><span>{{item.nameSpan}}</span></div>
         <div :class="[index%2==0?'title-span':'title-span-right',index==0||index==2?'temp':'']"><span>{{$t('ds.title')}}</span></div>

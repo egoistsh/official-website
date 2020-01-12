@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="footer" class="container-fluid">
+    <div id="footer" class="container-fluid" v-lazy:background-image="{src: '/static/img/footer/footer.png'}">
       <!--    <img src="/static/img/A首页.png" class="img-responsive">-->
       <div class="aboutUs">
         <h2 class="title">{{$t('home.footer.title')}}</h2>
@@ -46,7 +46,7 @@
     color: #fff;
     /*overflow: hidden;*/
     text-align: center;
-    background-image: url("/static/img/footer/footer.png");
+    /*background-image: url("/static/img/footer/footer.png");*/
     background-repeat: no-repeat;
     /*background-position: center;*/
     position: relative;

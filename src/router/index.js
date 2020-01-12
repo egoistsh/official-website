@@ -14,7 +14,7 @@ export default new Router({
       path: '/home',
       name: 'home',
       // component: resolve => require(['@/view/HomePage'], resolve),
-      component: () => import(/* webpackChunkName: "HelloWorld" */ '@/view/HomePage'),
+      component: () => import(/* webpackChunkName: "home" */ '@/view/HomePage'),
       meta: {
         title: 'MYD官网',
       },
@@ -22,7 +22,7 @@ export default new Router({
       path: '/contactus',
       name: 'contactus',
       // component: resolve => require(['@/view/ContactUs2'], resolve),
-      component: () => import(/* webpackChunkName: "HelloWorld" */ '@/view/ContactUs2'),
+      component: () => import(/* webpackChunkName: "contactus" */ '@/view/ContactUs2'),
       meta: {
         title: 'MYD-联系我们',
       },
@@ -31,7 +31,7 @@ export default new Router({
       path: '/productShow',
       name: 'productShow',
       // component: resolve => require(['@/view/ServiceDetail'], resolve),
-      component: () => import(/* webpackChunkName: "HelloWorld" */ '@/view/ServiceDetail'),
+      component: () => import(/* webpackChunkName: "productShow" */ '@/view/ServiceDetail'),
       meta: {
         title: '产品展示',
       },
@@ -40,7 +40,7 @@ export default new Router({
       path: '/live',
       name: 'live',
       // component: resolve => require(['@/view/Article'], resolve),
-      component: () => import(/* webpackChunkName: "HelloWorld" */ '@/view/LatestArticle'),
+      component: () => import(/* webpackChunkName: "live" */ '@/view/LatestArticle'),
       meta: {
         title: 'MYD动态',
       },
@@ -73,7 +73,7 @@ export default new Router({
       path: '/articleDetail/:id',
       name: 'articleDetail',
       // component: resolve => require(['@/view/ArticleDetail'], resolve),
-      component: () => import(/* webpackChunkName: "HelloWorld" */ '@/view/ArticleDetail'),
+      component: () => import(/* webpackChunkName: "articleDetail" */ '@/view/ArticleDetail'),
       meta: {
         title: '文章详情',
       },
@@ -81,32 +81,32 @@ export default new Router({
         articleId: route.params.id,
       }),
     },
-    {
+    /*{
       path: '/productDetail/:id',
       name: 'productDetail',
       // component: resolve => require(['@/view/ProductDetail'], resolve),
-      component: () => import(/* webpackChunkName: "HelloWorld" */ '@/view/ProductDetail'),
+      component: () => import(/!* webpackChunkName: "productDetail" *!/ '@/view/ProductDetail'),
       meta: {
         title: '产品详情',
       },
       props: (route) => ({
         articleId: route.params.id,
       }),
-    },
-    {
+    },*/
+    /*{
       path: '/dessertStation',
       name: 'dessertStation',
       // component: resolve => require(['@/view/DessertStation'], resolve),
-      component: () => import(/* webpackChunkName: "HelloWorld" */ '@/view/DessertStation'),
+      component: () => import(/!* webpackChunkName: "dessertStation" *!/ '@/view/DessertStation'),
       meta: {
         title: '甜品站',
       },
-    },
+    },*/
     {
       path: '/dessertStation2',
       name: 'dessertStation2',
       // component: resolve => require(['@/view/DessertStation2'], resolve),
-      component: () => import(/* webpackChunkName: "HelloWorld" */ '@/view/DessertStation2'),
+      component: () => import(/* webpackChunkName: "dessertStation2" */ '@/view/DessertStation2'),
       meta: {
         title: 'MYD甜品站',
       },
@@ -115,7 +115,7 @@ export default new Router({
       path: '/brand',
       name: 'brand',
       // component: resolve => require(['@/view/Brand'], resolve),
-      component: () => import(/* webpackChunkName: "HelloWorld" */ '@/view/Brand'),
+      component: () => import(/* webpackChunkName: "brand" */ '@/view/Brand'),
       meta: {
         title: 'MYD-品牌故事',
       },

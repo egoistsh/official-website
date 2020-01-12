@@ -10,7 +10,7 @@
           <a href="#">Course</a>
         </nav>
       </div>
-      <div class="contents">
+      <div class="contents" v-loading=loading>
         <div class="col-md-4" v-for="(item,index) in list">
           <a href="#" @click="showDialog(index)">
             <div class="block" :style="{'background-image':'url('+ item.imageUrl + ')'}">
@@ -47,6 +47,7 @@
         title: '',
         content: '',
         // dialogClass:'dialog'
+        loading: true
       }
     },
     computed: {
@@ -90,6 +91,7 @@
         }
         listPictureConfigs(data).then((response) => {
           this.list = response.data.content
+          this.loading = false
         }).catch((error) => {
           console.log(error)
         })
