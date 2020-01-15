@@ -12,7 +12,8 @@
         <el-carousel-item v-for="(item,index) in swiperList" :key="index">
            <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
             <div slot="placeholder">
-              <el-image class="swiper-lazy img-responsive" src="/static/img/preBarner.jpg"></el-image>
+<!--              <el-image class="swiper-lazy img-responsive" src="/static/img/preBanner.jpg"></el-image>-->
+              <el-image class="swiper-lazy img-responsive" src="https://kaze.oss-cn-shenzhen.aliyuncs.com/myd/preBanner.jpg"></el-image>
             </div>
           </el-image>
 <!--          <img class="img-responsive" v-lazy="item.imageUrl"/>-->

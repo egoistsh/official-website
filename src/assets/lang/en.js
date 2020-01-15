@@ -15,10 +15,10 @@ module.exports = {
   home: {
     ranking: 'Product ranking',
     video: {
-      span1: 'Sometimes you think life is over',
-      span2: 'There are no ripples like a still lake',
-      span3: 'A moment to wake up, pick up the long-lost confidence',
-      span4: 'It makes you a little bit different, which is what MYD is for',
+      span1: 'Sometime life has no ripples',
+      span2: ' as a calm lake. However once the smooth',
+      span3: ' surface of the lake is disturbed the life will be changed.',
+      span4: 'Bring something different for you,is our original intention.',
     },
     //临时策略
     mydShow: {
