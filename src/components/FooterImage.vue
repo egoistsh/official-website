@@ -47,8 +47,9 @@
     /*overflow: hidden;*/
     text-align: center;
     /*background-image: url("/static/img/footer/footer.png");*/
-    background-repeat: no-repeat;
+    /*background-repeat: round;*/
     /*background-position: center;*/
+    background-size: cover;
     position: relative;
   }
 

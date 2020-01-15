@@ -1,6 +1,6 @@
 <template>
   <!-- 头部整体盒子 -->
-  <div id="header" class="container-fuild fixDiv2">
+  <div id="header" class="fixDiv2">
 
     <!-- start preloader -->
     <div class="preloader">
@@ -9,7 +9,7 @@
     <!-- end preloader -->
 
     <!-- 电脑导航 -->
-    <div class="header-nav hidden-xs">
+    <div class="header-nav hidden-xs flex-container">
       <!-- 导航logo -->
       <div class="header-nav-logo">
         <img src="@/assets/img/logo.svg">
@@ -258,23 +258,23 @@
 
 
   #header .header-top {
-    height: 50px;
+    /*height: 50px;*/
     color: #fff;
     font-size: 12px;
-    line-height: 50px;
+    /*line-height: 50px;*/
     background: #7fcff0;
   }
 
   /* 顶部的图标 */
   #header .header-top span {
-    margin: 0 8px;
+    /*margin: 0 8px;*/
   }
 
   /* 导航栏 */
   #header .header-nav {
     /*height: 8rem;*/
-    height: 11vh;
-    margin: 0 2rem 0.5rem;
+    /*height: 11vh;*/
+    /*margin: 0 2rem 0.5rem;*/
     /*width: 80%;*/
     /*margin: auto;*/
   }
@@ -301,15 +301,15 @@
 
   /* 导航栏 导航容器 */
   #header .header-nav-fixed .header-nav-wrapper {
-    line-height: 50px;
+    /*line-height: 50px;*/
   }
 
   #header .header-nav .header-nav-wrapper {
-    line-height: 110px;
-    margin: 0 auto;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%,0);
+    /*line-height: 110px;*/
+    /*margin: 0 auto;*/
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%,0);*/
   }
 
   /* 导航栏 每个导航 */
@@ -419,9 +419,9 @@
 
   /* 切换语言 */
   .header-language {
-    float: right;
+    /*float: right;*/
     /*line-height: 110px;*/
-    margin-top: 30px;
+    /*margin-top: 30px;*/
   }
 
   /* 切换语言下拉框样式 */
@@ -533,6 +533,17 @@
       margin: 0 1rem -1rem;
       position: relative;
     }
+  }
+
+/*  flex布局*/
+  .flex-container {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 50px;
+    height: 10rem;
   }
 
 </style>

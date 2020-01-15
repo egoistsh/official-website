@@ -17,7 +17,7 @@ export default {
 <style>
   @media screen and (min-width: 768px){
     #app {
-      padding-top: 100px;
+      padding-top: 10rem;
     }
   }
 </style>

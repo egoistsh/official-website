@@ -1,5 +1,5 @@
 <template>
-  <div id="HomePage">
+  <div id="HomePage" class="flex-container">
 <!--    <Header></Header>-->
     <!--    快速跳转模块-->
     <div class="quick-jump">
@@ -42,7 +42,7 @@
         <span>{{$t('home.video.span3')}}</span><br/>
         <span>{{$t('home.video.span4')}}</span>
       </div>
-      <div class="col-xs-12 col-sm-3 col-md-3 wow zoomIn videoShow">
+      <div class="wow zoomIn videoShow">
         <video width="100%" height="auto" controls
                poster="#">
           <source src="/static/品牌宣传片初版.mp4" type="video/mp4">
@@ -367,7 +367,7 @@
     position: relative;
     top: 55%;
     left: 50%;
-    transform: translate(-42%, 0);
+    transform: translate(-50%, 0);
 
     color: #dddddd;
     font-size: 1.8rem;
@@ -468,8 +468,9 @@
     position: absolute;
     bottom: 15rem;
     /*top: 50%;*/
-    left: 15%;
-    width: 27rem;
+    /*left: 15%;*/
+    /*width: 27rem;*/
+    width: 100%;
     /*padding: 0 2em;*/
     color: #fff;
     text-transform: none;
@@ -522,6 +523,7 @@
     }*/
     /*视频居中*/
     .videoShow {
+      width: 45rem;
       position: relative;
       left: 50%;
       top: 41%;
@@ -529,7 +531,7 @@
     }
 
     .videoShow video {
-      width: 42rem;
+      width: 45rem;
       /*height: 40rem;*/
       outline: none;
     }
@@ -571,6 +573,13 @@
     }
 
   }
+
+/*  flex布局*/
+  .flex-container {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+  }
 </style>
 <style>
   /*修改element 轮播按钮样式*/
@@ -602,6 +611,9 @@
 
   .el-carousel__arrow--left,.el-carousel__arrow--right{
     font-size: 60px;
+    /*margin: 0 35px;*/
+    height: 80px;
+    width: 80px;
   }
 
   @media screen and (max-width: 996px) {

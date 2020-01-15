@@ -164,6 +164,7 @@
     /*background-image: url("/static/img/images/dsHeader.jpg");*/
     background-image: url("https://kaze.oss-cn-shenzhen.aliyuncs.com/myd/dsHeader.jpg");
     background-repeat: no-repeat;
+    background-size: contain;
     position: relative;
   }
 
@@ -196,6 +197,8 @@
   .page-left {
     /*background-image: url("/static/img/images/甜品站_04.jpg");*/
     position: relative;
+    /*background-repeat: round;*/
+    background-size: cover;
   }
 
   .float-img {
