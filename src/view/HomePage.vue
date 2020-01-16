@@ -7,8 +7,8 @@
       </div>
     </div>
 
-    <div class="container-fuild hidden-xs">
-      <el-carousel height="815px" :interval=2500>
+    <div class="container-fuild">
+      <el-carousel :height="bannerHeight + 'px'" :interval=2500>
         <el-carousel-item v-for="(item,index) in swiperList" :key="index">
            <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
             <div slot="placeholder">
@@ -21,17 +21,17 @@
       </el-carousel>
     </div>
 
-    <div class="container-fuild visible-xs">
+    <!--<div class="container-fuild visible-xs">
       <el-carousel height="158">
         <el-carousel-item v-for="(item,index) in swiperList" :key="index">
-          <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
+          <el-image class="swiper-lazy img-responsive bannerImg" :src="item.imageUrl">
             <div slot="placeholder">
               <el-image class="swiper-lazy img-responsive" src="/static/img/preBarner.jpg"></el-image>
             </div>
           </el-image>
         </el-carousel-item>
       </el-carousel>
-    </div>
+    </div>-->
 
     <div id="mydShow" class="container-fluid" :style="{'background-image':'url('+ mydShow.imageUrl + ')'}">
 <!--    图片懒加载的形式-->
@@ -105,6 +105,8 @@
     },
     data () {
       return {
+        bannerHeight: '',
+        screenWidth: '',
         swiperList: [],
         serverList: [
           {
@@ -182,6 +184,15 @@
       }
     },
     mounted () {
+      this.screenWidth = $(window).width();
+      this.setSize();
+      const that = this
+      window.addEventListener('resize', function() {
+        that.screenWidth = $(window).width();
+        console.log(that.screenWidth)
+        that.setSize();
+      }, false);
+
       /* wowjs动画 */
       var wow = new WOW({
         boxClass: 'wow',
@@ -196,6 +207,11 @@
 
     },
     methods: {
+      setSize() {
+        this.bannerHeight = 1100 / 2560 * this.screenWidth
+        // if(this.bannerHeight > 740) this.bannerHeight = 740
+        // if(this.bannerHeight < 360) this.bannerHeight = 360
+      },
       listBannerConfigs () {
         const data = {
           params: {
@@ -273,7 +289,6 @@
   }
 </script>
 <style scoped>
-
   /* 整体盒子 */
   #HomePage {
     width: 100%;
@@ -284,6 +299,13 @@
     width: 100%;
     margin: 0 auto;
     /*height: 78rem;*/
+  }
+
+  .bannerImg{
+    width: 100%;
+    height: inherit;
+    min-height: 360px;
+    min-width: 1400px;
   }
 
   /*轮播图上一页按钮颜色修改*/
@@ -538,7 +560,7 @@
   }
 
   /* 媒体查询（手机） */
-  @media screen and (max-width: 996px) {
+  @media screen and (max-width: 768px) {
     /* #swiper {
        !*height: 200px;*!
        !*margin: 0 30px;*!
@@ -565,13 +587,12 @@
   /* 媒体查询（平板） */
   @media screen and (min-width: 768px) and (max-width: 996px) {
     /*视频居中*/
-    .videoShow {
+    /*.videoShow {
       position: relative;
       left: 50%;
       top: 41%;
       transform: translate(-150%, 0);
-    }
-
+    }*/
   }
 
 /*  flex布局*/

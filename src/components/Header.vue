@@ -37,12 +37,12 @@
           </li>
         </ul>
       <div class="header-language">
-        <a href="https://mydydhw.tmall.com/shop/view_shop.htm?tracelog=twddp&user_number_id=3335031321" target="_blank"><img src="/static/img/天猫.png" style="height: 45px;display: inline;;margin-right: 8px"></a>
-        <a href="https://weibo.com/p/1006067030184028/home?from=page_100606&mod=TAB&is_hot=1#place" target="_blank"><img src="/static/img/微博.png" style="height: 45px;display: inline;margin-right: 8px"></a>
+        <a href="https://mydydhw.tmall.com/shop/view_shop.htm?tracelog=twddp&user_number_id=3335031321" target="_blank"><img src="/static/img/天猫.png" style="height: 4rem;display: inline;;margin-right: 8px"></a>
+        <a href="https://weibo.com/p/1006067030184028/home?from=page_100606&mod=TAB&is_hot=1#place" target="_blank"><img src="/static/img/微博.png" style="height: 4rem;display: inline;margin-right: 8px"></a>
         <el-dropdown @command="changeLanguage" class="lang-dropdown my-font">
           <span class="el-dropdown-link ">
 <!--          {{$t('nav.language')}}<i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
-            <img :src="langUrl" style="height: 45px;display: inline">
+            <img :src="langUrl" style="height: 4rem;display: inline">
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item v-for="item in options" :key="item.value" :command="item.value">{{item.label}}

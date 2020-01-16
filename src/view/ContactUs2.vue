@@ -79,6 +79,12 @@
   }
 </script>
 <style scoped>
+  #ContactUs {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
   a {
     color: #1d496f;
   }
@@ -103,14 +109,17 @@
   }
 
   .container {
-    width: 700px;
-    position: absolute;
-    left: 46%;
-    transform: translate(-50%, 0);
+    /*width: 700px;*/
+    /*position: absolute;*/
+    /*left: 46%;*/
+    /*transform: translate(-50%, 0);*/
+    display: flex;
+    justify-content: center;
   }
 
   .formItem {
     width: 500px;
+    /*width: 42rem;*/
   }
 
   /*app*/

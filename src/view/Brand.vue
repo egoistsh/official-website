@@ -132,7 +132,9 @@
 
   .page-title {
     position: relative;
-    padding: 6rem 0;
+    /*padding: 6rem 0;*/
+    margin-top: 6rem;
+    /*margin-bottom: 1rem;*/
     text-align: center;
     font-family: HalisGR-SLight;
     height: 21vh;
@@ -142,6 +144,7 @@
     margin-bottom: 18px;
     /*color: #C8A062;*/
     font-size: 37px;
+    /*font-size: 4rem;*/
     letter-spacing: 0.08em;
   }
 
