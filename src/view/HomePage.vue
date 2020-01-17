@@ -89,8 +89,8 @@
 <script>
   import { WOW } from 'wowjs'
   import { listArticle, listPictureConfigs, count } from '@/api/portal.js'
-  import carousel from 'vue-owl-carousel'
-  import Slide from '../components/Slide'
+  // import carousel from 'vue-owl-carousel'
+  // import Slide from '../components/Slide'
 
   /**
    * 记录访问，只有页面刷新或者第一次加载才会记录
@@ -100,8 +100,8 @@
   export default {
     name: 'HomePage',
     components: {
-      Slide,
-      carousel,
+      // Slide,
+      // carousel,
     },
     data () {
       return {

@@ -12,7 +12,7 @@
 // import 'animate.css'
 // import 'jquery'
 import VueLazyload from 'vue-lazyload'
-
+import 'babel-polyfill'
 
 
 import App from './App'

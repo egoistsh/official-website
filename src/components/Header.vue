@@ -173,7 +173,7 @@
         })
       })*/
       // 事件监听滚动条
-      window.addEventListener('scroll', this.watchScroll)
+      // window.addEventListener('scroll', this.watchScroll)
     },
     methods: {
       watchScroll () {
