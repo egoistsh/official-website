@@ -50,11 +50,10 @@
           {{$t('ds.goToStorm')}}
         </el-button>-->
       </div>
-      <div class="section">
+      <!--<div class="section">
         <FooterImage></FooterImage>
-      </div>
+      </div>-->
     </full-page>
-    <FooterImage></FooterImage>
   </div>
 </template>
 
@@ -199,18 +198,22 @@
     position: relative;
     /*background-repeat: round;*/
     background-size: cover;
+    background-position: center center;
   }
 
   .float-img {
     top: 37%;
     left: 12%;
     position: absolute;
-    width: 51rem;
+    /*width: 51rem;*/
+    /*width: 28.5%;*/
+    width: 52vh;
   }
 
   .name-span {
     color: #9d9c7e;
-    font-size: 4rem;
+    /*font-size: 4rem;*/
+    font-size: 4vh;
     /*font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
     font-family: DS;
     position: relative;
@@ -220,7 +223,8 @@
 
   .title-span {
     color: #9d9c7e;
-    font-size: 1.8rem;
+    /*font-size: 1.8rem;*/
+    font-size: 1.8vh;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     position: relative;
     top: 28%;
@@ -275,31 +279,39 @@
     top: 37%;
     right: 12%;
     position: absolute;
-    width: 51rem;
+    /*width: 51rem;*/
+    /*width: 28.5%;*/
+    width: 52vh;
   }
 
   .name-span-right {
     color: #9d9c7e;
-    font-size: 4rem;
+    /*font-size: 4rem;*/
+    font-size: 4vh;
     /*font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
     font-family: DS;
     position: relative;
     top: 28%;
-    left: 69%;
+    /*left: 69%;*/
 
-    width: 30rem;
+    /*width: 30rem;*/
+    /*width: 17%;*/
+    margin-right: 12%;
     text-align: right;
   }
 
   .title-span-right {
     color: #9d9c7e;
-    font-size: 1.8rem;
+    /*font-size: 1.8rem;*/
+    font-size: 1.8vh;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     position: relative;
     top: 28%;
-    left: 71.5%;
+    /*left: 71.5%;*/
 
-    width: 26rem;
+    /*width: 26rem;*/
+    /*width: 14%;*/
+    margin-right: 12%;
     text-align: right;
   }
 
@@ -342,6 +354,11 @@
   /*temp*/
   .temp {
     color: white;
+  }
+
+
+  @media screen and (max-width: 600px) {
+
   }
 
 </style>

@@ -9,21 +9,22 @@
         <span class="txt">{{$t('home.footer.span3')}}</span>
       </div>
 
-      <el-button round plain class="learn-more hidden-xs">{{$t('home.footer.learnMore')}}</el-button>
+      <el-button round plain class="learn-more">{{$t('home.footer.learnMore')}}</el-button>
+
       <div class="link">
-        <div class="">
+        <div >
           <!-- <el-image v-lazy="'/static/img/footer/wechat.png'"></el-image> -->
-          <img v-lazy="'/static/img/footer/wechat.png'"/>
+          <img class="img-size" v-lazy="'/static/img/footer/wechat.png'"/>
           <p>{{$t('home.footer.wechat')}}</p>
         </div>
         <div class="">
           <!-- <el-image src="/static/img/footer/redbook.png"></el-image> -->
-          <img v-lazy="'/static/img/footer/redbook.png'"/>
+          <img class="img-size" v-lazy="'/static/img/footer/redbook.png'"/>
           <p>{{$t('home.footer.redbook')}}</p>
         </div>
         <div class="">
           <!-- <el-image src="/static/img/footer/MYD.png"></el-image> -->
-          <img v-lazy="'/static/img/footer/MYD.png'"/>
+          <img class="img-size" v-lazy="'/static/img/footer/MYD.png'"/>
           <p>{{$t('home.footer.more')}}</p>
           <p>{{$t('home.footer.more2')}}</p>
         </div>
@@ -43,13 +44,15 @@
   #footer {
     width: 100%;
     height: 835px;
-    color: #fff;
+    color: #FAFAFA;
     /*overflow: hidden;*/
     text-align: center;
     /*background-image: url("/static/img/footer/footer.png");*/
     /*background-repeat: round;*/
     /*background-position: center;*/
-    background-size: cover;
+    /*background-size: cover;*/
+    background-position: bottom center;
+    background-repeat: no-repeat;
     position: relative;
   }
 
@@ -79,7 +82,9 @@
 
   .learn-more {
     position: absolute;
-    top: 75.5%;
+    /*top: 75.5%;*/
+    /*top: 62vh;*/
+    top: 620px;
     left: 50%;
     transform: translate(-50%,0);
     color: black;
@@ -90,19 +95,28 @@
   }
 
   .link {
+    display: flex;
     position: absolute;
-    top: 81%;
+    /*top: 81%;*/
+    /*top: 68vh;*/
+    top: 660px;
     left: 50%;
-    transform: translate(-51%,0);
+    transform: translate(-50%,0);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
   }
 
   .link div{
-    float: left;
-    margin: 0 3rem;
+    /*float: left;*/
+    margin: 0 7vh;
+  }
+
+  .img-size {
+    height: 11vh;
   }
 
   /*app*/
-  @media screen and (max-width: 997px) {
+  @media screen and (max-width: 600px) {
     #footer {
       background-position: center;
     }
@@ -112,7 +126,7 @@
       margin: 30px auto 0;
     }
 
-    .link {
+    /*.link {
       top: 43%;
       left: 0;
       transform: none;
@@ -124,6 +138,11 @@
 
     .link div:nth-child(3) {
       margin: 1rem 10rem;
+    }*/
+
+    .link div{
+      /*float: left;*/
+      margin: 0 2vh;
     }
   }
 </style>
