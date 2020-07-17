@@ -18,9 +18,9 @@ module.exports = {
   },
   externals: {
     "BMap": "BMap" ,
-    'vue':'Vue',
+    /*'vue':'Vue',
     'VueI18n':'VueI18n',
-    'element-ui':'ElementUI',
+    'element-ui':'ElementUI',*/
   },
   plugins: [
     new webpack.ProvidePlugin({

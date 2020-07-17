@@ -23,35 +23,35 @@ module.exports = {
     //临时策略
     mydShow: {
       muffin: {
-        title: 'MUFFIN SERIES',
+        title: 'ICE CREAM SERIES',
         brief: 'The height of your life is up to you.',
       },
       milkyTea: {
-        title: 'MILKY TEA SERIES',
+        title: 'MUFFIN SERIES',
         brief: 'Less is more',
       },
       iceCream: {
-        title: 'ICE CREAM SERIES',
+        title: 'HARVARD SERIES',
         brief: 'Life is about moving on.',
       },
       toast: {
-        title: 'TOAST MINI SERIES',
+        title: 'BANANA SERIES',
         brief: 'The travel is always full of unknown.',
       },
       banana: {
-        title: 'BANANA SERIES',
+        title: 'MINI ICE CREAM SERIES',
         brief: 'Be yourself bravely.',
       },
       cupCake: {
-        title: 'CUPCAKE SERIES',
+        title: 'PUDDING SERIES',
         brief: 'There are three things i love: travel,you,travel with you.',
       },
       Benji: {
-        title: 'BENJI SERIES',
+        title: 'TOAST SERIES',
         brief: 'You have limitless possibilities.',
       },
       Pudding: {
-        title: 'PUDDING SERIES',
+        title: 'CAPSULE SERIES',
         brief: 'Never judge by the appearance.',
       },
     },
@@ -122,11 +122,9 @@ module.exports = {
       '    Everyone is different and never deny yourself. The founder,Matthew, hopes to encourage everyone to demonstrate their own style according to the MYD brand idea.\n',
     conceptDetail:'    MYD means make you different,and it correspond to the idea of Matthew:Everyone is different and never deny yourself.He hopes to encourage everyone to demonstrate their own style according to the MYD brand idea.\n' +
       '    MYD insists on unique and textured style. As for the design spirit, tehy pay more attention to details and diversified . What we insist on is the soul of MYD when making every product.\n',
-    courseDetail:'    2006,Matthew establish MYD brand.\n' +
-      '    2007,the trademark is registered.\n' +
-      '    2010,the commercial version of the trademark has been modified.\n' +
-      '    2016,MYD had been taken over by the COTTON LOVE AUSTRALIA PLY LIMITED. Matthew stayed in the company to lead the design team, and at the same time, he carried out offline charitable sales activities in campuses and communities in other countries and regions.\n' +
-      '    In 2017, Xv Dahong, general manager of China vitbony Co., Ltd,  was optimistic about the unique concept and sales model of MYD. After negotiation, Mr.Xv was given the authority from the director Mr.R.y.thugabe of Cotton Love Australia Ply Ltd. They signed the contact officially,and Vitbony Co.,Ltd became the exclusive agency of MYD brand in Asia Pacific and greater China. MYD’s production began to be sold on multiple online platforms in mainland China.\n' +
-      '    In 2008,TITHYIM,Hong Kong designer with years of backpack design experience,joined the MYD.In order to integrate the product into the Asian market, he and the Australian design team redesigned and built a new series —— My dessert(ice cream series,banana split series,pancake series,pudding series and so on.) In Melbourne, MYD’s backpacks has been on display in many characteristic clothing retail stores. In the future, it will expand to China, Hong Kong, Taiwan, Japan and other national and regional hypostatic stores.'
+    courseDetail:'    In 2010, the founder Matthew learned to make handmade bags for his girlfriend Yakira. He shared the process of making bags on the Internet and got people\'s attention. Matthew adjusted the bag according to the problems encountered by his girlfriend during use, and participated in the campus entrepreneurship competition. This backpack is a predecessor of the MYD brand, combining a sweet look and practical storage.\n' +
+      '    In 2016, MYD was successfully acquired and owned by Australia\'s COTTON LOVE AUSTRALIA PLY LIMITED. \n' +
+      '    In 2017, Huizhou Weidbonny Trading Co., Ltd. was officially signed by Mr. Rythugabe, the head of Cotton Love Australia Ply Ltd. and authorized Huizhou Weidbonny Trading Co., Ltd. to become the only MYD brand in China Sales agent, so far MYD entered the Chinese market.\n' +
+      '    In 2018, MYD has settled in several characteristic clothing retail stores in Melbourne, Australia, and will expand physical image experience stores in more regions in the future.\n'
   },
 }

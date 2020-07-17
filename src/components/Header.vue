@@ -13,6 +13,7 @@
       <!-- 导航logo -->
       <div class="header-nav-logo">
         <img src="@/assets/img/logo.svg">
+<!--        <img src="@/assets/img/LOGO.jpg">-->
       </div>
       <!-- 导航内容 -->
         <ul class="header-nav-wrapper">
@@ -289,8 +290,10 @@
 
   /* 导航栏logo图片 */
   #header .header-nav .header-nav-logo img {
-    width: 7rem;
-    height: 8rem;
+    //width: 7rem;
+    //height: 8rem;
+    width: 12rem;
+    height: 10rem;
     position: absolute;
     top: 0;
     left: 0;

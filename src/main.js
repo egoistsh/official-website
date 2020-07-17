@@ -1,16 +1,20 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
-//采用cdn加速
-// import Vue from 'vue'
-// import VueI18n from 'vue-i18n'
-// import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
+//采用cdn加速 start
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 /* bootstarp */
-// import './assets/css/bootstrap.min.css'
-// import './assets/js/bootstrap.min'
-// import 'animate.css'
-// import 'jquery'
+import './assets/css/bootstrap.min.css'
+import './assets/js/bootstrap.min'
+import 'animate.css'
+import 'jquery'
+Vue.use(VueI18n)
+Vue.use(ElementUI,{locale})
+//end
+
 import VueLazyload from 'vue-lazyload'
 import 'babel-polyfill'
 
@@ -23,8 +27,6 @@ import DrawerLayout from 'vue-drawer-layout'
 // import fontawesome from '@fortawesome/fontawesome'
 // import solid from '@fortawesome/fontawesome-free-solid'
 
-// Vue.use(VueI18n)
-// Vue.use(ElementUI,{locale})
 Vue.use(DrawerLayout)
 Vue.use(VueLazyload)
 

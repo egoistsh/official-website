@@ -1,35 +1,41 @@
 <template>
   <div>
-    <div id="footer" class="container-fluid" v-lazy:background-image="{src: '/static/img/footer/footer.png'}">
-      <!--    <img src="/static/img/A首页.png" class="img-responsive">-->
-      <div class="aboutUs">
+<!--    <div id="footer" class="container-fluid" v-lazy:background-image="{src: '/static/img/footer/footer.png'}">-->
+      <div id="footer" class="container-fluid" v-lazy:background-image="{src: '/static/img/footer/aboutus.png'}" style="background-size: contain">
+      <!--<div class="aboutUs">
         <h2 class="title">{{$t('home.footer.title')}}</h2>
         <span class="txt">{{$t('home.footer.span')}}</span><br/>
         <span class="txt">{{$t('home.footer.span2')}}</span><br>
         <span class="txt">{{$t('home.footer.span3')}}</span>
       </div>
 
-      <el-button round plain class="learn-more">{{$t('home.footer.learnMore')}}</el-button>
+      <el-button round plain class="learn-more hidden-xs">{{$t('home.footer.learnMore')}}</el-button>
 
       <div class="link">
         <div >
-          <!-- <el-image v-lazy="'/static/img/footer/wechat.png'"></el-image> -->
+          &lt;!&ndash; <el-image v-lazy="'/static/img/footer/wechat.png'"></el-image> &ndash;&gt;
           <img class="img-size" v-lazy="'/static/img/footer/wechat.png'"/>
           <p>{{$t('home.footer.wechat')}}</p>
         </div>
         <div class="">
-          <!-- <el-image src="/static/img/footer/redbook.png"></el-image> -->
+          &lt;!&ndash; <el-image src="/static/img/footer/redbook.png"></el-image> &ndash;&gt;
           <img class="img-size" v-lazy="'/static/img/footer/redbook.png'"/>
           <p>{{$t('home.footer.redbook')}}</p>
         </div>
         <div class="">
-          <!-- <el-image src="/static/img/footer/MYD.png"></el-image> -->
+          &lt;!&ndash; <el-image src="/static/img/footer/MYD.png"></el-image> &ndash;&gt;
           <img class="img-size" v-lazy="'/static/img/footer/MYD.png'"/>
           <p>{{$t('home.footer.more')}}</p>
           <p>{{$t('home.footer.more2')}}</p>
         </div>
+      </div>-->
+
+      <div class="copyright hidden-xs">© 2019-2020 myd-official.com 版权所有 ICP证：<a href="http://www.beian.miit.gov.cn" target="_blank">粤ICP备19126016号</a>
       </div>
+
     </div>
+
+
   </div>
 </template>
 <script>
@@ -102,7 +108,7 @@
     top: 660px;
     left: 50%;
     transform: translate(-50%,0);
-    margin-top: 2vh;
+    margin-top: 1vh;
     margin-bottom: 2vh;
   }
 
@@ -113,6 +119,14 @@
 
   .img-size {
     height: 11vh;
+  }
+
+  .copyright {
+    color: black;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,0);
   }
 
   /*app*/
@@ -144,7 +158,18 @@
       /*float: left;*/
       margin: 0 2vh;
     }
-  }
+
+    @media (max-width: 767px) {
+      #footer {
+        height: 700px;
+      }
+
+      .link {
+        top: 400px;
+      }
+    }
+
+    }
 </style>
 <style>
 

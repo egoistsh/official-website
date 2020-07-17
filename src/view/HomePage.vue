@@ -1,47 +1,108 @@
 <template>
   <div id="HomePage" class="flex-container">
-<!--    <Header></Header>-->
-    <!--    快速跳转模块-->
-    <div class="quick-jump">
-      <div class="quick-jump-img">
+    <!--    <Header></Header>-->
+    <div class="hidden-xs">
+      <!--    快速跳转模块-->
+      <div class="quick-jump">
+        <div class="quick-jump-img">
+        </div>
       </div>
+
+      <div class="container-fuild">
+        <el-carousel :height="bannerHeight + 'px'" :interval=2500>
+          <el-carousel-item v-for="(item,index) in swiperList" :key="index">
+            <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
+              <div slot="placeholder">
+                <!--              <el-image class="swiper-lazy img-responsive" src="/static/img/preBanner.jpg"></el-image>-->
+<!--                <el-image class="swiper-lazy img-responsive" src="https://kaze.oss-cn-shenzhen.aliyuncs.com/myd/preBanner.jpg"></el-image>-->
+              </div>
+            </el-image>
+            <!--          <img class="img-responsive" v-lazy="item.imageUrl"/>-->
+          </el-carousel-item>
+        </el-carousel>
+      </div>
+
+      <!--<div class="container-fuild visible-xs">
+        <el-carousel height="158">
+          <el-carousel-item v-for="(item,index) in swiperList" :key="index">
+            <el-image class="swiper-lazy img-responsive bannerImg" :src="item.imageUrl">
+              <div slot="placeholder">
+                <el-image class="swiper-lazy img-responsive" src="/static/img/preBarner.jpg"></el-image>
+              </div>
+            </el-image>
+          </el-carousel-item>
+        </el-carousel>
+      </div>-->
+
+      <div id="mydShow" class="container-fluid" :style="{'background-image':'url('+ mydShow.imageUrl + ')'}">
+        <!--    图片懒加载的形式-->
+        <!--    <div id="mydShow" class="container-fluid" v-lazy:background-image="{src: mydShow.imageUrl}">-->
+        <div class="mydShow-font">
+          <span>{{$t('home.video.span1')}}</span><br/>
+          <span>{{$t('home.video.span2')}}</span><br/>
+          <span>{{$t('home.video.span3')}}</span><br/>
+          <span>{{$t('home.video.span4')}}</span>
+        </div>
+        <div class="wow zoomIn videoShow">
+          <video width="100%" height="auto" controls
+                 poster="#">
+            <source src="/static/品牌宣传片初版.mp4" type="video/mp4">
+            <!--          <source src="http://myd-official.com/image/品牌宣传片初版.mp4" type="video/mp4">-->
+          </video>
+          <!--        <iframe height=498 width=510 src='http://player.youku.com/embed/XNDEyNDIxNDI2MA==' frameborder=0></iframe>-->
+        </div>
+      </div>
+      <div id="ranking">
+      </div>
+      <div class="portfolio-items wow zoomIn animated">
+        <figure class="image-Item" style="" v-for="(item,index) in mydShowList" :key="index">
+          <!--        <img src="/static/img/portfolio_1.jpg" alt="img25" style="width: 100%;height: auto">-->
+          <img v-lazy="item.imageUrl" alt="img" style="width: 100%;height: auto">
+          <figcaption>
+            <h2 style="font-size: 27px;font-weight: 700;padding-top: 20px">{{item.title}}</h2>
+            <p class="description">
+              <!--Zoe never had the patience of her sisters. She deliberately punched the bear in his
+              face.-->
+              {{item.brief}}
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="section-dark">
+<!--        <i class="fa fa-quote-left section-icon" aria-hidden="true"></i>-->
+        <div class="section-contain">
+          <span>MAKE</span><br/>
+          <span>YOU</span><br/>
+          <span>DIFFERENT</span>
+        </div>
+      </div>
+      <!--<div class="test">
+        <div class="containTest">
+          <h1>test</h1>
+        </div>
+          <div class="containBg-img"></div>
+      </div>-->
+      <GoTop></GoTop>
+      <FooterImage></FooterImage>
     </div>
 
-    <div class="container-fuild">
-      <el-carousel :height="bannerHeight + 'px'" :interval=2500>
-        <el-carousel-item v-for="(item,index) in swiperList" :key="index">
-           <el-image class="swiper-lazy img-responsive" :src="item.imageUrl">
-            <div slot="placeholder">
-<!--              <el-image class="swiper-lazy img-responsive" src="/static/img/preBanner.jpg"></el-image>-->
-              <el-image class="swiper-lazy img-responsive" src="https://kaze.oss-cn-shenzhen.aliyuncs.com/myd/preBanner.jpg"></el-image>
-            </div>
-          </el-image>
-<!--          <img class="img-responsive" v-lazy="item.imageUrl"/>-->
-        </el-carousel-item>
-      </el-carousel>
-    </div>
-
-    <!--<div class="container-fuild visible-xs">
-      <el-carousel height="158">
-        <el-carousel-item v-for="(item,index) in swiperList" :key="index">
-          <el-image class="swiper-lazy img-responsive bannerImg" :src="item.imageUrl">
-            <div slot="placeholder">
-              <el-image class="swiper-lazy img-responsive" src="/static/img/preBarner.jpg"></el-image>
-            </div>
-          </el-image>
-        </el-carousel-item>
-      </el-carousel>
-    </div>-->
-
-    <div id="mydShow" class="container-fluid" :style="{'background-image':'url('+ mydShow.imageUrl + ')'}">
-<!--    图片懒加载的形式-->
-<!--    <div id="mydShow" class="container-fluid" v-lazy:background-image="{src: mydShow.imageUrl}">-->
-      <div class="mydShow-font">
-        <span>{{$t('home.video.span1')}}</span><br/>
-        <span>{{$t('home.video.span2')}}</span><br/>
-        <span>{{$t('home.video.span3')}}</span><br/>
-        <span>{{$t('home.video.span4')}}</span>
+    <!--    移动端-->
+    <div class="visible-xs">
+      <div class="container-fuild">
+        <el-carousel height="400px" :interval=2500>
+          <el-carousel-item v-for="(item,index) in swiperList" :key="index">
+            <el-image class="swiper-lazy img-responsive" :src="item.imageUrl" fit="cover" style="height: 400px">
+              <div slot="placeholder">
+                <!--              <el-image class="swiper-lazy img-responsive" src="/static/img/preBanner.jpg"></el-image>-->
+                <el-image class="swiper-lazy img-responsive" src="https://kaze.oss-cn-shenzhen.aliyuncs.com/myd/preBanner.jpg"></el-image>
+              </div>
+            </el-image>
+            <!--          <img class="img-responsive" v-lazy="item.imageUrl"/>-->
+          </el-carousel-item>
+        </el-carousel>
       </div>
+
       <div class="wow zoomIn videoShow">
         <video width="100%" height="auto" controls
                poster="#">
@@ -50,40 +111,29 @@
         </video>
         <!--        <iframe height=498 width=510 src='http://player.youku.com/embed/XNDEyNDIxNDI2MA==' frameborder=0></iframe>-->
       </div>
-    </div>
-    <div id="ranking">
-    </div>
-    <div class="portfolio-items wow zoomIn animated">
-      <figure class="image-Item" style="" v-for="(item,index) in mydShowList" :key="index">
-<!--        <img src="/static/img/portfolio_1.jpg" alt="img25" style="width: 100%;height: auto">-->
-        <img v-lazy="item.imageUrl" alt="img" style="width: 100%;height: auto">
-        <figcaption>
-          <h2 style="font-size: 27px;font-weight: 700;padding-top: 20px">{{item.title}}</h2>
-          <p class="description">
-            <!--Zoe never had the patience of her sisters. She deliberately punched the bear in his
-            face.-->
-            {{item.brief}}
-          </p>
-        </figcaption>
-      </figure>
-    </div>
+      <div class="portfolio-items wow zoomIn animated">
+        <figure class="image-Item-app" style="" v-for="(item,index) in mydShowList" :key="index">
+          <img v-lazy="item.imageUrl" alt="img" style="width: 100%;height: auto">
+          <!--<figcaption>
+            <h2 style="font-size: 27px;font-weight: 700;padding-top: 20px">{{item.title}}</h2>
+            <p class="description">
+              {{item.brief}}
+            </p>
+          </figcaption>-->
+        </figure>
+      </div>
 
-    <div class="section-dark">
-      <i class="fa fa-quote-left section-icon" aria-hidden="true"></i>
-      <div class="section-contain">
-        <span>MAKE</span><br/>
-        <span>YOU</span><br/>
-        <span>DIFFERENT</span>
+      <div class="section-dark">
+        <i class="fa fa-quote-left section-icon" aria-hidden="true"></i>
+        <div class="section-contain">
+          <span>MAKE</span><br/>
+          <span>YOU</span><br/>
+          <span>DIFFERENT</span>
+        </div>
       </div>
+      <GoTop></GoTop>
+      <FooterImage></FooterImage>
     </div>
-    <!--<div class="test">
-      <div class="containTest">
-        <h1>test</h1>
-      </div>
-        <div class="containBg-img"></div>
-    </div>-->
-    <GoTop></GoTop>
-    <FooterImage></FooterImage>
   </div>
 </template>
 <script>
@@ -141,42 +191,42 @@
       mydShowList() {
         return [
           {
-            imageUrl:'http://myd-official.com/image/upimg_1574220542248231342.jpg',
+            imageUrl:'http://myd-official.com/image/upimg_1594955005821745961.png',
             title:this.$t('home.mydShow.muffin.title'),
             brief:this.$t('home.mydShow.muffin.brief')
           },
           {
-            imageUrl:'http://myd-official.com/image/upimg_1575012106408923969.jpg',
+            imageUrl:'http://myd-official.com/image/upimg_1594955033747849268.png',
             title:this.$t('home.mydShow.milkyTea.title'),
             brief:this.$t('home.mydShow.milkyTea.brief')
           },
           {
-            imageUrl:"http://myd-official.com/image/upimg_1574220620150754059.jpg",
+            imageUrl:"http://myd-official.com/image/upimg_1594955055437891704.png",
             title:this.$t('home.mydShow.iceCream.title'),
             brief:this.$t('home.mydShow.iceCream.brief')
           },
           {
-            imageUrl:"http://myd-official.com/image/upimg_1574220649386702210.png",
+            imageUrl:"http://myd-official.com/image/upimg_1594955071568214769.png",
             title:this.$t('home.mydShow.toast.title'),
             brief:this.$t('home.mydShow.toast.brief')
           },
           {
-            imageUrl:"http://myd-official.com/image/upimg_1575011593504171137.jpg",
+            imageUrl:"http://myd-official.com/image/upimg_1594955092021148110.png",
             title:this.$t('home.mydShow.banana.title'),
             brief:this.$t('home.mydShow.banana.brief')
           },
           {
-            imageUrl:"http://myd-official.com/image/upimg_1574220704271296935.jpg",
+            imageUrl:"http://myd-official.com/image/upimg_1594955148342988954.png",
             title:this.$t('home.mydShow.cupCake.title'),
             brief:this.$t('home.mydShow.cupCake.brief')
           },
           {
-            imageUrl:"http://myd-official.com/image/upimg_1575012122641605391.jpg",
+            imageUrl:"http://myd-official.com/image/upimg_1594955189808606513.png",
             title:this.$t('home.mydShow.Benji.title'),
             brief:this.$t('home.mydShow.Benji.brief')
           },
           {
-            imageUrl:"http://myd-official.com/image/upimg_1574220734154112098.jpg",
+            imageUrl:"http://myd-official.com/image/upimg_1594955210598279633.png",
             title:this.$t('home.mydShow.Pudding.title'),
             brief:this.$t('home.mydShow.Pudding.brief')
           }
@@ -354,7 +404,8 @@
   .quick-jump-img {
     height: 20rem;
     /*width: 20rem;*/
-    background-image: url("/static/img/bigLogo.jpg");
+    /*background-image: url("/static/img/bigLogo.jpg");*/
+    background-image: url("/static/img/LOGO.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -462,6 +513,24 @@
   }
 
   .image-Item:hover figcaption {
+    /*opacity: 1;*/
+    /*top: 64.5%;*/
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  .image-Item-app {
+    position: relative;
+    float: left;
+    width: 50%;
+    text-align: center;
+  }
+
+  .image-Item-app:hover .description {
+    opacity: 1;
+  }
+
+  .image-Item-app:hover figcaption {
     /*opacity: 1;*/
     /*top: 64.5%;*/
     -webkit-transform: translate3d(0, 0, 0);
@@ -595,7 +664,7 @@
     }*/
   }
 
-/*  flex布局*/
+  /*  flex布局*/
   .flex-container {
     display: flex;
     display: -webkit-flex;
